@@ -1,0 +1,93 @@
+/* Mauve Labs — 회사 홈페이지. 색은 여기 토큰에서만 고른다. */
+:root {
+  --bg: #fbf8fa;
+  --surface: #ffffff;
+  --ink: #2b2230;
+  --ink-soft: #6b5f70;
+  --line: #ece4ee;
+  --mauve: #8e6a9a;
+  --mauve-deep: #6d4f79;
+  --mauve-tint: #f3ecf5;
+  --radius: 20px;
+  --font: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #17131a;
+    --surface: #211b25;
+    --ink: #f1eaf3;
+    --ink-soft: #b4a8b9;
+    --line: #342b39;
+    --mauve: #c3a2d0;
+    --mauve-deep: #d8bfe2;
+    --mauve-tint: #2a2130;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  line-height: 1.65;
+  word-break: keep-all;
+}
+a { color: var(--mauve-deep); }
+a:hover { color: var(--mauve); }
+
+.wrap { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+/* 머리 */
+.top { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); font-weight: 700; font-size: 18px; letter-spacing: -0.01em; }
+.brand img { width: 30px; height: 30px; display: block; }
+.nav { display: flex; gap: 18px; font-size: 14px; }
+.nav a { color: var(--ink-soft); text-decoration: none; }
+.nav a:hover { color: var(--ink); }
+
+/* 첫 화면 */
+.hero { padding: 72px 0 56px; }
+.eyebrow { display: inline-block; font-size: 13px; font-weight: 600; color: var(--mauve-deep); background: var(--mauve-tint); padding: 5px 12px; border-radius: 999px; }
+.hero h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.15; letter-spacing: -0.03em; margin: 18px 0 18px; font-weight: 800; }
+.hero h1 em { font-style: normal; color: var(--mauve); }
+.hero p { font-size: 18px; color: var(--ink-soft); max-width: 600px; margin: 0; }
+
+/* 절 */
+section { padding: 40px 0; }
+h2 { font-size: 24px; letter-spacing: -0.02em; margin: 0 0 20px; }
+
+/* 앱 카드 */
+.apps { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; }
+.app { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; display: flex; flex-direction: column; gap: 14px; }
+.app-head { display: flex; align-items: center; gap: 16px; }
+.app-head img { width: 64px; height: 64px; border-radius: 15px; border: 1px solid var(--line); }
+.app-head h3 { margin: 0; font-size: 19px; letter-spacing: -0.01em; }
+.app-head span { font-size: 14px; color: var(--ink-soft); }
+.app p { margin: 0; color: var(--ink-soft); font-size: 15px; flex: 1; }
+.stores { display: flex; flex-wrap: wrap; gap: 8px; }
+.store { display: inline-block; text-decoration: none; font-size: 14px; font-weight: 600; padding: 9px 16px; border-radius: 999px; background: var(--ink); color: var(--bg); }
+.store:hover { color: var(--bg); opacity: 0.88; }
+.links { font-size: 13px; color: var(--ink-soft); }
+.links a { color: var(--ink-soft); }
+
+/* 연락 */
+.contact { background: var(--mauve-tint); border-radius: var(--radius); padding: 32px 28px; }
+.contact p { margin: 0 0 6px; color: var(--ink-soft); }
+.contact a.mail { font-size: 20px; font-weight: 700; text-decoration: none; }
+
+/* 바닥 — 사업자 정보 */
+footer { border-top: 1px solid var(--line); margin-top: 40px; padding: 28px 0 48px; font-size: 13px; color: var(--ink-soft); }
+footer dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; margin: 0 0 16px; }
+footer dt { font-weight: 600; }
+footer dd { margin: 0; }
+
+@media (max-width: 560px) {
+  .hero { padding: 40px 0 32px; }
+  .hero p { font-size: 16px; }
+  .nav { gap: 14px; }
+  .nav .hide-sm { display: none; }
+  footer dl { grid-template-columns: 1fr; gap: 0; }
+  footer dd { margin-bottom: 6px; }
+}

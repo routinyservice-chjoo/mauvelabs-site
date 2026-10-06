@@ -283,3 +283,7 @@ html:lang(ko) body { word-break: keep-all; }
   .float.m2 { right: -10px; width: 100px; }
   .float.m1 { left: -70px; right: auto; top: 515px; width: 110px; }
 }
+
+/* 왼쪽 위 회사 로고 — 이미지 높이로 크기를 정한다 */
+.brand-logo img { height: 56px; width: auto; border-radius: 0; }
+@media (max-width: 860px) { .brand-logo img { height: 40px; } }

@@ -86,7 +86,7 @@ h3 { font-size: 22px; margin: 18px 0 6px; }
 .hero-art .polaroid { position: absolute; right: -6px; bottom: 10px; }
 .float { position: absolute; width: 150px; animation: bob 6s ease-in-out infinite; }
 .float.m1 { left: -10px; top: 300px; }
-.float.m2 { right: 10px; top: 30px; width: 120px; animation-delay: -3s; }
+.float.m2 { right: -36px; top: 0; width: 120px; animation-delay: -3s; }
 @keyframes bob { 50% { transform: translateY(-12px); } }
 @media (prefers-reduced-motion: reduce) { .float { animation: none; } html { scroll-behavior: auto; } }
 
@@ -192,3 +192,16 @@ footer nav a { color: var(--ink-soft); }
   .s4 { right: 24px; top: 40px; width: 76px; }
   .hide-sm { display: none; }
 }
+
+/* 몽글이 애니메이션 자리 — 멈춘 그림과 같은 자리·크기에 겹쳐 그린다 */
+.mongle { position: relative; display: inline-block; }
+.mongle img { display: block; }
+.mongle .mongle-anim { display: none; width: 100%; aspect-ratio: 741 / 604; pointer-events: none; }
+.mongle.is-anim .mongle-anim { display: block; }
+.mongle.is-anim img { display: none; }
+.cta-mongle { width: 180px; }
+.mongle.is-anim.float { animation: none; }
+.mood-row .mongle { width: 110px; margin-bottom: 10px; }
+.mood-row .mongle img { width: 100%; margin: 0; }
+.float.mongle img { width: 100%; }
+@media (max-width: 860px) { .mood-row .mongle { width: 56px; } }

@@ -8,7 +8,7 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-  <link rel="stylesheet" href="preview.css?v=3">
+  <link rel="stylesheet" href="preview.css?v=5">
 </head>
 <body>
 <header class="nav wrap">
@@ -36,8 +36,8 @@
     <div class="hero-art" aria-hidden="true">
       <img class="phone" src="img/screen-1.webp" alt="" width="300">
       <figure class="polaroid tilt-r"><span class="tape"></span><img src="img/screen-2.webp" alt="" width="210"></figure>
-      <img class="float m1" src="img/mongle-very-good.webp" alt="">
-      <img class="float m2" src="img/mongle-good.webp" alt="">
+      <span class="float m1 mongle" data-anim="mongle-very-good-bounce"><img src="img/mongle-very-good.webp" alt=""></span>
+      <span class="float m2 mongle" data-anim="mongle-good-bounce"><img src="img/mongle-good.webp" alt=""></span>
     </div>
   </section>
 
@@ -46,11 +46,11 @@
     <h2 id="moods-title">Meet Mongle, your little cloud.</h2>
     <p class="sub">Five moods, five faces. On the hard days, Mongle doesn't judge — it just stays close.</p>
     <ul class="mood-row">
-      <li><img src="img/mongle-very-good.webp" alt=""><b>Great</b><span>Great day!</span></li>
-      <li><img src="img/mongle-good.webp" alt=""><b>Good</b><span>A nice, easy day.</span></li>
-      <li><img src="img/mongle-normal.webp" alt=""><b>Okay</b><span>Ordinary days count too.</span></li>
-      <li><img src="img/mongle-bad.webp" alt=""><b>Bad</b><span>Rough day, and that's okay.</span></li>
-      <li><img src="img/mongle-very-bad.webp" alt=""><b>Awful</b><span>This will pass. Mongle's right here.</span></li>
+      <li><span class="mongle" data-anim="mongle-very-good-bounce"><img src="img/mongle-very-good.webp" alt=""></span><b>Great</b><span>Great day!</span></li>
+      <li><span class="mongle" data-anim="mongle-good-bounce"><img src="img/mongle-good.webp" alt=""></span><b>Good</b><span>A nice, easy day.</span></li>
+      <li><span class="mongle" data-anim="mongle-normal-idle"><img src="img/mongle-normal.webp" alt=""></span><b>Okay</b><span>Ordinary days count too.</span></li>
+      <li><span class="mongle" data-anim="mongle-bad-sigh"><img src="img/mongle-bad.webp" alt=""></span><b>Bad</b><span>Rough day, and that's okay.</span></li>
+      <li><span class="mongle" data-anim="mongle-very-bad-sob"><img src="img/mongle-very-bad.webp" alt=""></span><b>Awful</b><span>This will pass. Mongle's right here.</span></li>
     </ul>
   </section>
 
@@ -107,7 +107,7 @@
   </section>
 
   <section class="cta wrap">
-    <img src="img/mongle-normal.webp" alt="" width="180">
+    <span class="mongle cta-mongle" data-anim="mongle-normal-idle"><img src="img/mongle-normal.webp" alt="" width="180"></span>
     <h2>Be gentle with yourself today.</h2>
     <div class="badges center">
       <a href="https://apps.apple.com/app/id6814691795" aria-label="Download on the App Store"><img src="img/badge-app-store.svg" alt="Download on the App Store" height="48"></a>
@@ -131,5 +131,26 @@
   </div>
   <p class="legal">© 2026 Mauve Labs · mauvelabs@mauvelabsinc.com · Seoul, Republic of Korea</p>
 </footer>
+<script src="lottie_light.min.js"></script>
+<script>
+/* 몽글이 애니메이션 — 앱과 같은 Lottie(assets/animations)를 웹용으로 줄인 것.
+   멈춘 그림(img)을 먼저 보여 주고, 애니메이션이 준비되면 바꾼다. 화면에 보일 때만 재생한다.
+   「동작 줄이기」를 켠 사람에게는 멈춘 그림 그대로 둔다. */
+(function () {
+  if (!window.lottie || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) { var a = e.target._anim; if (!a) return; e.isIntersecting ? a.play() : a.pause(); });
+  }, { rootMargin: '80px' }) : null;
+  document.querySelectorAll('.mongle[data-anim]').forEach(function (el, i) {
+    var box = document.createElement('span'); box.className = 'mongle-anim'; el.appendChild(box);
+    var a = lottie.loadAnimation({ container: box, renderer: 'svg', loop: true, autoplay: !io,
+      path: 'anim/' + el.dataset.anim + '.json', rendererSettings: { preserveAspectRatio: 'xMidYMid meet' } });
+    a.addEventListener('DOMLoaded', function () {
+      a.goToAndStop((i * 17) % a.totalFrames, true); /* 같은 몽글이가 똑같이 움직이지 않게 시작 프레임을 엇갈린다 */
+      el.classList.add('is-anim'); el._anim = a; if (io) io.observe(el); else a.play();
+    });
+  });
+})();
+</script>
 </body>
 </html>

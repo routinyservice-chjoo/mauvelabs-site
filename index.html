@@ -3,17 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mauve Labs</title>
-  <meta name="description" content="Mauve Labs is an independent app studio in Seoul. We make Maeumlog, an ad-free mood diary, and Routiny, a habit tracker where your plant grows.">
-  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <title>Maeumlog — A cozy mood diary for iPhone and Android</title>
+  <meta name="description" content="Maeumlog is a soft little mood diary. Tap Mongle, pick a mood, add a few words or a photo when you feel like it. No ads, ever. Made by Mauve Labs.">
+  <link rel="icon" href="assets/maeumlog-icon.png" type="image/png">
   <link rel="canonical" href="https://mauvelabsinc.com/">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <meta name="theme-color" content="#fbf8fa" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#17131a" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#FFF8F0">
   <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Mauve Labs">
-  <meta property="og:title" content="Mauve Labs — Small apps for everyday life">
-  <meta property="og:description" content="Mauve Labs is an independent app studio in Seoul. We make Maeumlog, an ad-free mood diary, and Routiny, a habit tracker where your plant grows.">
+  <meta property="og:site_name" content="Maeumlog by Mauve Labs">
+  <meta property="og:title" content="Maeumlog — A soft little diary for how you really feel">
+  <meta property="og:description" content="Tap Mongle, pick a mood, and you're done. No ads, no pressure.">
   <meta property="og:url" content="https://mauvelabsinc.com/">
   <meta property="og:image" content="https://mauvelabsinc.com/assets/og.png">
   <meta property="og:image:width" content="1200">
@@ -21,81 +20,170 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="ko_KR">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="apple-itunes-app" content="app-id=6814691795">
   <link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/">
   <link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/">
   <link rel="alternate" hreflang="x-default" href="https://mauvelabsinc.com/">
+  <link rel="preload" href="assets/fraunces.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/site-v2.css?v=12">
 </head>
 <body>
-<div class="wrap">
-  <header class="top">
-    <a class="brand" href="./"><img src="assets/logo.svg" alt="" width="30" height="30">Mauve Labs</a>
-    <nav class="nav" aria-label="Main">
-      <a href="#apps">Apps</a>
-      <a href="#contact" class="hide-sm">Contact</a>
-      <a href="ko/" hreflang="ko" lang="ko">한국어</a>
+<header class="nav wrap">
+  <a class="brand" href="./"><img src="assets/maeumlog.jpg" alt="" width="36" height="36">Maeumlog</a>
+  <nav aria-label="Main">
+    <a href="#how">How it works</a>
+    <a href="#private" class="hide-sm">Privacy</a>
+    <a href="#soon" class="hide-sm">Coming soon</a>
+  </nav>
+</header>
+
+<main>
+  <!-- 첫 화면: 효용 한 줄 + 실제 앱 화면 + 공식 배지 -->
+  <section class="hero wrap">
+    <div class="hero-copy">
+      <span class="sticker">a cozy mood diary</span>
+      <h1>A soft little diary for how you <em>really</em> feel.</h1>
+      <p class="lede">Tap Mongle, pick a mood, and you're done. Add a few words or a photo when you feel like it. No ads, no pressure.</p>
+      <div class="badges">
+        <a href="https://apps.apple.com/app/id6814691795" aria-label="Download on the App Store"><img src="img/badge-app-store.svg" alt="Download on the App Store" height="48"></a>
+        <a href="https://play.google.com/store/apps/details?id=com.mauvelabs.maeumlog" aria-label="Get it on Google Play" class="gp"><img src="img/badge-google-play.png" alt="Get it on Google Play" height="70"></a>
+      </div>
+      <p class="fine">Free to start · iPhone and Android</p>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <img class="phone" src="img/screen-1.webp" alt="" width="300">
+      <span class="float m1 mongle" data-anim="mongle-very-good-bounce"><img src="img/mongle-very-good.webp" alt=""></span>
+      <span class="float m2 mongle" data-anim="mongle-good-bounce"><img src="img/mongle-good.webp" alt=""></span>
+    </div>
+  </section>
+
+  <!-- 몽글이 다섯 표정: 캐릭터가 주인공 -->
+  <section class="moods wrap" aria-labelledby="moods-title">
+    <h2 id="moods-title" data-reveal>Meet Mongle, your little cloud.</h2>
+    <p class="sub" data-reveal>Five moods, five faces. On the hard days, Mongle doesn't judge — it just stays close.</p>
+    <ul class="mood-row" data-reveal-group>
+      <li><span class="mongle" data-anim="mongle-very-good-bounce"><img src="img/mongle-very-good.webp" alt=""></span><b>Great</b><span>Great day!</span></li>
+      <li><span class="mongle" data-anim="mongle-good-bounce"><img src="img/mongle-good.webp" alt=""></span><b>Good</b><span>A nice, easy day.</span></li>
+      <li><span class="mongle" data-anim="mongle-normal-idle"><img src="img/mongle-normal.webp" alt=""></span><b>Okay</b><span>Ordinary days count too.</span></li>
+      <li><span class="mongle" data-anim="mongle-bad-sigh"><img src="img/mongle-bad.webp" alt=""></span><b>Bad</b><span>Rough day, and that's okay.</span></li>
+      <li><span class="mongle" data-anim="mongle-very-bad-sob"><img src="img/mongle-very-bad.webp" alt=""></span><b>Awful</b><span>This will pass. Mongle's right here.</span></li>
+    </ul>
+  </section>
+
+  <!-- 지금 앱에 있는 기능만 -->
+  <!-- 애플 제품 페이지처럼: 휴대폰 한 대가 고정되고, 스크롤하면 설명이 지나가며 화면이 바뀐다(PC). 휴대폰에서는 차례로 쌓는다 -->
+  <section id="how" class="how wrap" aria-labelledby="how-title">
+    <h2 id="how-title" data-reveal>A minute a day is enough.</h2>
+    <div class="story">
+      <div class="story-stage" aria-hidden="true">
+        <figure class="polaroid stage-frame"><span class="tape stage-tape"></span>
+          <div class="stage-screens">
+            <img src="img/screen-2.webp" alt="" class="on" data-step="0">
+            <img src="img/screen-4.webp" alt="" data-step="1">
+            <img src="img/screen-6.webp" alt="" data-step="2">
+          </div>
+        </figure>
+      </div>
+      <ol class="story-steps">
+        <li class="step is-active" data-step="0">
+          <span class="step-num">01</span>
+          <h3>Check in, in seconds</h3>
+          <p>Pick a mood, tap a few feelings and what you did. Words are optional.</p>
+          <figure class="polaroid step-shot tilt-l"><span class="tape pink"></span><img src="img/screen-2.webp" alt="Choosing a mood, feelings and activities in Maeumlog" width="240"></figure>
+        </li>
+        <li class="step" data-step="1">
+          <span class="step-num">02</span>
+          <h3>See your month in color</h3>
+          <p>Every day becomes a little cloud on your calendar. Patterns show up on their own.</p>
+          <figure class="polaroid step-shot tilt-r"><span class="tape mint"></span><img src="img/screen-4.webp" alt="A month of moods on the Maeumlog calendar" width="240"></figure>
+        </li>
+        <li class="step" data-step="2">
+          <span class="step-num">03</span>
+          <h3>Notice what lifts you up</h3>
+          <p>Gentle stats show which days feel lighter — with friends, after a walk, over coffee.</p>
+          <figure class="polaroid step-shot tilt-l"><span class="tape lilac"></span><img src="img/screen-6.webp" alt="Maeumlog stats showing what lifts your mood" width="240"></figure>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 미국 사용자가 특히 보는 개인정보 -->
+  <section id="private" class="private wrap" aria-labelledby="private-title">
+    <div class="private-box" data-reveal>
+      <h2 id="private-title">Private by design.</h2>
+      <ul class="promises" data-reveal-group>
+        <li><b>No ads. Ever.</b><span>Your feelings aren't a product.</span></li>
+        <li><b>Your diary, on your phone.</b><span>Sign in only if you want a cloud backup.</span></li>
+        <li><b>Nothing sold or shared.</b><span>We don't sell your data to anyone.</span></li>
+      </ul>
+      <a class="text-link" href="https://apps.mauvelabsinc.com/maeumlog/en/privacy.html">Read our privacy policy</a>
+    </div>
+  </section>
+
+  <!-- 1.1.0 다이어리 꾸미기 예고 — 아직 없는 기능이라 '곧'으로만 -->
+  <section id="soon" class="soon wrap" aria-labelledby="soon-title">
+    <div class="soon-copy" data-reveal>
+      <span class="sticker alt">coming soon</span>
+      <h2 id="soon-title">Make every page yours.</h2>
+      <p>Stickers, washi tape, and little doodles are on the way — so your diary can look as cozy as it feels.</p>
+    </div>
+    <div class="sticker-sheet" aria-hidden="true" data-reveal-group>
+      <span class="washi w1"></span><span class="washi w2"></span><span class="washi w3"></span>
+      <img src="img/mongle-very-good.webp" alt="" class="s s1">
+      <img src="img/mongle-good.webp" alt="" class="s s2">
+      <img src="img/mongle-normal.webp" alt="" class="s s3">
+      <img src="img/mongle-bad.webp" alt="" class="s s4">
+      <span class="doodle d1">♡</span><span class="doodle d2">✿</span><span class="doodle d3">☆</span>
+    </div>
+  </section>
+
+  <section class="cta wrap" data-reveal>
+    <span class="mongle cta-mongle" data-anim="mongle-normal-idle"><img src="img/mongle-normal.webp" alt="" width="180"></span>
+    <h2>Be gentle with yourself today.</h2>
+    <div class="badges center">
+      <a href="https://apps.apple.com/app/id6814691795" aria-label="Download on the App Store"><img src="img/badge-app-store.svg" alt="Download on the App Store" height="48"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.mauvelabs.maeumlog" aria-label="Get it on Google Play" class="gp"><img src="img/badge-google-play.png" alt="Get it on Google Play" height="70"></a>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div class="foot-top">
+    <div>
+      <p class="made">Maeumlog is made by <b>Mauve Labs</b>, a small, independent app studio.</p>
+      <p class="also">Also from us: <a href="https://apps.apple.com/app/id6758573546">Routiny</a> — habits that grow a plant.</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="https://apps.mauvelabsinc.com/maeumlog/en/privacy.html">Privacy</a>
+      <a href="https://apps.mauvelabsinc.com/maeumlog/en/terms.html">Terms</a>
+      <a href="mailto:mauvelabs@mauvelabsinc.com">Contact</a>
+      <a href="ko/" lang="ko">한국어</a>
     </nav>
-  </header>
-
-  <main>
-    <section class="hero">
-      <span class="eyebrow">Independent app studio · Seoul</span>
-      <h1>Small apps for <em>everyday</em> life.</h1>
-      <p>We make simple, gentle apps for checking in with your mood and building habits that last. A minute a day is enough.</p>
-    </section>
-
-    <section id="apps">
-      <h2>Our apps</h2>
-      <div class="apps">
-        <article class="app">
-          <div class="app-head">
-            <img src="assets/maeumlog.jpg" alt="Maeumlog app icon" width="64" height="64">
-            <div><h3>Maeumlog</h3><span>Ad-free mood diary</span></div>
-          </div>
-          <p>Tap Mongle once a day and pick how you feel. Add a note or a photo when you want to. No ads, ever, and your entries stay private.</p>
-          <div class="stores">
-            <a class="store" href="https://apps.apple.com/app/id6814691795">App Store</a>
-            <a class="store" href="https://play.google.com/store/apps/details?id=com.mauvelabs.maeumlog">Google Play</a>
-          </div>
-          <div class="links"><a href="https://apps.mauvelabsinc.com/maeumlog/en/">About</a> · <a href="https://apps.mauvelabsinc.com/maeumlog/en/privacy.html">Privacy</a> · <a href="https://apps.mauvelabsinc.com/maeumlog/en/terms.html">Terms</a></div>
-        </article>
-
-        <article class="app">
-          <div class="app-head">
-            <img src="assets/routiny.jpg" alt="Routiny app icon" width="64" height="64">
-            <div><h3>Routiny</h3><span>Habits &amp; plant growth</span></div>
-          </div>
-          <p>Finish a routine and your plant grows. Miss a day and it just falls asleep. Water it again tomorrow. Growth over guilt.</p>
-          <div class="stores">
-            <a class="store" href="https://apps.apple.com/app/id6758573546">App Store</a>
-            <a class="store" href="https://play.google.com/store/apps/details?id=com.routinyservice.routiny">Google Play</a>
-          </div>
-          <div class="links"><a href="https://apps.mauvelabsinc.com/">Privacy</a></div>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="contact">
-        <h2>Get in touch</h2>
-        <p>Questions, feedback, or partnership ideas. We read every email.</p>
-        <a class="mail" href="mailto:mauvelabs@mauvelabsinc.com">mauvelabs@mauvelabsinc.com</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <dl>
-      <dt>Company</dt><dd>Mauve Labs (모브랩스)</dd>
-      <dt>Representative</dt><dd>Changhwan Joo</dd>
-      <dt>Business registration</dt><dd>485-21-02219</dd>
-      <dt>Mail-order business</dt><dd>2026-Seoul Geumcheon-1495</dd>
-      <dt>Address</dt><dd>A-301, 29-20 Beoman-ro 12-gil, Geumcheon-gu, Seoul, Republic of Korea</dd>
-      <dt>Email</dt><dd><a href="mailto:mauvelabs@mauvelabsinc.com">mauvelabs@mauvelabsinc.com</a></dd>
-    </dl>
-    <div>© 2026 Mauve Labs</div>
-  </footer>
-</div>
+  </div>
+  <p class="legal">© 2026 Mauve Labs · mauvelabs@mauvelabsinc.com · Seoul, Republic of Korea</p>
+</footer>
+<script src="assets/scroll.js?v=9"></script>
+<script src="assets/lottie_light.min.js"></script>
+<script>
+/* 몽글이 애니메이션 — 앱과 같은 Lottie(assets/animations)를 웹용으로 줄인 것.
+   멈춘 그림(img)을 먼저 보여 주고, 애니메이션이 준비되면 바꾼다. 화면에 보일 때만 재생한다.
+   「동작 줄이기」를 켠 사람에게는 멈춘 그림 그대로 둔다. */
+(function () {
+  if (!window.lottie || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) { var a = e.target._anim; if (!a) return; e.isIntersecting ? a.play() : a.pause(); });
+  }, { rootMargin: '80px' }) : null;
+  document.querySelectorAll('.mongle[data-anim]').forEach(function (el, i) {
+    var box = document.createElement('span'); box.className = 'mongle-anim'; el.appendChild(box);
+    var a = lottie.loadAnimation({ container: box, renderer: 'svg', loop: true, autoplay: !io,
+      path: 'anim/' + el.dataset.anim + '.json?v=6', rendererSettings: { preserveAspectRatio: 'xMidYMid meet' } });
+    a.addEventListener('DOMLoaded', function () {
+      a.goToAndStop((i * 17) % a.totalFrames, true); /* 같은 몽글이가 똑같이 움직이지 않게 시작 프레임을 엇갈린다 */
+      el.classList.add('is-anim'); el._anim = a; if (io) io.observe(el); else a.play();
+    });
+  });
+})();
+</script>
 </body>
 </html>

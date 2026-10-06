@@ -85,8 +85,8 @@ h3 { font-size: 22px; margin: 18px 0 6px; }
 }
 .hero-art .polaroid { position: absolute; right: -6px; bottom: 10px; }
 .float { position: absolute; width: 150px; animation: bob 6s ease-in-out infinite; }
-.float.m1 { left: -10px; top: 300px; }
-.float.m2 { right: -36px; top: 0; width: 120px; animation-delay: -3s; }
+.float.m1 { left: -70px; top: 360px; }
+.float.m2 { right: -20px; top: 40px; width: 120px; animation-delay: -3s; }
 @keyframes bob { 50% { transform: translateY(-12px); } }
 @media (prefers-reduced-motion: reduce) { .float { animation: none; } html { scroll-behavior: auto; } }
 
@@ -184,7 +184,7 @@ footer nav a { color: var(--ink-soft); }
   .hero-art .phone { width: 250px; }
   .hero-art .polaroid { right: 0; bottom: 0; }
   .hero-art .polaroid img { width: 150px; }
-  .float.m1 { width: 110px; left: 0; top: 330px; }
+  .float.m1 { width: 100px; left: -6px; top: 330px; }
   .float.m2 { width: 90px; }
   .mood-row { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
   .mood-row li { padding: 12px 4px; border-radius: 16px; }
@@ -232,3 +232,14 @@ footer nav a { color: var(--ink-soft); }
   .step p { margin-bottom: 26px; }
   .step-shot { display: block; }
 }
+
+/* 떠 있는 몽글이는 휴대폰 바깥 자리에 고정한다(.mongle의 relative가 덮어쓰지 않게) */
+.float.mongle { position: absolute; }
+
+/* 첫 화면 글은 스크롤과 무관하게 열리자마자 떠오른다 */
+@keyframes rise { from { opacity: 0; transform: translateY(18px); } }
+.motion .hero-copy > * { animation: rise .8s cubic-bezier(.2,.8,.2,1) both; }
+.motion .hero-copy > :nth-child(2) { animation-delay: .08s; }
+.motion .hero-copy > :nth-child(3) { animation-delay: .16s; }
+.motion .hero-copy > :nth-child(4) { animation-delay: .24s; }
+.motion .hero-copy > :nth-child(5) { animation-delay: .3s; }

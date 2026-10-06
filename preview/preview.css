@@ -185,6 +185,10 @@ footer nav a { color: var(--ink-soft); }
   .cards { gap: 46px; }
   .private-box { padding: 32px 20px; }
   .sticker-sheet { height: 300px; }
-  .s2 { left: 140px; }
+  .s { width: 92px; }
+  .s1 { left: 18px; top: 70px; }
+  .s2 { left: 130px; top: 175px; width: 84px; }
+  .s3 { right: 18px; top: 175px; width: 84px; }
+  .s4 { right: 24px; top: 40px; width: 76px; }
   .hide-sm { display: none; }
 }

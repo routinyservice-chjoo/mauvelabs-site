@@ -1,0 +1,68 @@
+{
+  "_comment": "메인 언어. 서브 언어는 이 파일의 뜻을 그 나라 말로 옮긴다(직역 금지). 키를 더하면 모든 언어 파일에 같이 더한다 — build.py가 빠진 키를 알려 준다.",
+  "lang": "en",
+  "path": "",
+  "language_name": "English",
+  "og_locale": "en_US",
+  "shot_dir": "img/",
+  "badge_dir": "img/",
+  "og_image": "og.png",
+  "privacy_url": "https://apps.mauvelabsinc.com/maeumlog/en/privacy.html",
+  "terms_url": "https://apps.mauvelabsinc.com/maeumlog/en/terms.html",
+
+  "meta_title": "Maeumlog — A cozy mood diary for iPhone and Android",
+  "meta_description": "Maeumlog is a soft little mood diary. Tap Mongle, pick a mood, add a few words or a photo when you feel like it. No ads, ever. Made by Mauve Labs.",
+  "og_site_name": "Maeumlog by Mauve Labs",
+  "og_title": "Maeumlog — A soft little diary for how you really feel",
+  "og_description": "Tap Mongle, pick a mood, and you're done. No ads, no pressure.",
+
+  "brand": "Maeumlog",
+  "nav_how": "How it works",
+  "nav_privacy": "Privacy",
+  "nav_soon": "Coming soon",
+
+  "hero_sticker": "a cozy mood diary",
+  "hero_title": "A soft little diary for how you <em>really</em> feel.",
+  "hero_lede": "Tap Mongle, pick a mood, and you're done. Add a few words or a photo when you feel like it. No ads, no pressure.",
+  "hero_fine": "Free to start · iPhone and Android",
+  "badge_apple_alt": "Download on the App Store",
+  "badge_google_alt": "Get it on Google Play",
+
+  "moods_title": "Meet Mongle, your little cloud.",
+  "moods_sub": "Five moods, five faces. On the hard days, Mongle doesn't judge — it just stays close.",
+  "mood_1": "Great", "mood_1_line": "Great day!",
+  "mood_2": "Good", "mood_2_line": "A nice, easy day.",
+  "mood_3": "Okay", "mood_3_line": "Ordinary days count too.",
+  "mood_4": "Bad", "mood_4_line": "Rough day, and that's okay.",
+  "mood_5": "Awful", "mood_5_line": "This will pass. Mongle's right here.",
+
+  "how_title": "A minute a day is enough.",
+  "step_1_title": "Check in, in seconds",
+  "step_1_body": "Pick a mood, tap a few feelings and what you did. Words are optional.",
+  "step_1_alt": "Choosing a mood, feelings and activities in Maeumlog",
+  "step_2_title": "See your month in color",
+  "step_2_body": "Every day becomes a little cloud on your calendar. Patterns show up on their own.",
+  "step_2_alt": "A month of moods on the Maeumlog calendar",
+  "step_3_title": "Notice what lifts you up",
+  "step_3_body": "Gentle stats show which days feel lighter — with friends, after a walk, over coffee.",
+  "step_3_alt": "Maeumlog stats showing what lifts your mood",
+
+  "private_title": "Private by design.",
+  "promise_1": "No ads. Ever.", "promise_1_line": "Your feelings aren't a product.",
+  "promise_2": "Your diary, on your phone.", "promise_2_line": "Sign in only if you want a cloud backup.",
+  "promise_3": "Nothing sold or shared.", "promise_3_line": "We don't sell your data to anyone.",
+  "privacy_link": "Read our privacy policy",
+
+  "soon_sticker": "coming soon",
+  "soon_title": "Make every page yours.",
+  "soon_body": "Stickers, washi tape, and little doodles are on the way — so your diary can look as cozy as it feels.",
+
+  "cta_title": "Be gentle with yourself today.",
+
+  "made_by": "Maeumlog is made by <b>Mauve Labs</b>, a small, independent app studio.",
+  "also_from": "Also from us: <a href=\"https://apps.apple.com/app/id6758573546\">Routiny</a> — habits that grow a plant.",
+  "foot_privacy": "Privacy",
+  "foot_terms": "Terms",
+  "foot_contact": "Contact",
+  "legal": "<p class=\"legal\">© 2026 Mauve Labs · mauvelabs@mauvelabsinc.com · Seoul, Republic of Korea</p>"
+}

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- ⚠️ 이 파일을 고친 뒤 `python3 build.py`를 돌린다. index.html · ko/index.html은 여기서 만들어진다(직접 고치지 않는다). -->
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -18,7 +19,6 @@
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_US">
-  <meta property="og:locale:alternate" content="ko_KR">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="apple-itunes-app" content="app-id=6814691795">
   <link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/">
@@ -26,7 +26,7 @@
   <link rel="alternate" hreflang="x-default" href="https://mauvelabsinc.com/">
   <link rel="preload" href="assets/fraunces.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-  <link rel="stylesheet" href="assets/site-v2.css?v=12">
+  <link rel="stylesheet" href="assets/site-v2.css?v=13">
 </head>
 <body>
 <header class="nav wrap">
@@ -39,7 +39,7 @@
 </header>
 
 <main>
-  <!-- 첫 화면: 효용 한 줄 + 실제 앱 화면 + 공식 배지 -->
+  <!-- 첫 화면: 효용 한 줄 + 실제 앱 홈 화면(가리지 않는다) + 공식 배지 -->
   <section class="hero wrap">
     <div class="hero-copy">
       <span class="sticker">a cozy mood diary</span>
@@ -58,7 +58,7 @@
     </div>
   </section>
 
-  <!-- 몽글이 다섯 표정: 캐릭터가 주인공 -->
+  <!-- 몽글이 다섯 표정: 캐릭터가 주인공. 이름·문구는 앱 번역 파일과 같다 -->
   <section class="moods wrap" aria-labelledby="moods-title">
     <h2 id="moods-title" data-reveal>Meet Mongle, your little cloud.</h2>
     <p class="sub" data-reveal>Five moods, five faces. On the hard days, Mongle doesn't judge — it just stays close.</p>
@@ -71,8 +71,8 @@
     </ul>
   </section>
 
-  <!-- 지금 앱에 있는 기능만 -->
-  <!-- 애플 제품 페이지처럼: 휴대폰 한 대가 고정되고, 스크롤하면 설명이 지나가며 화면이 바뀐다(PC). 휴대폰에서는 차례로 쌓는다 -->
+  <!-- 애플 제품 페이지처럼: 휴대폰 한 대가 고정되고, 스크롤하면 설명이 지나가며 화면이 바뀐다(PC). 휴대폰에서는 차례로 쌓는다.
+       지금 앱에 있는 기능만 적는다 -->
   <section id="how" class="how wrap" aria-labelledby="how-title">
     <h2 id="how-title" data-reveal>A minute a day is enough.</h2>
     <div class="story">
@@ -108,7 +108,7 @@
     </div>
   </section>
 
-  <!-- 미국 사용자가 특히 보는 개인정보 -->
+  <!-- 개인정보: 앱이 실제로 지키는 것만 -->
   <section id="private" class="private wrap" aria-labelledby="private-title">
     <div class="private-box" data-reveal>
       <h2 id="private-title">Private by design.</h2>
@@ -158,15 +158,15 @@
       <a href="https://apps.mauvelabsinc.com/maeumlog/en/privacy.html">Privacy</a>
       <a href="https://apps.mauvelabsinc.com/maeumlog/en/terms.html">Terms</a>
       <a href="mailto:mauvelabs@mauvelabsinc.com">Contact</a>
-      <a href="ko/" lang="ko">한국어</a>
+      <a href="ko/" lang="ko" hreflang="ko">한국어</a>
     </nav>
   </div>
-  <p class="legal">© 2026 Mauve Labs · mauvelabs@mauvelabsinc.com · Seoul, Republic of Korea</p>
+<p class="legal">© 2026 Mauve Labs · mauvelabs@mauvelabsinc.com · Seoul, Republic of Korea</p>
 </footer>
-<script src="assets/scroll.js?v=9"></script>
+<script src="assets/scroll.js?v=13"></script>
 <script src="assets/lottie_light.min.js"></script>
 <script>
-/* 몽글이 애니메이션 — 앱과 같은 Lottie(assets/animations)를 웹용으로 줄인 것.
+/* 몽글이 애니메이션 — 앱과 같은 Lottie(maeumlog-rn assets/animations)를 웹용으로 줄인 것.
    멈춘 그림(img)을 먼저 보여 주고, 애니메이션이 준비되면 바꾼다. 화면에 보일 때만 재생한다.
    「동작 줄이기」를 켠 사람에게는 멈춘 그림 그대로 둔다. */
 (function () {
@@ -177,7 +177,7 @@
   document.querySelectorAll('.mongle[data-anim]').forEach(function (el, i) {
     var box = document.createElement('span'); box.className = 'mongle-anim'; el.appendChild(box);
     var a = lottie.loadAnimation({ container: box, renderer: 'svg', loop: true, autoplay: !io,
-      path: 'anim/' + el.dataset.anim + '.json?v=6', rendererSettings: { preserveAspectRatio: 'xMidYMid meet' } });
+      path: 'anim/' + el.dataset.anim + '.json?v=13', rendererSettings: { preserveAspectRatio: 'xMidYMid meet' } });
     a.addEventListener('DOMLoaded', function () {
       a.goToAndStop((i * 17) % a.totalFrames, true); /* 같은 몽글이가 똑같이 움직이지 않게 시작 프레임을 엇갈린다 */
       el.classList.add('is-anim'); el._anim = a; if (io) io.observe(el); else a.play();

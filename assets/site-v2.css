@@ -243,3 +243,14 @@ footer nav a { color: var(--ink-soft); }
 .motion .hero-copy > :nth-child(3) { animation-delay: .16s; }
 .motion .hero-copy > :nth-child(4) { animation-delay: .24s; }
 .motion .hero-copy > :nth-child(5) { animation-delay: .3s; }
+
+/* 한국어 등 라틴 문자가 아닌 언어 — 제목용 Fraunces에 글자가 없으니 Pretendard로 */
+html:lang(ko) { --serif: 'Pretendard Variable', Pretendard, -apple-system, sans-serif; }
+html:lang(ko) h1, html:lang(ko) h2, html:lang(ko) h3, html:lang(ko) .brand { font-weight: 750; letter-spacing: -0.03em; }
+html:lang(ko) h1 em { font-style: normal; }
+html:lang(ko) .sticker, html:lang(ko) .step-num { font-style: normal; font-weight: 600; }
+html:lang(ko) body { word-break: keep-all; }
+/* 한국어판 사업자 정보(전자상거래법 표시) */
+.biz { display: grid; grid-template-columns: max-content 1fr; gap: 2px 14px; margin: 22px 0 0; font-size: 13px; color: var(--ink-faint); }
+.biz dt { font-weight: 600; }
+.biz dd { margin: 0; }

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!-- ⚠️ 이 파일을 고친 뒤 `python3 build.py`를 돌린다. index.html · ko/index.html은 여기서 만들어진다(직접 고치지 않는다). -->
+<html lang="{{lang}}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{meta_title}}</title>
+  <meta name="description" content="{{meta_description}}">
+  <link rel="icon" href="{{b}}assets/maeumlog-icon.png" type="image/png">
+  <link rel="canonical" href="{{url}}">
+  <link rel="apple-touch-icon" href="{{b}}assets/apple-touch-icon.png">
+  <meta name="theme-color" content="#FFF8F0">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{og_site_name}}">
+  <meta property="og:title" content="{{og_title}}">
+  <meta property="og:description" content="{{og_description}}">
+  <meta property="og:url" content="{{url}}">
+  <meta property="og:image" content="https://mauvelabsinc.com/assets/{{og_image}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="{{og_locale}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="apple-itunes-app" content="app-id=6814691795">
+{{hreflang}}
+  <link rel="preload" href="{{b}}assets/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="{{b}}assets/site-v2.css?v={{v}}">
+</head>
+<body>
+<header class="nav wrap">
+  <a class="brand" href="./"><img src="{{b}}assets/maeumlog.jpg" alt="" width="36" height="36">{{brand}}</a>
+  <nav aria-label="Main">
+    <a href="#how">{{nav_how}}</a>
+    <a href="#private" class="hide-sm">{{nav_privacy}}</a>
+    <a href="#soon" class="hide-sm">{{nav_soon}}</a>
+  </nav>
+</header>
+
+<main>
+  <!-- 첫 화면: 효용 한 줄 + 실제 앱 홈 화면(가리지 않는다) + 공식 배지 -->
+  <section class="hero wrap">
+    <div class="hero-copy">
+      <span class="sticker">{{hero_sticker}}</span>
+      <h1>{{hero_title}}</h1>
+      <p class="lede">{{hero_lede}}</p>
+      <div class="badges">
+        <a href="https://apps.apple.com/app/id6814691795" aria-label="{{badge_apple_alt}}"><img src="{{b}}{{badge_dir}}badge-app-store.svg" alt="{{badge_apple_alt}}" height="48"></a>
+        <a href="https://play.google.com/store/apps/details?id=com.mauvelabs.maeumlog" aria-label="{{badge_google_alt}}" class="gp"><img src="{{b}}{{badge_dir}}badge-google-play.png" alt="{{badge_google_alt}}" height="70"></a>
+      </div>
+      <p class="fine">{{hero_fine}}</p>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <img class="phone" src="{{b}}{{shot_dir}}screen-1.webp" alt="" width="300">
+      <span class="float m1 mongle" data-anim="mongle-very-good-bounce"><img src="{{b}}img/mongle-very-good.webp" alt=""></span>
+      <span class="float m2 mongle" data-anim="mongle-good-bounce"><img src="{{b}}img/mongle-good.webp" alt=""></span>
+    </div>
+  </section>
+
+  <!-- 몽글이 다섯 표정: 캐릭터가 주인공. 이름·문구는 앱 번역 파일과 같다 -->
+  <section class="moods wrap" aria-labelledby="moods-title">
+    <h2 id="moods-title" data-reveal>{{moods_title}}</h2>
+    <p class="sub" data-reveal>{{moods_sub}}</p>
+    <ul class="mood-row" data-reveal-group>
+      <li><span class="mongle" data-anim="mongle-very-good-bounce"><img src="{{b}}img/mongle-very-good.webp" alt=""></span><b>{{mood_1}}</b><span>{{mood_1_line}}</span></li>
+      <li><span class="mongle" data-anim="mongle-good-bounce"><img src="{{b}}img/mongle-good.webp" alt=""></span><b>{{mood_2}}</b><span>{{mood_2_line}}</span></li>
+      <li><span class="mongle" data-anim="mongle-normal-idle"><img src="{{b}}img/mongle-normal.webp" alt=""></span><b>{{mood_3}}</b><span>{{mood_3_line}}</span></li>
+      <li><span class="mongle" data-anim="mongle-bad-sigh"><img src="{{b}}img/mongle-bad.webp" alt=""></span><b>{{mood_4}}</b><span>{{mood_4_line}}</span></li>
+      <li><span class="mongle" data-anim="mongle-very-bad-sob"><img src="{{b}}img/mongle-very-bad.webp" alt=""></span><b>{{mood_5}}</b><span>{{mood_5_line}}</span></li>
+    </ul>
+  </section>
+
+  <!-- 애플 제품 페이지처럼: 휴대폰 한 대가 고정되고, 스크롤하면 설명이 지나가며 화면이 바뀐다(PC). 휴대폰에서는 차례로 쌓는다.
+       지금 앱에 있는 기능만 적는다 -->
+  <section id="how" class="how wrap" aria-labelledby="how-title">
+    <h2 id="how-title" data-reveal>{{how_title}}</h2>
+    <div class="story">
+      <div class="story-stage" aria-hidden="true">
+        <figure class="polaroid stage-frame"><span class="tape stage-tape"></span>
+          <div class="stage-screens">
+            <img src="{{b}}{{shot_dir}}screen-2.webp" alt="" class="on" data-step="0">
+            <img src="{{b}}{{shot_dir}}screen-4.webp" alt="" data-step="1">
+            <img src="{{b}}{{shot_dir}}screen-6.webp" alt="" data-step="2">
+          </div>
+        </figure>
+      </div>
+      <ol class="story-steps">
+        <li class="step is-active" data-step="0">
+          <span class="step-num">01</span>
+          <h3>{{step_1_title}}</h3>
+          <p>{{step_1_body}}</p>
+          <figure class="polaroid step-shot tilt-l"><span class="tape pink"></span><img src="{{b}}{{shot_dir}}screen-2.webp" alt="{{step_1_alt}}" width="240"></figure>
+        </li>
+        <li class="step" data-step="1">
+          <span class="step-num">02</span>
+          <h3>{{step_2_title}}</h3>
+          <p>{{step_2_body}}</p>
+          <figure class="polaroid step-shot tilt-r"><span class="tape mint"></span><img src="{{b}}{{shot_dir}}screen-4.webp" alt="{{step_2_alt}}" width="240"></figure>
+        </li>
+        <li class="step" data-step="2">
+          <span class="step-num">03</span>
+          <h3>{{step_3_title}}</h3>
+          <p>{{step_3_body}}</p>
+          <figure class="polaroid step-shot tilt-l"><span class="tape lilac"></span><img src="{{b}}{{shot_dir}}screen-6.webp" alt="{{step_3_alt}}" width="240"></figure>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 개인정보: 앱이 실제로 지키는 것만 -->
+  <section id="private" class="private wrap" aria-labelledby="private-title">
+    <div class="private-box" data-reveal>
+      <h2 id="private-title">{{private_title}}</h2>
+      <ul class="promises" data-reveal-group>
+        <li><b>{{promise_1}}</b><span>{{promise_1_line}}</span></li>
+        <li><b>{{promise_2}}</b><span>{{promise_2_line}}</span></li>
+        <li><b>{{promise_3}}</b><span>{{promise_3_line}}</span></li>
+      </ul>
+      <a class="text-link" href="{{privacy_url}}">{{privacy_link}}</a>
+    </div>
+  </section>
+
+  <!-- 1.1.0 다이어리 꾸미기 예고 — 아직 없는 기능이라 '곧'으로만 -->
+  <section id="soon" class="soon wrap" aria-labelledby="soon-title">
+    <div class="soon-copy" data-reveal>
+      <span class="sticker alt">{{soon_sticker}}</span>
+      <h2 id="soon-title">{{soon_title}}</h2>
+      <p>{{soon_body}}</p>
+    </div>
+    <div class="sticker-sheet" aria-hidden="true" data-reveal-group>
+      <span class="washi w1"></span><span class="washi w2"></span><span class="washi w3"></span>
+      <img src="{{b}}img/mongle-very-good.webp" alt="" class="s s1">
+      <img src="{{b}}img/mongle-good.webp" alt="" class="s s2">
+      <img src="{{b}}img/mongle-normal.webp" alt="" class="s s3">
+      <img src="{{b}}img/mongle-bad.webp" alt="" class="s s4">
+      <span class="doodle d1">♡</span><span class="doodle d2">✿</span><span class="doodle d3">☆</span>
+    </div>
+  </section>
+
+  <section class="cta wrap" data-reveal>
+    <span class="mongle cta-mongle" data-anim="mongle-normal-idle"><img src="{{b}}img/mongle-normal.webp" alt="" width="180"></span>
+    <h2>{{cta_title}}</h2>
+    <div class="badges center">
+      <a href="https://apps.apple.com/app/id6814691795" aria-label="{{badge_apple_alt}}"><img src="{{b}}{{badge_dir}}badge-app-store.svg" alt="{{badge_apple_alt}}" height="48"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.mauvelabs.maeumlog" aria-label="{{badge_google_alt}}" class="gp"><img src="{{b}}{{badge_dir}}badge-google-play.png" alt="{{badge_google_alt}}" height="70"></a>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div class="foot-top">
+    <div>
+      <p class="made">{{made_by}}</p>
+      <p class="also">{{also_from}}</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="{{privacy_url}}">{{foot_privacy}}</a>
+      <a href="{{terms_url}}">{{foot_terms}}</a>
+      <a href="mailto:mauvelabs@mauvelabsinc.com">{{foot_contact}}</a>
+{{lang_links}}
+    </nav>
+  </div>
+{{legal}}
+</footer>
+<script src="{{b}}assets/scroll.js?v={{v}}"></script>
+<script src="{{b}}assets/lottie_light.min.js"></script>
+<script>
+/* 몽글이 애니메이션 — 앱과 같은 Lottie(maeumlog-rn assets/animations)를 웹용으로 줄인 것.
+   멈춘 그림(img)을 먼저 보여 주고, 애니메이션이 준비되면 바꾼다. 화면에 보일 때만 재생한다.
+   「동작 줄이기」를 켠 사람에게는 멈춘 그림 그대로 둔다. */
+(function () {
+  if (!window.lottie || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) { var a = e.target._anim; if (!a) return; e.isIntersecting ? a.play() : a.pause(); });
+  }, { rootMargin: '80px' }) : null;
+  document.querySelectorAll('.mongle[data-anim]').forEach(function (el, i) {
+    var box = document.createElement('span'); box.className = 'mongle-anim'; el.appendChild(box);
+    var a = lottie.loadAnimation({ container: box, renderer: 'svg', loop: true, autoplay: !io,
+      path: '{{b}}anim/' + el.dataset.anim + '.json?v={{v}}', rendererSettings: { preserveAspectRatio: 'xMidYMid meet' } });
+    a.addEventListener('DOMLoaded', function () {
+      a.goToAndStop((i * 17) % a.totalFrames, true); /* 같은 몽글이가 똑같이 움직이지 않게 시작 프레임을 엇갈린다 */
+      el.classList.add('is-anim'); el._anim = a; if (io) io.observe(el); else a.play();
+    });
+  });
+})();
+</script>
+</body>
+</html>

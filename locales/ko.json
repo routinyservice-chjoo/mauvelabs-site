@@ -1,0 +1,68 @@
+{
+  "_comment": "서브 언어(한국어). en.json의 뜻을 옮기되 한국어로 자연스럽게 쓴다. 기분 이름·위로 문구는 앱(ko.ts)과 같다. 바닥의 사업자 정보는 전자상거래법 표시 항목이라 한국어판에만 둔다.",
+  "lang": "ko",
+  "path": "ko/",
+  "language_name": "한국어",
+  "og_locale": "ko_KR",
+  "shot_dir": "img/ko/",
+  "badge_dir": "img/ko/",
+  "og_image": "og.png",
+  "privacy_url": "https://apps.mauvelabsinc.com/maeumlog/privacy.html",
+  "terms_url": "https://apps.mauvelabsinc.com/maeumlog/terms.html",
+
+  "meta_title": "마음로그 — 광고 없는 감정일기 | 모브랩스",
+  "meta_description": "몽글이를 눌러 오늘의 기분을 고르면 끝. 쓰고 싶을 때만 짧은 글이나 사진을 남겨요. 광고 없는 감정일기, 마음로그.",
+  "og_site_name": "마음로그 · 모브랩스",
+  "og_title": "마음로그 — 내 마음을 있는 그대로 담는 작은 일기",
+  "og_description": "몽글이를 눌러 기분을 고르면 끝. 광고도, 부담도 없어요.",
+
+  "brand": "마음로그",
+  "nav_how": "사용법",
+  "nav_privacy": "개인정보",
+  "nav_soon": "곧 만나요",
+
+  "hero_sticker": "포근한 감정일기",
+  "hero_title": "있는 그대로의 마음을 <em>살며시</em> 담는 작은 일기.",
+  "hero_lede": "몽글이를 눌러 기분을 고르면 끝이에요. 쓰고 싶은 날엔 짧은 글이나 사진을 더해 보세요. 광고도, 부담도 없어요.",
+  "hero_fine": "무료로 시작 · 아이폰과 안드로이드",
+  "badge_apple_alt": "App Store에서 다운로드",
+  "badge_google_alt": "Google Play에서 다운로드하기",
+
+  "moods_title": "구름 친구 몽글이를 소개해요.",
+  "moods_sub": "다섯 가지 기분, 다섯 가지 표정. 힘든 날에도 몽글이는 다그치지 않고 곁에 있어요.",
+  "mood_1": "최고", "mood_1_line": "좋은 하루네요!",
+  "mood_2": "좋음", "mood_2_line": "잔잔하게 좋은 날",
+  "mood_3": "보통", "mood_3_line": "무던한 하루도 소중해요",
+  "mood_4": "나쁨", "mood_4_line": "힘든 하루였죠, 괜찮아요",
+  "mood_5": "최악", "mood_5_line": "이 마음도 꼭 지나갈 거예요",
+
+  "how_title": "하루 1분이면 충분해요.",
+  "step_1_title": "몇 초 만에 남기는 오늘",
+  "step_1_body": "기분을 고르고, 느낀 감정과 한 일을 톡톡 눌러요. 글은 쓰고 싶을 때만.",
+  "step_1_alt": "마음로그에서 기분·감정·활동을 고르는 화면",
+  "step_2_title": "색으로 보는 한 달",
+  "step_2_body": "하루하루가 달력 위 작은 구름이 돼요. 내 마음의 흐름이 저절로 보여요.",
+  "step_2_alt": "마음로그 달력에 담긴 한 달의 기분",
+  "step_3_title": "나를 웃게 하는 것 알아보기",
+  "step_3_body": "부드러운 통계가 어떤 날 마음이 가벼웠는지 알려 줘요. 친구와 함께한 날, 산책한 날처럼요.",
+  "step_3_alt": "기분에 영향을 준 활동을 보여 주는 마음로그 통계",
+
+  "private_title": "내 마음은 나만 봐요.",
+  "promise_1": "광고는 절대 없어요.", "promise_1_line": "당신의 마음은 상품이 아니니까요.",
+  "promise_2": "일기는 내 휴대폰에.", "promise_2_line": "백업이 필요할 때만 로그인하세요.",
+  "promise_3": "팔지도, 나누지도 않아요.", "promise_3_line": "누구에게도 데이터를 팔지 않아요.",
+  "privacy_link": "개인정보처리방침 보기",
+
+  "soon_sticker": "곧 만나요",
+  "soon_title": "나만의 페이지로 꾸며요.",
+  "soon_body": "스티커, 마스킹테이프, 귀여운 낙서가 곧 찾아와요. 마음만큼 포근해 보이는 일기를 만들 수 있게요.",
+
+  "cta_title": "오늘은 나에게 조금 더 다정하게.",
+
+  "made_by": "마음로그는 작은 앱 스튜디오 <b>모브랩스</b>가 만들어요.",
+  "also_from": "모브랩스의 다른 앱: <a href=\"https://apps.apple.com/kr/app/id6758573546\">루티니</a> — 루틴을 지키면 식물이 자라요.",
+  "foot_privacy": "개인정보처리방침",
+  "foot_terms": "이용약관",
+  "foot_contact": "문의",
+  "legal": "<dl class=\"biz\"><dt>상호</dt><dd>모브랩스(Mauve Labs)</dd><dt>대표자</dt><dd>주창환</dd><dt>사업자등록번호</dt><dd>485-21-02219</dd><dt>통신판매업신고번호</dt><dd>제2026-서울금천-1495호</dd><dt>주소</dt><dd>서울특별시 금천구 범안로12길 29-20, A동 301호(독산동)</dd><dt>이메일</dt><dd>mauvelabs@mauvelabsinc.com</dd></dl><p class=\"legal\">© 2026 모브랩스</p>"
+}

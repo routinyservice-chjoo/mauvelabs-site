@@ -45,7 +45,7 @@
     if (phone) { phone.style.rotate = (3 * p) + 'deg'; phone.style.translate = '0 ' + (-30 * p) + 'px'; }
     if (side) { side.style.translate = '0 ' + (-80 * p) + 'px'; side.style.rotate = (4 * p) + 'deg'; }
     if (pol) { pol.style.translate = '0 ' + (-90 * p) + 'px'; pol.style.rotate = (-6 * p) + 'deg'; }
-    if (m1) m1.style.translate = '0 ' + (-160 * p) + 'px';
+    if (m1) m1.style.translate = '0 ' + (-30 * p) + 'px'; // 홈 휴대폰과 함께 — 더 올리면 설명 글 위로 올라간다
     if (m2) m2.style.translate = '0 ' + (-70 * p) + 'px';
   }
   window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });

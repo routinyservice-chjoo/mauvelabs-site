@@ -51,3 +51,21 @@
   window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }, { passive: true });
   frame();
 })();
+
+/* 최고 몽글이: 가로 위치·크기는 CSS 그대로, 세로 가운데만 스토어 버튼 줄에 맞춘다.
+   움직임과 상관없는 배치라 「동작 줄이기」에서도 돈다. 창 폭이 바뀌거나 애니메이션이 붙어 크기가 바뀌면 다시 맞춘다 */
+(function () {
+  var m1 = document.querySelector('.float.m1');
+  var badges = document.querySelector('.hero .badges');
+  var art = document.querySelector('.hero-art');
+  if (!m1 || !badges || !art) return;
+  function align() {
+    if (getComputedStyle(m1).display === 'none') return;
+    var b = badges.getBoundingClientRect(), a = art.getBoundingClientRect();
+    m1.style.top = (b.top + b.height / 2 - a.top - m1.offsetHeight / 2) + 'px';
+  }
+  align();
+  window.addEventListener('load', align);
+  window.addEventListener('resize', align);
+  if ('ResizeObserver' in window) new ResizeObserver(align).observe(m1);
+})();

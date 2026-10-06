@@ -270,6 +270,7 @@ html:lang(ko) body { word-break: keep-all; }
   .hero-art { height: 500px; }
   .hero-art .phone-main { left: 34%; width: 230px; }
   .hero-art .phone-side { right: -12px; top: 110px; width: 150px; }
-  .float.m1 { left: -8px; top: 330px; width: 96px; }
+  /* 휴대폰은 폭이 좁아 왼쪽 몽글이가 홈 화면을 가린다 — 뺀다 */
+  .float.m1 { display: none; }
   .float.m2 { right: -6px; top: 20px; width: 80px; }
 }

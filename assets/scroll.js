@@ -62,7 +62,7 @@
   function align() {
     if (getComputedStyle(m1).display === 'none') return;
     var b = badges.getBoundingClientRect(), a = art.getBoundingClientRect();
-    var LIFT = 40; // 버튼 줄 가운데보다 이만큼 위(대표님 10/6 「더 올려」)
+    var LIFT = 25; // 버튼 줄 가운데보다 이만큼 위(대표님 10/6 — 40에서 15px 내림)
     m1.style.top = (b.top + b.height / 2 - a.top - m1.offsetHeight / 2 - LIFT) + 'px';
   }
   align();

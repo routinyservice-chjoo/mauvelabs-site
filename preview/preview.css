@@ -114,7 +114,7 @@ h3 { font-size: 22px; margin: 18px 0 6px; }
 .mood-row li { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 12px 20px; display: flex; flex-direction: column; align-items: center; }
 .mood-row img { width: 110px; margin-bottom: 10px; }
 .mood-row b { font-family: var(--serif); font-size: 20px; }
-.mood-row span { font-size: 14px; color: var(--ink-soft); margin-top: 4px; }
+.mood-row li > span:not(.mongle) { font-size: 14px; color: var(--ink-soft); margin-top: 4px; }
 
 /* 기능 */
 .how { padding-top: 40px; padding-bottom: 80px; }
@@ -180,7 +180,7 @@ footer nav a { color: var(--ink-soft); }
   .mood-row li { padding: 12px 4px; border-radius: 16px; }
   .mood-row img { width: 56px; }
   .mood-row b { font-size: 15px; }
-  .mood-row span { display: none; }
+  .mood-row li > span:not(.mongle) { display: none; }
   .cards, .promises { grid-template-columns: 1fr; }
   .cards { gap: 46px; }
   .private-box { padding: 32px 20px; }

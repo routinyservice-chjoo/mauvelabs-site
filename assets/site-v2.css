@@ -264,7 +264,8 @@ html:lang(ko) body { word-break: keep-all; }
 .hero-art .phone-main { left: 34%; top: 10px; z-index: 2; }
 .hero-art .phone-side { left: auto; right: -70px; top: 120px; width: 210px; transform: rotate(5deg); z-index: 1; opacity: .98; }
 .hero-art .float { z-index: 3; }
-.float.m1 { left: -120px; top: 400px; }
+/* 왼쪽에 두면 첫 화면 설명 글을 가린다 — 글이 없는 오른쪽 아래(통계 휴대폰 밑)로 */
+.float.m1 { left: auto; right: 30px; top: 568px; width: 120px; }
 .float.m2 { right: -60px; top: 30px; }
 @media (max-width: 860px) {
   .hero-art { height: 500px; }
@@ -273,4 +274,12 @@ html:lang(ko) body { word-break: keep-all; }
   /* 휴대폰은 폭이 좁아 왼쪽 몽글이가 홈 화면을 가린다 — 뺀다 */
   .float.m1 { display: none; }
   .float.m2 { right: -6px; top: 20px; width: 80px; }
+}
+
+/* 노트북 폭(861~1150px): 통계 휴대폰과 몽글이가 화면 오른쪽 밖으로 잘리지 않게 안쪽으로 */
+@media (min-width: 861px) and (max-width: 1150px) {
+  .hero-art .phone-main { left: 38%; width: 260px; }
+  .hero-art .phone-side { right: -10px; width: 180px; }
+  .float.m2 { right: -10px; width: 100px; }
+  .float.m1 { right: 20px; top: 520px; width: 100px; }
 }

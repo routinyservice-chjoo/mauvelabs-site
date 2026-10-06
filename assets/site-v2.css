@@ -285,5 +285,5 @@ html:lang(ko) body { word-break: keep-all; }
 }
 
 /* 왼쪽 위 회사 로고 — 이미지 높이로 크기를 정한다 */
-.brand-logo img { height: 80px; width: auto; border-radius: 0; }
-@media (max-width: 860px) { .brand-logo img { height: 54px; } }
+.brand-logo img { height: 92px; width: auto; border-radius: 0; }
+@media (max-width: 860px) { .brand-logo img { height: 62px; } }

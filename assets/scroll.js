@@ -33,7 +33,8 @@
   steps.forEach(function (s) { stepIO.observe(s); });
 
   // ③ 첫 화면 시차: 내릴수록 휴대폰은 세워지고 몽글이는 서로 다른 속도로 떠오른다
-  var phone = document.querySelector('.hero-art .phone');
+  var phone = document.querySelector('.hero-art .phone-main');
+  var side = document.querySelector('.hero-art .phone-side');
   var pol = document.querySelector('.hero-art .polaroid');
   var m1 = document.querySelector('.float.m1');
   var m2 = document.querySelector('.float.m2');
@@ -42,6 +43,7 @@
     ticking = false;
     var p = Math.min(Math.max(window.scrollY / 700, 0), 1);
     if (phone) { phone.style.rotate = (3 * p) + 'deg'; phone.style.translate = '0 ' + (-30 * p) + 'px'; }
+    if (side) { side.style.translate = '0 ' + (-80 * p) + 'px'; side.style.rotate = (4 * p) + 'deg'; }
     if (pol) { pol.style.translate = '0 ' + (-90 * p) + 'px'; pol.style.rotate = (-6 * p) + 'deg'; }
     if (m1) m1.style.translate = '0 ' + (-160 * p) + 'px';
     if (m2) m2.style.translate = '0 ' + (-70 * p) + 'px';

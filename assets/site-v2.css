@@ -287,3 +287,8 @@ html:lang(ko) body { word-break: keep-all; }
 /* 왼쪽 위 회사 로고 — 이미지 높이로 크기를 정한다 */
 .brand-logo img { height: 92px; width: auto; border-radius: 0; }
 @media (max-width: 860px) { .brand-logo img { height: 62px; } }
+
+/* 첫 화면 스토어 버튼 옆 최고 몽글이 */
+.badge-mongle { width: 120px; margin-left: 10px; }
+.badge-mongle img { height: auto !important; width: 100%; }
+@media (max-width: 860px) { .badge-mongle { display: none; } }

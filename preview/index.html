@@ -8,7 +8,7 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-  <link rel="stylesheet" href="preview.css?v=7">
+  <link rel="stylesheet" href="preview.css?v=8">
 </head>
 <body>
 <header class="nav wrap">
@@ -23,7 +23,7 @@
 <main>
   <!-- 첫 화면: 효용 한 줄 + 실제 앱 화면 + 공식 배지 -->
   <section class="hero wrap">
-    <div class="hero-copy">
+    <div class="hero-copy" data-reveal>
       <span class="sticker">a cozy mood diary</span>
       <h1>A soft little diary for how you <em>really</em> feel.</h1>
       <p class="lede">Tap Mongle, pick a mood, and you're done. Add a few words or a photo when you feel like it. No ads, no pressure.</p>
@@ -43,9 +43,9 @@
 
   <!-- 몽글이 다섯 표정: 캐릭터가 주인공 -->
   <section class="moods wrap" aria-labelledby="moods-title">
-    <h2 id="moods-title">Meet Mongle, your little cloud.</h2>
-    <p class="sub">Five moods, five faces. On the hard days, Mongle doesn't judge — it just stays close.</p>
-    <ul class="mood-row">
+    <h2 id="moods-title" data-reveal>Meet Mongle, your little cloud.</h2>
+    <p class="sub" data-reveal>Five moods, five faces. On the hard days, Mongle doesn't judge — it just stays close.</p>
+    <ul class="mood-row" data-reveal-group>
       <li><span class="mongle" data-anim="mongle-very-good-bounce"><img src="img/mongle-very-good.webp" alt=""></span><b>Great</b><span>Great day!</span></li>
       <li><span class="mongle" data-anim="mongle-good-bounce"><img src="img/mongle-good.webp" alt=""></span><b>Good</b><span>A nice, easy day.</span></li>
       <li><span class="mongle" data-anim="mongle-normal-idle"><img src="img/mongle-normal.webp" alt=""></span><b>Okay</b><span>Ordinary days count too.</span></li>
@@ -55,32 +55,47 @@
   </section>
 
   <!-- 지금 앱에 있는 기능만 -->
+  <!-- 애플 제품 페이지처럼: 휴대폰 한 대가 고정되고, 스크롤하면 설명이 지나가며 화면이 바뀐다(PC). 휴대폰에서는 차례로 쌓는다 -->
   <section id="how" class="how wrap" aria-labelledby="how-title">
-    <h2 id="how-title">A minute a day is enough.</h2>
-    <div class="cards">
-      <article class="card">
-        <figure class="polaroid tilt-l"><span class="tape pink"></span><img src="img/screen-2.webp" alt="Choosing a mood, feelings and activities in Maeumlog" width="240"></figure>
-        <h3>Check in, in seconds</h3>
-        <p>Pick a mood, tap a few feelings and what you did. Words are optional.</p>
-      </article>
-      <article class="card">
-        <figure class="polaroid tilt-r"><span class="tape mint"></span><img src="img/screen-4.webp" alt="A month of moods on the Maeumlog calendar" width="240"></figure>
-        <h3>See your month in color</h3>
-        <p>Every day becomes a little cloud on your calendar. Patterns show up on their own.</p>
-      </article>
-      <article class="card">
-        <figure class="polaroid tilt-l"><span class="tape lilac"></span><img src="img/screen-6.webp" alt="Maeumlog stats showing what lifts your mood" width="240"></figure>
-        <h3>Notice what lifts you up</h3>
-        <p>Gentle stats show which days feel lighter — with friends, after a walk, over coffee.</p>
-      </article>
+    <h2 id="how-title" data-reveal>A minute a day is enough.</h2>
+    <div class="story">
+      <div class="story-stage" aria-hidden="true">
+        <figure class="polaroid stage-frame"><span class="tape stage-tape"></span>
+          <div class="stage-screens">
+            <img src="img/screen-2.webp" alt="" class="on" data-step="0">
+            <img src="img/screen-4.webp" alt="" data-step="1">
+            <img src="img/screen-6.webp" alt="" data-step="2">
+          </div>
+        </figure>
+      </div>
+      <ol class="story-steps">
+        <li class="step is-active" data-step="0">
+          <span class="step-num">01</span>
+          <h3>Check in, in seconds</h3>
+          <p>Pick a mood, tap a few feelings and what you did. Words are optional.</p>
+          <figure class="polaroid step-shot tilt-l"><span class="tape pink"></span><img src="img/screen-2.webp" alt="Choosing a mood, feelings and activities in Maeumlog" width="240"></figure>
+        </li>
+        <li class="step" data-step="1">
+          <span class="step-num">02</span>
+          <h3>See your month in color</h3>
+          <p>Every day becomes a little cloud on your calendar. Patterns show up on their own.</p>
+          <figure class="polaroid step-shot tilt-r"><span class="tape mint"></span><img src="img/screen-4.webp" alt="A month of moods on the Maeumlog calendar" width="240"></figure>
+        </li>
+        <li class="step" data-step="2">
+          <span class="step-num">03</span>
+          <h3>Notice what lifts you up</h3>
+          <p>Gentle stats show which days feel lighter — with friends, after a walk, over coffee.</p>
+          <figure class="polaroid step-shot tilt-l"><span class="tape lilac"></span><img src="img/screen-6.webp" alt="Maeumlog stats showing what lifts your mood" width="240"></figure>
+        </li>
+      </ol>
     </div>
   </section>
 
   <!-- 미국 사용자가 특히 보는 개인정보 -->
   <section id="private" class="private wrap" aria-labelledby="private-title">
-    <div class="private-box">
+    <div class="private-box" data-reveal>
       <h2 id="private-title">Private by design.</h2>
-      <ul class="promises">
+      <ul class="promises" data-reveal-group>
         <li><b>No ads. Ever.</b><span>Your feelings aren't a product.</span></li>
         <li><b>Your diary, on your phone.</b><span>Sign in only if you want a cloud backup.</span></li>
         <li><b>Nothing sold or shared.</b><span>We don't sell your data to anyone.</span></li>
@@ -91,12 +106,12 @@
 
   <!-- 1.1.0 다이어리 꾸미기 예고 — 아직 없는 기능이라 '곧'으로만 -->
   <section id="soon" class="soon wrap" aria-labelledby="soon-title">
-    <div class="soon-copy">
+    <div class="soon-copy" data-reveal>
       <span class="sticker alt">coming soon</span>
       <h2 id="soon-title">Make every page yours.</h2>
       <p>Stickers, washi tape, and little doodles are on the way — so your diary can look as cozy as it feels.</p>
     </div>
-    <div class="sticker-sheet" aria-hidden="true">
+    <div class="sticker-sheet" aria-hidden="true" data-reveal-group>
       <span class="washi w1"></span><span class="washi w2"></span><span class="washi w3"></span>
       <img src="img/mongle-very-good.webp" alt="" class="s s1">
       <img src="img/mongle-good.webp" alt="" class="s s2">
@@ -106,7 +121,7 @@
     </div>
   </section>
 
-  <section class="cta wrap">
+  <section class="cta wrap" data-reveal>
     <span class="mongle cta-mongle" data-anim="mongle-normal-idle"><img src="img/mongle-normal.webp" alt="" width="180"></span>
     <h2>Be gentle with yourself today.</h2>
     <div class="badges center">
@@ -131,6 +146,7 @@
   </div>
   <p class="legal">© 2026 Mauve Labs · mauvelabs@mauvelabsinc.com · Seoul, Republic of Korea</p>
 </footer>
+<script src="scroll.js?v=8"></script>
 <script src="lottie_light.min.js"></script>
 <script>
 /* 몽글이 애니메이션 — 앱과 같은 Lottie(assets/animations)를 웹용으로 줄인 것.

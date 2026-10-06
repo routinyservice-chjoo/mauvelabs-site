@@ -116,13 +116,23 @@ h3 { font-size: 22px; margin: 18px 0 6px; }
 .mood-row b { font-family: var(--serif); font-size: 20px; }
 .mood-row li > span:not(.mongle) { font-size: 14px; color: var(--ink-soft); margin-top: 4px; }
 
-/* 기능 */
-.how { padding-top: 40px; padding-bottom: 80px; }
-.how h2 { text-align: center; margin-bottom: 44px; }
-.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; }
-.card { display: flex; flex-direction: column; align-items: center; text-align: center; }
-.card .polaroid { margin-bottom: 8px; }
-.card p { color: var(--ink-soft); margin: 0; max-width: 300px; }
+/* 기능 — 이야기 절 */
+.how { padding-top: 40px; padding-bottom: 60px; }
+.how h2 { text-align: center; margin-bottom: 20px; }
+.story { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+.story-stage { position: sticky; top: calc(50vh - 290px); height: 580px; display: flex; justify-content: center; align-items: center; }
+.stage-frame { padding: 14px 14px 40px; transform: rotate(-2deg); }
+.stage-screens { position: relative; width: 250px; aspect-ratio: 600 / 1220; }
+.stage-screens img { position: absolute; inset: 0; width: 100%; border-radius: 22px; opacity: 0; transform: scale(.96); transition: opacity .5s ease, transform .6s cubic-bezier(.2,.8,.2,1); }
+.stage-screens img.on { opacity: 1; transform: none; }
+.stage-tape { transition: background-color .4s ease; }
+.story-steps { list-style: none; margin: 0; padding: 0; }
+.step { min-height: 78vh; display: flex; flex-direction: column; justify-content: center; opacity: .28; transition: opacity .4s ease; }
+.step.is-active { opacity: 1; }
+.step-num { font-family: var(--serif); font-style: italic; color: var(--pink-deep); font-size: 18px; }
+.step h3 { font-size: clamp(28px, 3.4vw, 40px); margin: 8px 0 12px; }
+.step p { font-size: 19px; color: var(--ink-soft); max-width: 420px; margin: 0; }
+.step-shot { display: none; }
 
 /* 개인정보 */
 .private { padding-top: 20px; padding-bottom: 80px; }
@@ -142,14 +152,14 @@ h3 { font-size: 22px; margin: 18px 0 6px; }
   box-shadow: 0 14px 30px rgba(74, 64, 56, 0.08);
 }
 .washi { position: absolute; height: 30px; border-radius: 2px; background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.4) 0 7px, transparent 7px 14px); }
-.washi.w1 { width: 180px; left: 24px; top: 30px; background-color: rgba(247, 184, 200, 0.8); transform: rotate(-6deg); }
-.washi.w2 { width: 140px; right: 30px; top: 120px; background-color: rgba(252, 232, 178, 0.95); transform: rotate(8deg); }
-.washi.w3 { width: 200px; left: 70px; bottom: 34px; background-color: rgba(203, 217, 232, 0.95); transform: rotate(-3deg); }
+.washi.w1 { width: 180px; left: 24px; top: 30px; background-color: rgba(247, 184, 200, 0.8); --rest: rotate(-6deg); transform: var(--rest); }
+.washi.w2 { width: 140px; right: 30px; top: 120px; background-color: rgba(252, 232, 178, 0.95); --rest: rotate(8deg); transform: var(--rest); }
+.washi.w3 { width: 200px; left: 70px; bottom: 34px; background-color: rgba(203, 217, 232, 0.95); --rest: rotate(-3deg); transform: var(--rest); }
 .s { position: absolute; width: 110px; filter: drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff) drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff) drop-shadow(0 6px 8px rgba(74,64,56,.15)); }
-.s1 { left: 40px; top: 80px; transform: rotate(-8deg); }
-.s2 { left: 200px; top: 150px; transform: rotate(6deg); width: 95px; }
-.s3 { right: 40px; top: 190px; transform: rotate(-4deg); width: 100px; }
-.s4 { right: 120px; top: 30px; transform: rotate(10deg); width: 85px; }
+.s1 { left: 40px; top: 80px; --rest: rotate(-8deg); transform: var(--rest); }
+.s2 { left: 200px; top: 150px; --rest: rotate(6deg); transform: var(--rest); width: 95px; }
+.s3 { right: 40px; top: 190px; --rest: rotate(-4deg); transform: var(--rest); width: 100px; }
+.s4 { right: 120px; top: 30px; --rest: rotate(10deg); transform: var(--rest); width: 85px; }
 .doodle { position: absolute; font-size: 30px; color: var(--pink-deep); }
 .d1 { left: 160px; top: 40px; } .d2 { right: 60px; bottom: 40px; color: #B39BCB; } .d3 { left: 30px; bottom: 90px; color: #D9B45C; }
 
@@ -205,3 +215,20 @@ footer nav a { color: var(--ink-soft); }
 .mood-row .mongle img { width: 100%; margin: 0; }
 .float.mongle img { width: 100%; }
 @media (max-width: 860px) { .mood-row .mongle { width: 56px; } }
+
+/* 스크롤로 떠오르기 — scroll.js가 html에 .motion을 붙였을 때만 숨겨 둔다(스크립트가 없으면 처음부터 보인다) */
+.motion [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity .8s ease var(--d, 0ms), transform .9s cubic-bezier(.2,.8,.2,1) var(--d, 0ms); }
+.motion [data-reveal].in { opacity: 1; transform: none; }
+/* 스티커는 붙는 것처럼: 살짝 커졌다가 제자리 */
+.motion .sticker-sheet > [data-reveal] { transform: scale(.6) rotate(-12deg); }
+.motion .sticker-sheet > [data-reveal].in { transform: var(--rest, none); transition: opacity .5s ease var(--d), transform .6s cubic-bezier(.3,1.6,.5,1) var(--d); }
+.motion .mood-row > [data-reveal] { transform: translateY(24px) scale(.92); }
+.motion .mood-row > [data-reveal].in { transform: none; transition: opacity .6s ease var(--d), transform .7s cubic-bezier(.3,1.5,.5,1) var(--d); }
+
+@media (max-width: 860px) {
+  .story { display: block; }
+  .story-stage { display: none; }
+  .step { min-height: 0; opacity: 1; align-items: center; text-align: center; margin-bottom: 56px; }
+  .step p { margin-bottom: 26px; }
+  .step-shot { display: block; }
+}

@@ -10,6 +10,8 @@
   <link rel="canonical" href="https://mauvelabsinc.com/ko/">
   <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
   <meta name="theme-color" content="#FFF8F0">
+  <!-- 사업자등록번호 등 숫자를 아이폰이 전화번호 링크로 바꾸지 않게 -->
+  <meta name="format-detection" content="telephone=no">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="마음로그 · 모브랩스">
   <meta property="og:title" content="마음로그 — 내 마음을 있는 그대로 담는 작은 일기">
@@ -26,7 +28,7 @@
   <link rel="alternate" hreflang="x-default" href="https://mauvelabsinc.com/">
   <link rel="preload" href="../assets/fraunces.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-  <link rel="stylesheet" href="../assets/site-v2.css?v=13">
+  <link rel="stylesheet" href="../assets/site-v2.css?v=14">
 </head>
 <body>
 <header class="nav wrap">
@@ -163,7 +165,7 @@
   </div>
 <dl class="biz"><dt>상호</dt><dd>모브랩스(Mauve Labs)</dd><dt>대표자</dt><dd>주창환</dd><dt>사업자등록번호</dt><dd>485-21-02219</dd><dt>통신판매업신고번호</dt><dd>제2026-서울금천-1495호</dd><dt>주소</dt><dd>서울특별시 금천구 범안로12길 29-20, A동 301호(독산동)</dd><dt>이메일</dt><dd>mauvelabs@mauvelabsinc.com</dd></dl><p class="legal">© 2026 모브랩스</p>
 </footer>
-<script src="../assets/scroll.js?v=13"></script>
+<script src="../assets/scroll.js?v=14"></script>
 <script src="../assets/lottie_light.min.js"></script>
 <script>
 /* 몽글이 애니메이션 — 앱과 같은 Lottie(maeumlog-rn assets/animations)를 웹용으로 줄인 것.
@@ -177,7 +179,7 @@
   document.querySelectorAll('.mongle[data-anim]').forEach(function (el, i) {
     var box = document.createElement('span'); box.className = 'mongle-anim'; el.appendChild(box);
     var a = lottie.loadAnimation({ container: box, renderer: 'svg', loop: true, autoplay: !io,
-      path: '../anim/' + el.dataset.anim + '.json?v=13', rendererSettings: { preserveAspectRatio: 'xMidYMid meet' } });
+      path: '../anim/' + el.dataset.anim + '.json?v=14', rendererSettings: { preserveAspectRatio: 'xMidYMid meet' } });
     a.addEventListener('DOMLoaded', function () {
       a.goToAndStop((i * 17) % a.totalFrames, true); /* 같은 몽글이가 똑같이 움직이지 않게 시작 프레임을 엇갈린다 */
       el.classList.add('is-anim'); el._anim = a; if (io) io.observe(el); else a.play();

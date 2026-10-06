@@ -254,3 +254,11 @@ html:lang(ko) body { word-break: keep-all; }
 .biz { display: grid; grid-template-columns: max-content 1fr; gap: 2px 14px; margin: 22px 0 0; font-size: 13px; color: var(--ink-faint); }
 .biz dt { font-weight: 600; }
 .biz dd { margin: 0; }
+
+/* 좁은 휴대폰: 배지 두 개를 한 줄에(한국어 배지가 더 길다) */
+@media (max-width: 420px) {
+  .badges { flex-wrap: nowrap; gap: 4px; }
+  .badges a:first-child img { height: 40px; }
+  .badges .gp img { height: 58px; }
+  .badges .gp { margin: -9px 0; }
+}

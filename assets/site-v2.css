@@ -265,7 +265,7 @@ html:lang(ko) body { word-break: keep-all; }
 .hero-art .phone-side { left: auto; right: -70px; top: 120px; width: 210px; transform: rotate(5deg); z-index: 1; opacity: .98; }
 .hero-art .float { z-index: 3; }
 /* 원래 자리(홈 휴대폰 왼쪽)에서 설명 글 아래로만 조금 내린다 */
-.float.m1 { left: -120px; right: auto; top: 560px; }
+.float.m1 { left: -120px; right: auto; top: 515px; }
 .float.m2 { right: -60px; top: 30px; }
 @media (max-width: 860px) {
   .hero-art { height: 500px; }
@@ -281,5 +281,5 @@ html:lang(ko) body { word-break: keep-all; }
   .hero-art .phone-main { left: 38%; width: 260px; }
   .hero-art .phone-side { right: -10px; width: 180px; }
   .float.m2 { right: -10px; width: 100px; }
-  .float.m1 { left: -70px; right: auto; top: 560px; width: 110px; }
+  .float.m1 { left: -70px; right: auto; top: 515px; width: 110px; }
 }

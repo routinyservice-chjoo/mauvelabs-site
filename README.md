@@ -1,4 +1,4 @@
-# mauvelabsinc.com — Maeumlog 홈페이지
+# mauvelabsinc.com — DailyCumulus(데일리몽글) 홈페이지
 
 GitHub Pages로 나간다(무료 · `main`에 푸시하면 1분 안에 반영). 도메인 등록처는 Squarespace(DNS만 거기서 바꾼다).
 

@@ -22,7 +22,7 @@ GitHub Pages로 나간다(무료 · `main`에 푸시하면 1분 안에 반영). 
 
 ## 쓰는 것(전부 저장소 안 · 외부 계정 없음)
 
-- 몽글이 애니메이션: 앱(`maeumlog-rn/assets/animations`)의 Lottie를 웹용으로 줄인 `anim/*.json` + **lottie-web 5.13.0**(MIT · `assets/lottie_light.min.js`)
+- 몽글이 애니메이션: 앱(`dailycumulus-rn/assets/animations`)의 Lottie를 웹용으로 줄인 `anim/*.json` + **lottie-web 5.13.0**(MIT · `assets/lottie_light.min.js`)
 - 글꼴: Fraunces(OFL · `assets/fraunces.woff2`) · Pretendard(jsDelivr)
 - 다운로드 배지: Apple·Google 공식 배지(`img/` · `img/ko/`)
 - 앱 화면: App Store 스크린샷에서 휴대폰 부분만 잘라 씀(`img/screen-*.webp`)

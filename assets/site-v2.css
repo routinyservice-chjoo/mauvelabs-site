@@ -73,8 +73,9 @@ h3 { font-size: 22px; margin: 18px 0 6px; }
 .badges { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
 .badges.center { justify-content: center; }
 .badges a { display: block; }
-.badges img { width: auto; }
-.badges img { height: var(--badge-h, 50px); }
+/* 두 배지를 같은 너비로(2026-10-10 대표님 「버튼 크기 똑같이」). 공식 배지는 비율이 달라 높이까지 같게 하려면 그림을 늘려야 해서,
+   너비를 맞추고 높이는 각자 비율대로 둔다 · 세로 가운데 정렬 */
+.badges img { width: var(--badge-w, 160px); height: auto; }
 
 /* 첫 화면 */
 .hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 40px; align-items: center; padding-top: 40px; padding-bottom: 80px; }
@@ -257,7 +258,7 @@ html:lang(ko) body { word-break: keep-all; }
 
 /* 좁은 휴대폰: 배지 두 개를 한 줄에(한국어 배지가 더 길다) */
 @media (max-width: 420px) {
-  .badges { flex-wrap: nowrap; gap: 8px; --badge-h: 42px; }
+  .badges { flex-wrap: nowrap; gap: 8px; --badge-w: 134px; }
 }
 
 /* 첫 화면 휴대폰 두 대: 홈(앞·크게) + 달력(뒤·작게). 홈 화면은 아무것도 가리지 않는다 */

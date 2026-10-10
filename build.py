@@ -18,7 +18,7 @@ import sys
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = 'https://mauvelabsinc.com/'
 # CSS·JS·애니메이션을 고치면 올린다 — 브라우저가 옛 파일을 붙들지 않게
-VERSION = '40'
+VERSION = '41'
 
 
 def load_locales():

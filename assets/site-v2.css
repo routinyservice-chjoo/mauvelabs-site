@@ -73,9 +73,10 @@ h3 { font-size: 22px; margin: 18px 0 6px; }
 .badges { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; }
 .badges.center { justify-content: center; }
 .badges a { display: block; }
-/* 두 배지를 같은 너비로(2026-10-10 대표님 「버튼 크기 똑같이」). 공식 배지는 비율이 달라 높이까지 같게 하려면 그림을 늘려야 해서,
-   너비를 맞추고 높이는 각자 비율대로 둔다 · 세로 가운데 정렬 */
-.badges img { width: var(--badge-w, 160px); height: auto; }
+/* 두 배지를 같은 높이로(2026-10-11 대표님 「버튼 크기가 틀리다」). 공식 배지는 가로세로 비율이 달라 너비와 높이를 둘 다 맞출 수 없다 —
+   Google 배지 지침이 「다른 스토어 배지와 같거나 더 크게」라서 같은 너비(10/10)는 Google 배지가 더 낮아 어긋났다. 높이를 맞추면
+   Google 배지가 조금 넓어져 지침을 지킨다 · Apple 지침대로 App Store 배지가 먼저(검은 배지) */
+.badges img { height: var(--badge-h, 52px); width: auto; }
 
 /* 첫 화면 */
 .hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 40px; align-items: center; padding-top: 40px; padding-bottom: 80px; }
@@ -258,7 +259,7 @@ html:lang(ko) body { word-break: keep-all; }
 
 /* 좁은 휴대폰: 배지 두 개를 한 줄에(한국어 배지가 더 길다) */
 @media (max-width: 420px) {
-  .badges { flex-wrap: nowrap; gap: 8px; --badge-w: 134px; }
+  .badges { flex-wrap: nowrap; gap: 8px; --badge-h: 44px; }
 }
 
 /* 첫 화면 휴대폰 두 대: 홈(앞·크게) + 달력(뒤·작게). 홈 화면은 아무것도 가리지 않는다 */

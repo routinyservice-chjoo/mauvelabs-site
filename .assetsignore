@@ -1,0 +1,11 @@
+# 공개하지 않는 파일 — 빌드 원본·설정(.gitignore 형식)
+.git
+.github
+.assetsignore
+.nojekyll
+wrangler.jsonc
+build.py
+templates
+locales
+README.md
+CNAME

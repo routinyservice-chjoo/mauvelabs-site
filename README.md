@@ -1,6 +1,6 @@
 # mauvelabsinc.com — DailyCumulus(데일리몽글) 홈페이지
 
-GitHub Pages로 나간다(무료 · `main`에 푸시하면 1분 안에 반영). 도메인 등록처는 Squarespace(DNS만 거기서 바꾼다).
+**Cloudflare Workers `mauvelabs-site`로 나간다**(2026-10-12부터 · 무료 · 루트·`www`는 Workers 사용자 지정 도메인 · 인증서 자동). `main`에 푸시하면 GitHub Actions(`.github/workflows/deploy.yml`)가 배포한다 — 저장소 시크릿 `CLOUDFLARE_API_TOKEN`이 있어야 하고, 없으면 건너뛴다. 손으로 배포할 때는 `CLOUDFLARE_API_TOKEN=$(security find-generic-password -s dailycumulus -a cloudflare-api-token -w) CLOUDFLARE_ACCOUNT_ID=9c8bfa7b3a161a869b82e939d2c5a252 npx wrangler@4.149.0 deploy`. **DNS는 Cloudflare에서 고친다**(네임서버 Cloudflare · DNSSEC도 Cloudflare). 도메인 등록·결제만 Squarespace에 남는다.
 
 ## 구조 — 틀 하나 + 언어별 문구
 
@@ -18,7 +18,7 @@ GitHub Pages로 나간다(무료 · `main`에 푸시하면 1분 안에 반영). 
 1. `locales/en.json`을 복사해 `locales/ja.json`처럼 만들고 `lang` · `path`(예 `ja/`) · `language_name` · `og_locale`과 문구를 바꾼다
 2. 그 언어의 앱 스크린샷이 있으면 `img/ja/screen-{1,2,4,6}.webp`로 넣고 `shot_dir`을 `img/ja/`로. 공식 배지(Apple · Google)도 그 언어판을 `badge_dir`에
 3. 라틴 문자가 아니면 `assets/site-v2.css`의 `html:lang(ko)` 규칙처럼 제목 글꼴을 정한다(Fraunces는 라틴 전용)
-4. `python3 build.py` — 키가 빠지면 멈춘다 → 푸시
+4. `python3 build.py` — 키가 빠지면 멈춘다 → 푸시(자동 배포) · 시크릿이 없으면 위 `wrangler deploy`
 
 ## 쓰는 것(전부 저장소 안 · 외부 계정 없음)
 

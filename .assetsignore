@@ -9,3 +9,6 @@ templates
 locales
 README.md
 CNAME
+node_modules
+package.json
+package-lock.json

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!-- ⚠️ build.py가 /support/ · /<언어>/support/를 만든다(직접 고치지 않는다) -->
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>고객 지원 · 데일리몽글</title>
+  <meta name="description" content="데일리몽글 고객 지원 — 문의하기, 구독 해지, 구매 복원, 환불, 계정 삭제 방법을 안내해요.">
+  <!-- 파비콘은 회사 심볼(스티커 M) — assets/brand -->
+  <link rel="icon" href="../../favicon.ico?v=44" sizes="any">
+  <link rel="icon" href="../../assets/brand/favicon-32.png?v=44" type="image/png" sizes="32x32">
+  <link rel="icon" href="../../assets/brand/favicon-192.png?v=44" type="image/png" sizes="192x192">
+  <link rel="canonical" href="https://mauvelabsinc.com/ko/support/">
+  <link rel="apple-touch-icon" href="../../assets/brand/apple-touch-icon.png?v=44">
+  <meta name="theme-color" content="#FFF8F0">
+  <!-- 사업자등록번호 등 숫자를 아이폰이 전화번호 링크로 바꾸지 않게 -->
+  <meta name="format-detection" content="telephone=no">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="데일리몽글 · 모브랩스">
+  <meta property="og:title" content="데일리몽글 · 지금 내 기분, 가볍게 남겨요">
+  <meta property="og:description" content="몽글이 누르고 기분 선택하면 끝. 광고도 없고, 부담도 없어요.">
+  <meta property="og:url" content="https://mauvelabsinc.com/ko/">
+  <meta property="og:image" content="https://mauvelabsinc.com/assets/og-ko.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="apple-itunes-app" content="app-id=6814691795">
+  <link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/support/">
+  <link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/support/">
+  <link rel="alternate" hreflang="x-default" href="https://mauvelabsinc.com/support/">
+  <link rel="preload" href="../../assets/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="../../assets/site-v2.css?v=44">
+</head>
+<body>
+<header class="nav wrap">
+  <!-- 회사 로고(모브랩스). 원본은 assets/brand/mauvelabs-logo-original.png -->
+  <a class="brand brand-logo" href="../../ko/" aria-label="Mauve Labs"><img src="../../assets/brand/mauvelabs-logo@2x.png?v=44" alt="Mauve Labs" height="48"></a>
+  <nav aria-label="Main">
+    <a href="../../ko/">홈</a>
+  </nav>
+</header>
+
+<main class="wrap support">
+  <!-- 고객 문의 — App Store 「지원 URL」 · Play 「웹사이트」가 가리키는 곳. 앱이 실제로 하는 것만 적는다(경로는 앱 문구와 같게) -->
+  <section class="support-head">
+    <h1>고객 지원</h1>
+    <p class="lede">궁금한 점, 오류, 의견이 있으면 메일로 보내 주세요. 작은 팀이 메일 하나하나 직접 읽어요.</p>
+    <p><a class="text-link" href="mailto:mauvelabs@mauvelabsinc.com">mauvelabs@mauvelabsinc.com</a></p>
+  </section>
+  <section class="support-faq" aria-labelledby="faq-title">
+    <h2 id="faq-title">자주 묻는 질문</h2>
+    <h3>구독은 어떻게 해지하나요?</h3>
+    <p>구독은 Apple·Google에서 관리돼요. <b>아이폰:</b> 설정 › 내 이름 › 구독 › 데일리몽글. <b>안드로이드:</b> Google Play 스토어 › 프로필 › 결제 및 정기 결제 › 정기 결제. 앱이나 계정을 삭제해도 구독은 해지되지 않아요.</p>
+    <h3>휴대폰을 변경했어요. 프리미엄을 다시 쓰려면요?</h3>
+    <p>데일리몽글을 설치하고 같은 계정으로 로그인한 뒤, 프리미엄 화면에서 <b>구매 복원</b>을 눌러 주세요. 결제할 때 쓴 Apple ID·Google 계정이어야 해요.</p>
+    <h3>환불받을 수 있나요?</h3>
+    <p>결제는 App Store·Google Play에서 이뤄져요. 환불은 Apple <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>이나 Google Play 주문 내역에서 요청하거나, 메일로 문의해 주세요. 환불 기준(결제 후 7일 이내 청약철회 등)은 <a href="https://apps.mauvelabsinc.com/dailycumulus/ko/terms.html">이용약관</a> 제11조에 있어요.</p>
+    <h3>계정은 어떻게 삭제하나요?</h3>
+    <p>앱에서 프로필 › 설정 › <b>계정 삭제</b>를 눌러 주세요. <a href="https://apps.mauvelabsinc.com/dailycumulus/ko/account-deletion.html">여기에서 삭제를 요청</a>할 수도 있어요.</p>
+    <h3>기록은 어디에 저장되나요?</h3>
+    <p>무료 서비스에서는 기록이 휴대폰에만 저장돼요. 프리미엄 서비스를 쓰면 클라우드에도 보관돼요. 자세한 내용은 <a href="https://apps.mauvelabsinc.com/dailycumulus/ko/privacy.html">개인정보처리방침</a>을 확인해 주세요.</p>
+  </section>
+  <p class="fine">데일리몽글은 개인 기록 앱이며 의료·정신건강 서비스가 아니에요. 위급한 상황이면 109(자살예방상담전화) 또는 112·119에 연락해 주세요.</p>
+</main>
+
+<footer class="wrap">
+  <div class="foot-top">
+    <div>
+      <p class="made">데일리몽글은 작은 앱 스튜디오 <b>모브랩스</b>가 만들어요.</p>
+      <p class="also">모브랩스는 <a href="https://apps.apple.com/kr/app/id6758573546">루티니</a>도 만들어요. 루틴을 지키면 식물이 자라는 습관 앱이에요.</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="https://apps.mauvelabsinc.com/dailycumulus/ko/privacy.html">개인정보처리방침</a>
+      <a href="https://apps.mauvelabsinc.com/dailycumulus/ko/terms.html">이용약관</a>
+      <a href="../../ko/support/">고객 지원</a>
+      <a href="mailto:mauvelabs@mauvelabsinc.com">문의</a>
+      <a href="../../support/" lang="en" hreflang="en">English</a>
+    </nav>
+  </div>
+<dl class="biz"><dt>상호</dt><dd>모브랩스(Mauve Labs)</dd><dt>대표자</dt><dd>주창환</dd><dt>사업자등록번호</dt><dd>485-21-02219</dd><dt>통신판매업신고번호</dt><dd>제2026-서울금천-1495호</dd><dt>주소</dt><dd>서울특별시 금천구 범안로12길 29-20, A동 301호(독산동)</dd><dt>이메일</dt><dd>mauvelabs@mauvelabsinc.com</dd></dl><p class="legal">© 2026 모브랩스</p>
+</footer>
+</body>
+</html>

@@ -18,7 +18,7 @@ import sys
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = 'https://mauvelabsinc.com/'
 # CSS·JS·애니메이션을 고치면 올린다 — 브라우저가 옛 파일을 붙들지 않게
-VERSION = '43'
+VERSION = '44'
 
 
 def load_locales():
@@ -65,12 +65,35 @@ def main():
             f.write(page)
         print(f"✅ {loc['lang']:>3} → /{loc['path']}index.html")
 
+        # 고객 지원 페이지(/support/ · /ko/support/) — App Store 지원 URL · Play 웹사이트가 가리킨다(2026-10-13)
+        sb = '../' * (depth + 1)
+        salts = [f'  <link rel="alternate" hreflang="{l["lang"]}" href="{SITE}{l["path"]}support/">' for l in locales]
+        salts.append(f'  <link rel="alternate" hreflang="x-default" href="{SITE}support/">')
+        slinks = [f'      <a href="{sb}{l["path"]}support/" lang="{l["lang"]}" hreflang="{l["lang"]}">{html.escape(l["language_name"])}</a>'
+                  for l in locales if l is not loc]
+        svalues = {**values, 'b': sb, 'sup_hreflang': '\n'.join(salts), 'sup_lang_links': '\n'.join(slinks)}
+
+        def sfill(m):
+            key = m.group(1)
+            if key not in svalues:
+                sys.exit(f"[{loc['lang']}] support 틀의 {{{{{key}}}}}가 문구 파일에 없다")
+            return str(svalues[key])
+
+        with open(os.path.join(ROOT, 'templates', 'support.html'), encoding='utf-8') as f:
+            spage = re.sub(r'\{\{(\w+)\}\}', sfill, f.read())
+        os.makedirs(os.path.join(out_dir, 'support'), exist_ok=True)
+        with open(os.path.join(out_dir, 'support', 'index.html'), 'w', encoding='utf-8') as f:
+            f.write(spage)
+        print(f"✅ {loc['lang']:>3} → /{loc['path']}support/index.html")
+
     # sitemap — 언어마다 서로를 가리킨다
     urls = []
     for loc in locales:
         alt = ''.join(f'\n    <xhtml:link rel="alternate" hreflang="{l["lang"]}" href="{SITE}{l["path"]}"/>' for l in locales)
         alt += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{SITE}"/>'
         urls.append(f'  <url>\n    <loc>{SITE}{loc["path"]}</loc>{alt}\n  </url>')
+        salt = ''.join(f'\n    <xhtml:link rel="alternate" hreflang="{l["lang"]}" href="{SITE}{l["path"]}support/"/>' for l in locales)
+        urls.append(f'  <url>\n    <loc>{SITE}{loc["path"]}support/</loc>{salt}\n  </url>')
     with open(os.path.join(ROOT, 'sitemap.xml'), 'w', encoding='utf-8') as f:
         f.write('<?xml version="1.0" encoding="UTF-8"?>\n'
                 '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'

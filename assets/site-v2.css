@@ -289,3 +289,14 @@ html:lang(ko) body { word-break: keep-all; }
 /* 왼쪽 위 회사 로고 — 이미지 높이로 크기를 정한다 */
 .brand-logo img { height: 92px; width: auto; border-radius: 0; }
 @media (max-width: 860px) { .brand-logo img { height: 62px; } }
+
+/* 고객 지원 페이지(/support/) — 글 위주 · 읽기 편한 폭 */
+.support { max-width: 720px; padding-top: 24px; padding-bottom: 56px; }
+.support h1 { font-size: clamp(36px, 5vw, 52px); }
+.support-faq { margin-top: 40px; }
+.support-faq h2 { font-size: clamp(26px, 3.4vw, 34px); }
+.support-faq h3 { font-size: 20px; margin: 28px 0 8px; }
+.support-faq p { color: var(--ink-soft); margin: 0; line-height: 1.6; }
+.support-faq a, .support .fine a { color: var(--pink-deep); }
+.support > .fine { margin-top: 40px; }
+

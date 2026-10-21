@@ -18,7 +18,9 @@ import sys
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = 'https://mauvelabsinc.com/'
 # CSS·JS·애니메이션을 고치면 올린다 — 브라우저가 옛 파일을 붙들지 않게
-VERSION = '44'
+VERSION = '46'
+# 언어 버튼 아이콘(지구본 · 장식이라 읽지 않게)
+GLOBE = '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>'
 
 
 def load_locales():
@@ -49,8 +51,11 @@ def main():
         alts.append(f'  <link rel="alternate" hreflang="x-default" href="{SITE}">')
         links = [f'      <a href="{b}{l["path"]}" lang="{l["lang"]}" hreflang="{l["lang"]}">{html.escape(l["language_name"])}</a>'
                  for l in locales if l is not loc]
+        # 상단 메뉴의 언어 변경 버튼(2026-10-21 대표님 「홈페이지 상단에 언어변경 메뉴」) — 다른 언어로 바로 간다
+        nav_lang = '\n'.join(f'    <a class="nav-lang" href="{b}{l["path"]}" lang="{l["lang"]}" hreflang="{l["lang"]}">{GLOBE}<span class="lang-full">{html.escape(l["language_name"])}</span><span class="lang-short" aria-hidden="true">{l["lang"].upper()}</span></a>'
+                              for l in locales if l is not loc)
         values = {**loc, 'b': b, 'v': VERSION, 'url': SITE + loc['path'],
-                  'hreflang': '\n'.join(alts), 'lang_links': '\n'.join(links)}
+                  'hreflang': '\n'.join(alts), 'lang_links': '\n'.join(links), 'nav_lang': nav_lang}
 
         def fill(m):
             key = m.group(1)
@@ -71,7 +76,10 @@ def main():
         salts.append(f'  <link rel="alternate" hreflang="x-default" href="{SITE}support/">')
         slinks = [f'      <a href="{sb}{l["path"]}support/" lang="{l["lang"]}" hreflang="{l["lang"]}">{html.escape(l["language_name"])}</a>'
                   for l in locales if l is not loc]
-        svalues = {**values, 'b': sb, 'sup_hreflang': '\n'.join(salts), 'sup_lang_links': '\n'.join(slinks)}
+        sup_nav_lang = '\n'.join(f'    <a class="nav-lang" href="{sb}{l["path"]}support/" lang="{l["lang"]}" hreflang="{l["lang"]}">{GLOBE}<span class="lang-full">{html.escape(l["language_name"])}</span><span class="lang-short" aria-hidden="true">{l["lang"].upper()}</span></a>'
+                                  for l in locales if l is not loc)
+        svalues = {**values, 'b': sb, 'sup_hreflang': '\n'.join(salts), 'sup_lang_links': '\n'.join(slinks),
+                   'sup_nav_lang': sup_nav_lang}
 
         def sfill(m):
             key = m.group(1)

@@ -51,6 +51,17 @@ a { color: var(--ink); }
 .nav nav { display: flex; gap: 22px; font-size: 15px; }
 .nav nav a { text-decoration: none; color: var(--ink-soft); }
 .nav nav a:hover { color: var(--ink); }
+/* 상단 언어 변경 버튼(2026-10-21) — 휴대폰에서도 보인다 · 테두리 알약 */
+.nav nav { align-items: center; }
+.nav nav a.nav-lang { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-soft); white-space: nowrap; }
+.nav nav a.nav-lang:hover { color: var(--ink); border-color: currentColor; }
+.nav-lang .lang-short { display: none; }
+@media (max-width: 600px) {
+  .nav nav { gap: 14px; }
+  .nav nav a.nav-lang { padding: 5px 10px; }
+  .nav-lang .lang-full { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .nav-lang .lang-short { display: inline; font-size: 13px; letter-spacing: .04em; }
+}
 
 /* 손으로 붙인 라벨 */
 .sticker {

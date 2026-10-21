@@ -51,16 +51,24 @@ a { color: var(--ink); }
 .nav nav { display: flex; gap: 22px; font-size: 15px; }
 .nav nav a { text-decoration: none; color: var(--ink-soft); }
 .nav nav a:hover { color: var(--ink); }
-/* 상단 언어 변경 버튼(2026-10-21) — 휴대폰에서도 보인다 · 테두리 알약 */
+/* 상단 언어 선택 드롭다운(2026-10-21 대표님) — <details>라 스크립트 없이 열린다 · 휴대폰은 EN/KO로 짧게 */
 .nav nav { align-items: center; }
-.nav nav a.nav-lang { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-soft); white-space: nowrap; }
-.nav nav a.nav-lang:hover { color: var(--ink); border-color: currentColor; }
-.nav-lang .lang-short { display: none; }
+.lang-menu { position: relative; }
+.lang-menu summary { list-style: none; display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-soft); cursor: pointer; white-space: nowrap; font-size: 15px; }
+.lang-menu summary::-webkit-details-marker { display: none; }
+.lang-menu summary:hover, .lang-menu[open] summary { color: var(--ink); border-color: currentColor; }
+.lang-menu .chev { transition: transform .15s ease; }
+.lang-menu[open] .chev { transform: rotate(180deg); }
+.lang-menu ul { position: absolute; right: 0; top: calc(100% + 8px); min-width: 150px; margin: 0; padding: 6px; list-style: none; background: var(--paper, #fff); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 12px 28px rgba(74, 64, 56, 0.14); z-index: 20; }
+.lang-menu li a { display: block; padding: 10px 12px; border-radius: 10px; color: var(--ink-soft); text-decoration: none; }
+.lang-menu li a:hover { background: var(--line); color: var(--ink); }
+.lang-menu li a[aria-current="true"] { color: var(--ink); font-weight: 600; }
+.lang-menu .lang-short { display: none; }
 @media (max-width: 600px) {
   .nav nav { gap: 14px; }
-  .nav nav a.nav-lang { padding: 5px 10px; }
-  .nav-lang .lang-full { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
-  .nav-lang .lang-short { display: inline; font-size: 13px; letter-spacing: .04em; }
+  .lang-menu summary { padding: 5px 10px; }
+  .lang-menu .lang-full { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .lang-menu .lang-short { display: inline; font-size: 13px; letter-spacing: .04em; }
 }
 
 /* 손으로 붙인 라벨 */

@@ -18,9 +18,24 @@ import sys
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = 'https://mauvelabsinc.com/'
 # CSS·JS·애니메이션을 고치면 올린다 — 브라우저가 옛 파일을 붙들지 않게
-VERSION = '46'
+VERSION = '47'
 # 언어 버튼 아이콘(지구본 · 장식이라 읽지 않게)
 GLOBE = '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>'
+
+
+
+def lang_menu(current, locales, href):
+    """상단 언어 선택 드롭다운(2026-10-21 대표님 「드롭다운으로 선택」). 지금 언어가 버튼에 보이고, 펼치면 전부 고른다."""
+    items = []
+    for l in locales:
+        cur = ' aria-current="true"' if l is current else ''
+        items.append(f'        <li><a href="{href(l)}" lang="{l["lang"]}" hreflang="{l["lang"]}"{cur}>{html.escape(l["language_name"])}</a></li>')
+    return (f'    <details class="lang-menu">\n'
+            f'      <summary aria-label="{html.escape(current["lang_menu_label"])}">{GLOBE}'
+            f'<span class="lang-full">{html.escape(current["language_name"])}</span>'
+            f'<span class="lang-short" aria-hidden="true">{current["lang"].upper()}</span>'
+            f'<svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>\n'
+            f'      <ul>\n' + '\n'.join(items) + '\n      </ul>\n    </details>')
 
 
 def load_locales():
@@ -52,8 +67,7 @@ def main():
         links = [f'      <a href="{b}{l["path"]}" lang="{l["lang"]}" hreflang="{l["lang"]}">{html.escape(l["language_name"])}</a>'
                  for l in locales if l is not loc]
         # 상단 메뉴의 언어 변경 버튼(2026-10-21 대표님 「홈페이지 상단에 언어변경 메뉴」) — 다른 언어로 바로 간다
-        nav_lang = '\n'.join(f'    <a class="nav-lang" href="{b}{l["path"]}" lang="{l["lang"]}" hreflang="{l["lang"]}">{GLOBE}<span class="lang-full">{html.escape(l["language_name"])}</span><span class="lang-short" aria-hidden="true">{l["lang"].upper()}</span></a>'
-                              for l in locales if l is not loc)
+        nav_lang = lang_menu(loc, locales, lambda l: f'{b}{l["path"]}')
         values = {**loc, 'b': b, 'v': VERSION, 'url': SITE + loc['path'],
                   'hreflang': '\n'.join(alts), 'lang_links': '\n'.join(links), 'nav_lang': nav_lang}
 
@@ -76,8 +90,7 @@ def main():
         salts.append(f'  <link rel="alternate" hreflang="x-default" href="{SITE}support/">')
         slinks = [f'      <a href="{sb}{l["path"]}support/" lang="{l["lang"]}" hreflang="{l["lang"]}">{html.escape(l["language_name"])}</a>'
                   for l in locales if l is not loc]
-        sup_nav_lang = '\n'.join(f'    <a class="nav-lang" href="{sb}{l["path"]}support/" lang="{l["lang"]}" hreflang="{l["lang"]}">{GLOBE}<span class="lang-full">{html.escape(l["language_name"])}</span><span class="lang-short" aria-hidden="true">{l["lang"].upper()}</span></a>'
-                                  for l in locales if l is not loc)
+        sup_nav_lang = lang_menu(loc, locales, lambda l: f'{sb}{l["path"]}support/')
         svalues = {**values, 'b': sb, 'sup_hreflang': '\n'.join(salts), 'sup_lang_links': '\n'.join(slinks),
                    'sup_nav_lang': sup_nav_lang}
 

@@ -49,7 +49,8 @@ a { color: var(--ink); }
 .brand { display: flex; align-items: center; gap: 10px; font-family: var(--serif); font-weight: 700; font-size: 22px; text-decoration: none; }
 .brand img { border-radius: 10px; }
 .nav nav { display: flex; gap: 22px; font-size: 15px; }
-.nav nav a { text-decoration: none; color: var(--ink-soft); }
+.nav nav a { text-decoration: none; color: var(--ink-soft); white-space: nowrap; }
+.nav nav a[aria-current="page"] { color: var(--ink); font-weight: 600; }
 .nav nav a:hover { color: var(--ink); }
 /* 상단 언어 선택 드롭다운(2026-10-21 대표님) — <details>라 스크립트 없이 열린다 · 휴대폰은 EN/KO로 짧게 */
 .nav nav { align-items: center; }
@@ -66,6 +67,8 @@ a { color: var(--ink); }
 .lang-menu .lang-short { display: none; }
 @media (max-width: 600px) {
   .nav nav { gap: 14px; }
+  /* 휴대폰 폭에선 상단 메뉴를 개발노트 + 언어만 남긴다(사용법은 스크롤로 · 홈은 로고로 간다) */
+  .hide-xs { display: none; }
   .lang-menu summary { padding: 5px 10px; }
   .lang-menu .lang-full { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .lang-menu .lang-short { display: inline; font-size: 13px; letter-spacing: .04em; }
@@ -164,25 +167,15 @@ h3 { font-size: 22px; margin: 18px 0 6px; }
 .promises span { color: var(--ink-soft); font-size: 15px; }
 .text-link { color: var(--pink-deep); font-weight: 600; }
 
-/* 곧 나올 꾸미기 */
+/* 1.1.0 새 기능 — 글 + 실제 위젯 캡처 한 장 */
 .soon { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; padding-top: 20px; padding-bottom: 90px; }
 .soon-copy h2 { margin-top: 16px; }
 .soon-copy p { font-size: 18px; color: var(--ink-soft); max-width: 440px; }
-.sticker-sheet {
-  position: relative; height: 340px; border-radius: 24px; background: var(--card); border: 1px dashed #D9CFC5;
-  box-shadow: 0 14px 30px rgba(74, 64, 56, 0.08);
-}
-.washi { position: absolute; height: 30px; border-radius: 2px; background-image: repeating-linear-gradient(90deg, rgba(255,255,255,.4) 0 7px, transparent 7px 14px); }
-.washi.w1 { width: 180px; left: 24px; top: 30px; background-color: rgba(247, 184, 200, 0.8); --rest: rotate(-6deg); transform: var(--rest); }
-.washi.w2 { width: 140px; right: 30px; top: 120px; background-color: rgba(252, 232, 178, 0.95); --rest: rotate(8deg); transform: var(--rest); }
-.washi.w3 { width: 200px; left: 70px; bottom: 34px; background-color: rgba(203, 217, 232, 0.95); --rest: rotate(-3deg); transform: var(--rest); }
-.s { position: absolute; width: 110px; filter: drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff) drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff) drop-shadow(0 6px 8px rgba(74,64,56,.15)); }
-.s1 { left: 40px; top: 80px; --rest: rotate(-8deg); transform: var(--rest); }
-.s2 { left: 200px; top: 150px; --rest: rotate(6deg); transform: var(--rest); width: 95px; }
-.s3 { right: 40px; top: 190px; --rest: rotate(-4deg); transform: var(--rest); width: 100px; }
-.s4 { right: 120px; top: 30px; --rest: rotate(10deg); transform: var(--rest); width: 85px; }
-.doodle { position: absolute; font-size: 30px; color: var(--pink-deep); }
-.d1 { left: 160px; top: 40px; } .d2 { right: 60px; bottom: 40px; color: #B39BCB; } .d3 { left: 30px; bottom: 90px; color: #D9B45C; }
+.new-list { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 10px; max-width: 460px; }
+.new-list li { padding: 12px 16px; border-radius: 16px; background: var(--card); border: 1px solid var(--line); color: var(--ink-soft); font-size: 15px; }
+.new-list b { display: block; color: var(--ink); }
+.new-shot { width: auto; max-width: 100%; justify-self: center; }
+.new-shot img { width: 440px; max-width: 100%; height: auto; }
 
 /* 마무리 */
 .cta { text-align: center; padding-top: 30px; padding-bottom: 80px; display: flex; flex-direction: column; align-items: center; }
@@ -215,12 +208,6 @@ footer nav a { color: var(--ink-soft); }
   .cards, .promises { grid-template-columns: 1fr; }
   .cards { gap: 46px; }
   .private-box { padding: 32px 20px; }
-  .sticker-sheet { height: 300px; }
-  .s { width: 92px; }
-  .s1 { left: 18px; top: 70px; }
-  .s2 { left: 130px; top: 175px; width: 84px; }
-  .s3 { right: 18px; top: 175px; width: 84px; }
-  .s4 { right: 24px; top: 40px; width: 76px; }
   .hide-sm { display: none; }
 }
 
@@ -240,9 +227,6 @@ footer nav a { color: var(--ink-soft); }
 /* 스크롤로 떠오르기 — scroll.js가 html에 .motion을 붙였을 때만 숨겨 둔다(스크립트가 없으면 처음부터 보인다) */
 .motion [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity .8s ease var(--d, 0ms), transform .9s cubic-bezier(.2,.8,.2,1) var(--d, 0ms); }
 .motion [data-reveal].in { opacity: 1; transform: none; }
-/* 스티커는 붙는 것처럼: 살짝 커졌다가 제자리 */
-.motion .sticker-sheet > [data-reveal] { transform: scale(.6) rotate(-12deg); }
-.motion .sticker-sheet > [data-reveal].in { transform: var(--rest, none); transition: opacity .5s ease var(--d), transform .6s cubic-bezier(.3,1.6,.5,1) var(--d); }
 .motion .mood-row > [data-reveal] { transform: translateY(24px) scale(.92); }
 .motion .mood-row > [data-reveal].in { transform: none; transition: opacity .6s ease var(--d), transform .7s cubic-bezier(.3,1.5,.5,1) var(--d); }
 
@@ -319,3 +303,13 @@ html:lang(ko) body { word-break: keep-all; }
 .support-faq a, .support .fine a { color: var(--pink-deep); }
 .support > .fine { margin-top: 40px; }
 
+
+/* 개발노트(/notes/) — 버전마다 한 묶음 · 새 버전이 위 */
+.note { margin-top: 36px; padding: 26px 24px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); }
+.note-meta { margin: 0; font-size: 14px; color: var(--ink-faint); }
+.note-ver { display: inline-block; margin-right: 8px; padding: 2px 10px; border-radius: 999px; background: var(--pink); color: var(--ink); font-weight: 700; }
+.note h2 { font-size: clamp(24px, 3.2vw, 30px); margin: 10px 0 14px; }
+.note-list { margin: 0; padding-left: 20px; color: var(--ink-soft); line-height: 1.6; }
+.note-list li { margin-bottom: 10px; }
+.note-list b { display: block; color: var(--ink); }
+@media (max-width: 600px) { .note { padding: 22px 18px; } }

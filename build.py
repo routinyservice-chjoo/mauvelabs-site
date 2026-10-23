@@ -7,7 +7,8 @@
 - **새 언어를 더할 때**: locales/en.json을 복사해 <언어>.json을 만들고 lang·path·og_locale·문구를 바꾼다.
   화면 속 앱 스크린샷이 그 언어로 있으면 img/<언어>/에 두고 shot_dir를 바꾼다(없으면 img/ 그대로 영어 화면).
 - 키가 빠지거나 남으면 멈춘다 — 한 언어만 문구가 비는 일을 막는다.
-- 결과물(index.html · <path>index.html · sitemap.xml)은 직접 고치지 않는다. 여기서 다시 만든다.
+- 결과물(index.html · <path>index.html · <path>support/ · <path>notes/ · sitemap.xml)은 직접 고치지 않는다. 여기서 다시 만든다.
+- 개발노트(/notes/)에 새 버전을 더할 때: 각 언어 파일의 notes_entries 맨 앞에 항목을 더한다(공개된 기능만).
 """
 import html
 import json
@@ -18,7 +19,7 @@ import sys
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = 'https://mauvelabsinc.com/'
 # CSS·JS·애니메이션을 고치면 올린다 — 브라우저가 옛 파일을 붙들지 않게
-VERSION = '47'
+VERSION = '48'
 # 언어 버튼 아이콘(지구본 · 장식이라 읽지 않게)
 GLOBE = '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>'
 
@@ -36,6 +37,47 @@ def lang_menu(current, locales, href):
             f'<span class="lang-short" aria-hidden="true">{current["lang"].upper()}</span>'
             f'<svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>\n'
             f'      <ul>\n' + '\n'.join(items) + '\n      </ul>\n    </details>')
+
+# 하위 페이지(templates/<이름>.html → /<이름>/ · /<언어>/<이름>/). 더하면 sitemap에도 같이 들어간다
+SUBPAGES = ['support', 'notes']
+
+
+def notes_html(loc):
+    """개발노트 항목(locales의 notes_entries)을 HTML로. 새 버전은 목록 맨 앞에 더한다."""
+    out = []
+    for e in loc['notes_entries']:
+        items = '\n'.join(f'        <li>{it}</li>' for it in e['items'])
+        out.append(f'    <article class="note" id="v{e["version"]}">\n'
+                   f'      <p class="note-meta"><span class="note-ver">{html.escape(e["version"])}</span> {html.escape(e["dates"])}</p>\n'
+                   f'      <h2>{html.escape(e["title"])}</h2>\n'
+                   f'      <ul class="note-list">\n{items}\n      </ul>\n    </article>')
+    return '\n'.join(out)
+
+
+def render_subpage(loc, locales, values, depth, sub):
+    """하위 페이지 하나를 만든다 — 언어마다 서로를 가리키는 hreflang · 바닥 언어 링크 · 상단 언어 메뉴를 그 페이지 주소로."""
+    sb = '../' * (depth + 1)
+    alts = [f'  <link rel="alternate" hreflang="{l["lang"]}" href="{SITE}{l["path"]}{sub}/">' for l in locales]
+    alts.append(f'  <link rel="alternate" hreflang="x-default" href="{SITE}{sub}/">')
+    links = [f'      <a href="{sb}{l["path"]}{sub}/" lang="{l["lang"]}" hreflang="{l["lang"]}">{html.escape(l["language_name"])}</a>'
+             for l in locales if l is not loc]
+    svalues = {**values, 'b': sb, 'sub_hreflang': '\n'.join(alts), 'sub_lang_links': '\n'.join(links),
+               'sub_nav_lang': lang_menu(loc, locales, lambda l: f'{sb}{l["path"]}{sub}/'),
+               'notes_html': notes_html(loc)}
+
+    def sfill(m):
+        key = m.group(1)
+        if key not in svalues:
+            sys.exit(f"[{loc['lang']}] {sub} 틀의 {{{{{key}}}}}가 문구 파일에 없다")
+        return str(svalues[key])
+
+    with open(os.path.join(ROOT, 'templates', f'{sub}.html'), encoding='utf-8') as f:
+        page = re.sub(r'\{\{(\w+)\}\}', sfill, f.read())
+    out_dir = os.path.join(ROOT, loc['path'], sub)
+    os.makedirs(out_dir, exist_ok=True)
+    with open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8') as f:
+        f.write(page)
+    print(f"✅ {loc['lang']:>3} → /{loc['path']}{sub}/index.html")
 
 
 def load_locales():
@@ -84,28 +126,10 @@ def main():
             f.write(page)
         print(f"✅ {loc['lang']:>3} → /{loc['path']}index.html")
 
-        # 고객 지원 페이지(/support/ · /ko/support/) — App Store 지원 URL · Play 웹사이트가 가리킨다(2026-10-13)
-        sb = '../' * (depth + 1)
-        salts = [f'  <link rel="alternate" hreflang="{l["lang"]}" href="{SITE}{l["path"]}support/">' for l in locales]
-        salts.append(f'  <link rel="alternate" hreflang="x-default" href="{SITE}support/">')
-        slinks = [f'      <a href="{sb}{l["path"]}support/" lang="{l["lang"]}" hreflang="{l["lang"]}">{html.escape(l["language_name"])}</a>'
-                  for l in locales if l is not loc]
-        sup_nav_lang = lang_menu(loc, locales, lambda l: f'{sb}{l["path"]}support/')
-        svalues = {**values, 'b': sb, 'sup_hreflang': '\n'.join(salts), 'sup_lang_links': '\n'.join(slinks),
-                   'sup_nav_lang': sup_nav_lang}
-
-        def sfill(m):
-            key = m.group(1)
-            if key not in svalues:
-                sys.exit(f"[{loc['lang']}] support 틀의 {{{{{key}}}}}가 문구 파일에 없다")
-            return str(svalues[key])
-
-        with open(os.path.join(ROOT, 'templates', 'support.html'), encoding='utf-8') as f:
-            spage = re.sub(r'\{\{(\w+)\}\}', sfill, f.read())
-        os.makedirs(os.path.join(out_dir, 'support'), exist_ok=True)
-        with open(os.path.join(out_dir, 'support', 'index.html'), 'w', encoding='utf-8') as f:
-            f.write(spage)
-        print(f"✅ {loc['lang']:>3} → /{loc['path']}support/index.html")
+        # 하위 페이지 — 고객 지원(/support/ · App Store 지원 URL · Play 웹사이트가 가리킨다 · 2026-10-13)
+        # · 개발노트(/notes/ · 1.1.0부터 · 2026-10-23)
+        for sub in SUBPAGES:
+            render_subpage(loc, locales, values, depth, sub)
 
     # sitemap — 언어마다 서로를 가리킨다
     urls = []
@@ -113,8 +137,9 @@ def main():
         alt = ''.join(f'\n    <xhtml:link rel="alternate" hreflang="{l["lang"]}" href="{SITE}{l["path"]}"/>' for l in locales)
         alt += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{SITE}"/>'
         urls.append(f'  <url>\n    <loc>{SITE}{loc["path"]}</loc>{alt}\n  </url>')
-        salt = ''.join(f'\n    <xhtml:link rel="alternate" hreflang="{l["lang"]}" href="{SITE}{l["path"]}support/"/>' for l in locales)
-        urls.append(f'  <url>\n    <loc>{SITE}{loc["path"]}support/</loc>{salt}\n  </url>')
+        for sub in SUBPAGES:
+            salt = ''.join(f'\n    <xhtml:link rel="alternate" hreflang="{l["lang"]}" href="{SITE}{l["path"]}{sub}/"/>' for l in locales)
+            urls.append(f'  <url>\n    <loc>{SITE}{loc["path"]}{sub}/</loc>{salt}\n  </url>')
     with open(os.path.join(ROOT, 'sitemap.xml'), 'w', encoding='utf-8') as f:
         f.write('<?xml version="1.0" encoding="UTF-8"?>\n'
                 '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'

@@ -36,9 +36,9 @@
   <!-- 회사 로고(모브랩스). 원본은 assets/brand/mauvelabs-logo-original.png -->
   <a class="brand brand-logo" href="./" aria-label="Mauve Labs"><img src="{{b}}assets/brand/mauvelabs-logo@2x.png?v={{v}}" alt="Mauve Labs" height="48"></a>
   <nav aria-label="Main">
-    <a href="#how">{{nav_how}}</a>
+    <a href="#how" class="hide-xs">{{nav_how}}</a>
     <a href="#private" class="hide-sm">{{nav_privacy}}</a>
-    <a href="#soon" class="hide-sm">{{nav_soon}}</a>
+    <a href="{{b}}{{path}}notes/">{{nav_notes}}</a>
 {{nav_lang}}
   </nav>
 </header>
@@ -135,21 +135,22 @@
     </div>
   </section>
 
-  <!-- 1.1.0 다이어리 꾸미기 예고 — 아직 없는 기능이라 '곧'으로만 -->
-  <section id="soon" class="soon wrap" aria-labelledby="soon-title">
+  <!-- 1.1.0 새 기능(2026-10-23 · 두 스토어 공개된 것만). 그림은 앱 업데이트 안내에 쓴 실제 위젯 캡처(dailycumulus-rn assets/whats-new).
+       무료/프리미엄은 앱 limits.ts와 같게. 다 적지 않고 개발노트로 보낸다 -->
+  <section id="new" class="soon new wrap" aria-labelledby="new-title">
     <div class="soon-copy" data-reveal>
-      <span class="sticker alt">{{soon_sticker}}</span>
-      <h2 id="soon-title">{{soon_title}}</h2>
-      <p>{{soon_body}}</p>
+      <span class="sticker alt">{{new_sticker}}</span>
+      <h2 id="new-title">{{new_title}}</h2>
+      <p>{{new_body}}</p>
+      <ul class="new-list">
+        <li><b>{{new_1_title}}</b> {{new_1_body}}</li>
+        <li><b>{{new_2_title}}</b> {{new_2_body}}</li>
+        <li><b>{{new_3_title}}</b> {{new_3_body}}</li>
+        <li><b>{{new_4_title}}</b> {{new_4_body}}</li>
+      </ul>
+      <a class="text-link" href="{{b}}{{path}}notes/">{{new_link}}</a>
     </div>
-    <div class="sticker-sheet" aria-hidden="true" data-reveal-group>
-      <span class="washi w1"></span><span class="washi w2"></span><span class="washi w3"></span>
-      <img src="{{b}}img/mongle-very-good.webp" alt="" class="s s1">
-      <img src="{{b}}img/mongle-good.webp" alt="" class="s s2">
-      <img src="{{b}}img/mongle-normal.webp" alt="" class="s s3">
-      <img src="{{b}}img/mongle-bad.webp" alt="" class="s s4">
-      <span class="doodle d1">♡</span><span class="doodle d2">✿</span><span class="doodle d3">☆</span>
-    </div>
+    <figure class="polaroid new-shot tilt-r" data-reveal><span class="tape mint"></span><img src="{{b}}{{shot_dir}}new-widget.webp?v={{v}}" alt="{{new_alt}}" width="750" height="446"></figure>
   </section>
 
   <section class="cta wrap" data-reveal>

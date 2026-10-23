@@ -12,6 +12,11 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/support/"/>
   </url>
   <url>
+    <loc>https://mauvelabsinc.com/notes/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/notes/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/notes/"/>
+  </url>
+  <url>
     <loc>https://mauvelabsinc.com/ko/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/"/>
@@ -21,5 +26,10 @@
     <loc>https://mauvelabsinc.com/ko/support/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/support/"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/support/"/>
+  </url>
+  <url>
+    <loc>https://mauvelabsinc.com/ko/notes/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/notes/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/notes/"/>
   </url>
 </urlset>

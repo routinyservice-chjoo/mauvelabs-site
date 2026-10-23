@@ -19,14 +19,14 @@
   <meta property="og:site_name" content="{{og_site_name}}">
   <meta property="og:title" content="{{og_title}}">
   <meta property="og:description" content="{{og_description}}">
-  <meta property="og:url" content="{{url}}">
+  <meta property="og:url" content="{{url}}support/">
   <meta property="og:image" content="https://mauvelabsinc.com/assets/{{og_image}}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="{{og_locale}}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="apple-itunes-app" content="app-id=6814691795">
-{{sup_hreflang}}
+{{sub_hreflang}}
   <link rel="preload" href="{{b}}assets/fraunces.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="stylesheet" href="{{b}}assets/site-v2.css?v={{v}}">
@@ -36,8 +36,9 @@
   <!-- 회사 로고(모브랩스). 원본은 assets/brand/mauvelabs-logo-original.png -->
   <a class="brand brand-logo" href="{{b}}{{path}}" aria-label="Mauve Labs"><img src="{{b}}assets/brand/mauvelabs-logo@2x.png?v={{v}}" alt="Mauve Labs" height="48"></a>
   <nav aria-label="Main">
-    <a href="{{b}}{{path}}">{{sup_back}}</a>
-{{sup_nav_lang}}
+    <a href="{{b}}{{path}}" class="hide-xs">{{sup_back}}</a>
+    <a href="{{b}}{{path}}notes/">{{nav_notes}}</a>
+{{sub_nav_lang}}
   </nav>
 </header>
 
@@ -75,7 +76,7 @@
       <a href="{{terms_url}}">{{foot_terms}}</a>
       <a href="{{b}}{{path}}support/">{{foot_support}}</a>
       <a href="mailto:mauvelabs@mauvelabsinc.com">{{foot_contact}}</a>
-{{sup_lang_links}}
+{{sub_lang_links}}
     </nav>
   </div>
 {{legal}}

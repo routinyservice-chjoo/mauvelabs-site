@@ -17,7 +17,7 @@
   "brand": "DailyCumulus",
   "nav_how": "How it works",
   "nav_privacy": "Privacy",
-  "nav_notes": "Dev notes",
+  "nav_notes": "Release notes",
   "hero_sticker": "a tiny mood diary",
   "hero_title": "A little diary for how you're <em>actually</em> feeling.",
   "hero_lede": "Tap Mongle, pick how you feel, and that's it. Want to say more? Add a note or a photo. No ads, no pressure.",
@@ -71,7 +71,7 @@
   "new_link": "See everything new in 1.1.0",
   "new_alt": "The DailyCumulus widget on an iPhone Home Screen, showing Mongle, today's mood, and a 48-day streak",
   "cta_title": "Go easy on yourself today.",
-  "made_by": "DailyCumulus is made by <b>Mauve Labs</b>, a small indie app studio.",
+  "made_by": "DailyCumulus is made by <b>Mauve Labs</b>.",
   "also_from": "We also make <a href=\"https://apps.apple.com/app/id6758573546\">Routiny</a>, a habit tracker where a plant grows as you stick to your routines.",
   "foot_privacy": "Privacy",
   "foot_terms": "Terms",
@@ -81,7 +81,7 @@
   "sup_meta_description": "Get help with DailyCumulus: contact us, manage your subscription, restore purchases, request a refund, or delete your account.",
   "sup_back": "Home",
   "sup_title": "Support",
-  "sup_lede": "Questions, bugs, or ideas? Email us. A real person on our small team reads every message.",
+  "sup_lede": "Questions, bugs, or ideas? Email us.",
   "sup_faq_title": "Common questions",
   "sup_q_cancel": "How do I cancel my subscription?",
   "sup_a_cancel": "Subscriptions are managed by Apple or Google. <b>iPhone:</b> Settings › your name › Subscriptions › DailyCumulus. <b>Android:</b> Google Play Store › your profile › Payments &amp; subscriptions › Subscriptions. Deleting the app or your account doesn't cancel it.",
@@ -96,11 +96,23 @@
   "sup_crisis": "DailyCumulus is a personal journal, not a medical or mental health service. If you're in crisis, call or text 988 (US) or your local emergency number.",
   "foot_support": "Support",
   "lang_menu_label": "Change language",
-  "notes_meta_title": "Dev notes · DailyCumulus",
+  "notes_meta_title": "Release notes · DailyCumulus",
   "notes_meta_description": "See what's new in each DailyCumulus update for iPhone and Android.",
-  "notes_title": "Dev notes",
+  "notes_title": "Release notes",
   "notes_lede": "What's changed in each update. iPhone and Android updates sometimes come out on different days.",
   "notes_entries": [
+    {
+      "version": "1.1.1",
+      "dates": "Android: Oct 23, 2026 · iPhone: Oct 24, 2026",
+      "title": "Photos in backups",
+      "items": [
+        "<b>Photos in backups</b> Backups now include your photos. Tap Save a backup in Settings › Your data to get everything in one file, free for everyone. Older CSV backups can still be restored.",
+        "Fixed feelings and activities you made before signing in showing a code instead of their name.",
+        "The What's new screen no longer pops up for people who just installed the app.",
+        "Improved stability when you unlock the app with App lock.",
+        "Small layout fixes."
+      ]
+    },
     {
       "version": "1.1.0",
       "dates": "Android: Oct 21, 2026 · iPhone: Oct 23, 2026",
@@ -118,5 +130,86 @@
         "<b>7-day free trial</b> New subscribers can try Premium Yearly free for 7 days. If you have notifications on, we'll send a reminder the day before your trial ends."
       ]
     }
-  ]
+  ],
+  "nav_news": "News",
+  "nav_support": "Support",
+  "news_meta_title": "News | DailyCumulus",
+  "news_meta_description": "Announcements and app updates from the DailyCumulus team.",
+  "news_title": "News",
+  "news_lede": "Announcements and app updates.",
+  "news_tag_notice": "Announcement",
+  "news_tag_update": "Update",
+  "news_entries": [
+    {
+      "date": "2026-10-24",
+      "date_label": "Oct 24, 2026",
+      "tag": "update",
+      "title": "Version 1.1.1: backups now include your photos",
+      "href": "{b}notes/#v1.1.1"
+    },
+    {
+      "date": "2026-10-23",
+      "date_label": "Oct 23, 2026",
+      "tag": "update",
+      "title": "Version 1.1.0: widgets, Mongle Insights, and rest days",
+      "href": "{b}notes/#v1.1.0"
+    },
+    {
+      "date": "2026-10-16",
+      "date_label": "Oct 16, 2026",
+      "tag": "notice",
+      "title": "Updates to our Terms of Service and Privacy Policy (effective Nov 16, 2026)",
+      "href": "https://apps.mauvelabsinc.com/dailycumulus/terms.html"
+    }
+  ],
+  "faq_meta_title": "FAQ | DailyCumulus",
+  "faq_meta_description": "Answers about subscriptions, restoring purchases, refunds, deleting your account, and privacy in DailyCumulus.",
+  "faq_title": "FAQ",
+  "faq_lede": "Answers to common questions.",
+  "faq_more": "Still have questions? Email us at",
+  "guide_meta_title": "User guide | DailyCumulus",
+  "guide_meta_description": "How to use DailyCumulus, feature by feature.",
+  "guide_title": "User guide",
+  "guide_lede": "How to use DailyCumulus, feature by feature. This page is still a work in progress.",
+  "guide_sections": [
+    {
+      "id": "check-in",
+      "title": "Check in with Mongle",
+      "body": "In progress."
+    },
+    {
+      "id": "reminders",
+      "title": "Reminders",
+      "body": "In progress."
+    },
+    {
+      "id": "widgets",
+      "title": "Widgets",
+      "body": "In progress."
+    },
+    {
+      "id": "backup",
+      "title": "Backup and restore",
+      "body": "In progress."
+    },
+    {
+      "id": "premium",
+      "title": "Premium",
+      "body": "In progress."
+    }
+  ],
+  "hub_news_desc": "Announcements and app updates",
+  "hub_notes_desc": "What changed in each version",
+  "hub_faq_desc": "Quick answers to common questions",
+  "hub_guide_desc": "How to use each feature",
+  "hub_contact_title": "Contact us",
+  "hub_contact_desc": "Send us an email",
+  "contact_mailto": "mailto:mauvelabs@mauvelabsinc.com?subject=DailyCumulus%20support",
+  "foot_col_company": "Company",
+  "foot_about": "About us",
+  "foot_col_explore": "Explore",
+  "foot_download": "Get the app",
+  "foot_col_contact": "Contact",
+  "foot_help": "Support",
+  "foot_email_label": "Email"
 }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- ⚠️ build.py가 /guide/ · /<언어>/guide/를 만든다(직접 고치지 않는다) -->
+<html lang="{{lang}}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{guide_meta_title}}</title>
+  <meta name="description" content="{{guide_meta_description}}">
+  <!-- 파비콘은 회사 심볼(스티커 M) — assets/brand -->
+  <link rel="icon" href="{{b}}favicon.ico?v={{v}}" sizes="any">
+  <link rel="icon" href="{{b}}assets/brand/favicon-32.png?v={{v}}" type="image/png" sizes="32x32">
+  <link rel="icon" href="{{b}}assets/brand/favicon-192.png?v={{v}}" type="image/png" sizes="192x192">
+  <link rel="canonical" href="{{url}}guide/">
+  <link rel="apple-touch-icon" href="{{b}}assets/brand/apple-touch-icon.png?v={{v}}">
+  <meta name="theme-color" content="#FFF8F0">
+  <!-- 사업자등록번호 등 숫자를 아이폰이 전화번호 링크로 바꾸지 않게 -->
+  <meta name="format-detection" content="telephone=no">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{og_site_name}}">
+  <meta property="og:title" content="{{og_title}}">
+  <meta property="og:description" content="{{og_description}}">
+  <meta property="og:url" content="{{url}}guide/">
+  <meta property="og:image" content="https://mauvelabsinc.com/assets/{{og_image}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="{{og_locale}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="apple-itunes-app" content="app-id=6814691795">
+{{sub_hreflang}}
+  <link rel="preload" href="{{b}}assets/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="{{b}}assets/site-v2.css?v={{v}}">
+</head>
+<body>
+<header class="nav wrap">
+  <!-- 회사 로고(모브랩스). 원본은 assets/brand/mauvelabs-logo-original.png -->
+  <a class="brand brand-logo" href="{{b}}{{path}}" aria-label="Mauve Labs"><img src="{{b}}assets/brand/mauvelabs-logo@2x.png?v={{v}}" alt="Mauve Labs" height="48"></a>
+  <nav aria-label="Main">
+{{site_nav_links}}
+{{sub_nav_lang}}
+  </nav>
+</header>
+
+<main class="wrap support guide">
+  <!-- 사용 가이드 — 뼈대(10/26). 절은 locales/*.json의 guide_sections · 내용은 앱 화면을 보고 채운다 -->
+  <section class="support-head">
+    <h1>{{guide_title}}</h1>
+    <p class="lede">{{guide_lede}}</p>
+  </section>
+{{guide_html}}
+</main>
+
+{{site_footer}}
+<script src="{{b}}assets/lang-menu.js?v={{v}}"></script>
+</body>
+</html>

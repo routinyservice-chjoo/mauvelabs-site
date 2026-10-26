@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- ⚠️ build.py가 /news/ · /<언어>/news/를 만든다(직접 고치지 않는다). 글은 locales/*.json의 news_entries -->
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>공지사항 | 데일리몽글</title>
+  <meta name="description" content="데일리몽글 팀의 공지와 앱 업데이트 소식.">
+  <!-- 파비콘은 회사 심볼(스티커 M) — assets/brand -->
+  <link rel="icon" href="../../favicon.ico?v=51" sizes="any">
+  <link rel="icon" href="../../assets/brand/favicon-32.png?v=51" type="image/png" sizes="32x32">
+  <link rel="icon" href="../../assets/brand/favicon-192.png?v=51" type="image/png" sizes="192x192">
+  <link rel="canonical" href="https://mauvelabsinc.com/ko/news/">
+  <link rel="apple-touch-icon" href="../../assets/brand/apple-touch-icon.png?v=51">
+  <meta name="theme-color" content="#FFF8F0">
+  <!-- 사업자등록번호 등 숫자를 아이폰이 전화번호 링크로 바꾸지 않게 -->
+  <meta name="format-detection" content="telephone=no">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="데일리몽글 · 모브랩스">
+  <meta property="og:title" content="데일리몽글 · 지금 내 기분, 가볍게 남겨요">
+  <meta property="og:description" content="몽글이 누르고 기분 선택하면 끝. 광고도 없고, 부담도 없어요.">
+  <meta property="og:url" content="https://mauvelabsinc.com/ko/news/">
+  <meta property="og:image" content="https://mauvelabsinc.com/assets/og-ko.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ko_KR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="apple-itunes-app" content="app-id=6814691795">
+  <link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/news/">
+  <link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/news/">
+  <link rel="alternate" hreflang="x-default" href="https://mauvelabsinc.com/news/">
+  <link rel="preload" href="../../assets/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="../../assets/site-v2.css?v=51">
+</head>
+<body>
+<header class="nav wrap">
+  <!-- 회사 로고(모브랩스). 원본은 assets/brand/mauvelabs-logo-original.png -->
+  <a class="brand brand-logo" href="../../ko/" aria-label="Mauve Labs"><img src="../../assets/brand/mauvelabs-logo@2x.png?v=51" alt="Mauve Labs" height="48"></a>
+  <nav aria-label="Main">
+    <a href="../../ko/" class="hide-xs">홈</a>
+    <a href="../../ko/news/" aria-current="page">공지사항</a>
+    <a href="../../ko/support/">고객지원</a>
+    <details class="lang-menu">
+      <summary aria-label="언어 변경"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span class="lang-full">한국어</span><span class="lang-short" aria-hidden="true">KO</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <ul>
+        <li><a href="../../news/" lang="en" hreflang="en">English</a></li>
+        <li><a href="../../ko/news/" lang="ko" hreflang="ko" aria-current="true">한국어</a></li>
+      </ul>
+    </details>
+  </nav>
+</header>
+
+<main class="wrap support news">
+  <!-- 공지사항 게시판 — 공지 · 개발 업데이트. 글은 locales/*.json의 news_entries(최신이 위) -->
+  <section class="support-head">
+    <h1>공지사항</h1>
+    <p class="lede">공지와 앱 업데이트 소식을 전해요.</p>
+  </section>
+    <ul class="board">
+      <li class="board-row"><span class="board-tag tag-update">업데이트</span><a class="board-title" href="../../ko/notes/#v1.1.1">1.1.1 업데이트: 백업에 사진도 함께 저장돼요</a><time class="board-date" datetime="2026-10-24">2026.10.24</time></li>
+      <li class="board-row"><span class="board-tag tag-update">업데이트</span><a class="board-title" href="../../ko/notes/#v1.1.0">1.1.0 업데이트: 위젯 · 몽글 인사이트 · 쉼표</a><time class="board-date" datetime="2026-10-23">2026.10.23</time></li>
+      <li class="board-row"><span class="board-tag tag-notice">공지</span><a class="board-title" href="https://apps.mauvelabsinc.com/dailycumulus/ko/terms.html">이용약관·개인정보처리방침 개정 안내(2026년 11월 16일 시행)</a><time class="board-date" datetime="2026-10-16">2026.10.16</time></li>
+    </ul>
+</main>
+
+<footer class="wrap site-foot">
+  <div class="foot-cols">
+    <div class="foot-brand">
+      <img src="../../assets/brand/mauvelabs-logo@2x.png?v=51" alt="Mauve Labs" height="40">
+      <p class="made">데일리몽글은 <b>모브랩스</b>가 만들어요.</p>
+    </div>
+      <div class="foot-col"><h2 class="foot-h">탐색</h2>
+        <a href="../../ko/news/">공지사항</a>
+        <a href="../../ko/notes/">개발노트</a>
+        <a href="../../ko/faq/">자주 묻는 질문</a>
+        <a href="../../ko/guide/">사용 가이드</a>
+        <a href="../../ko/#get">앱 다운로드</a>
+      </div>
+      <div class="foot-col"><h2 class="foot-h">문의</h2>
+        <a href="../../ko/support/">고객지원</a>
+        <a href="mailto:mauvelabs@mauvelabsinc.com?subject=%EB%8D%B0%EC%9D%BC%EB%A6%AC%EB%AA%BD%EA%B8%80%20%EB%AC%B8%EC%9D%98">이메일: mauvelabs@mauvelabsinc.com</a>
+      </div>
+  </div>
+  <div class="foot-bottom">
+    <nav aria-label="Footer">
+      <a href="https://apps.mauvelabsinc.com/dailycumulus/ko/terms.html">이용약관</a>
+      <a href="https://apps.mauvelabsinc.com/dailycumulus/ko/privacy.html"><b>개인정보처리방침</b></a>
+      <a href="../../news/" lang="en" hreflang="en">English</a>
+    </nav>
+<dl class="biz"><dt>상호</dt><dd>모브랩스(Mauve Labs)</dd><dt>대표자</dt><dd>주창환</dd><dt>사업자등록번호</dt><dd>485-21-02219</dd><dt>통신판매업신고번호</dt><dd>제2026-서울금천-1495호</dd><dt>주소</dt><dd>서울특별시 금천구 범안로12길 29-20, A동 301호(독산동)</dd><dt>이메일</dt><dd>mauvelabs@mauvelabsinc.com</dd></dl><p class="legal">© 2026 모브랩스</p>
+  </div>
+</footer>
+<script src="../../assets/lang-menu.js?v=51"></script>
+</body>
+</html>

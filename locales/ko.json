@@ -71,17 +71,17 @@
   "new_link": "1.1.0에서 달라진 점 모두 보기",
   "new_alt": "아이폰 홈 화면의 데일리몽글 위젯 — 몽글이, 오늘 기분, 48일 연속 기록",
   "cta_title": "오늘은 나한테 조금만 너그럽게.",
-  "made_by": "데일리몽글은 작은 앱 스튜디오 <b>모브랩스</b>가 만들어요.",
+  "made_by": "데일리몽글은 <b>모브랩스</b>가 만들어요.",
   "also_from": "모브랩스는 <a href=\"https://apps.apple.com/kr/app/id6758573546\">루티니</a>도 만들어요. 루틴을 지키면 식물이 자라는 습관 앱이에요.",
   "foot_privacy": "개인정보처리방침",
   "foot_terms": "이용약관",
   "foot_contact": "문의",
   "legal": "<dl class=\"biz\"><dt>상호</dt><dd>모브랩스(Mauve Labs)</dd><dt>대표자</dt><dd>주창환</dd><dt>사업자등록번호</dt><dd>485-21-02219</dd><dt>통신판매업신고번호</dt><dd>제2026-서울금천-1495호</dd><dt>주소</dt><dd>서울특별시 금천구 범안로12길 29-20, A동 301호(독산동)</dd><dt>이메일</dt><dd>mauvelabs@mauvelabsinc.com</dd></dl><p class=\"legal\">© 2026 모브랩스</p>",
-  "sup_meta_title": "고객 지원 · 데일리몽글",
+  "sup_meta_title": "고객지원 · 데일리몽글",
   "sup_meta_description": "데일리몽글 고객 지원 — 문의하기, 구독 해지, 구매 복원, 환불, 계정 삭제 방법을 안내해요.",
   "sup_back": "홈",
-  "sup_title": "고객 지원",
-  "sup_lede": "궁금한 점, 오류, 의견이 있으면 메일로 보내 주세요. 작은 팀이 메일 하나하나 직접 읽어요.",
+  "sup_title": "고객지원",
+  "sup_lede": "궁금한 점, 오류, 의견이 있으면 메일로 보내 주세요.",
   "sup_faq_title": "자주 묻는 질문",
   "sup_q_cancel": "구독은 어떻게 해지하나요?",
   "sup_a_cancel": "구독은 Apple·Google에서 관리돼요. <b>아이폰:</b> 설정 › 내 이름 › 구독 › 데일리몽글. <b>안드로이드:</b> Google Play 스토어 › 프로필 › 결제 및 정기 결제 › 정기 결제. 앱이나 계정을 삭제해도 구독은 해지되지 않아요.",
@@ -94,13 +94,25 @@
   "sup_q_privacy": "기록은 어디에 저장되나요?",
   "sup_a_privacy": "무료 서비스에서는 기록이 휴대폰에만 저장돼요. 프로필 › 설정 › 내 데이터에서 언제든 백업 파일을 만들 수 있어요. 프리미엄 서비스를 쓰면 클라우드에도 보관돼요. 자세한 내용은 <a href=\"https://apps.mauvelabsinc.com/dailycumulus/ko/privacy.html\">개인정보처리방침</a>을 확인해 주세요.",
   "sup_crisis": "데일리몽글은 개인 기록 앱이며 의료·정신건강 서비스가 아니에요. 위급한 상황이면 109(자살예방상담전화) 또는 112·119에 연락해 주세요.",
-  "foot_support": "고객 지원",
+  "foot_support": "고객지원",
   "lang_menu_label": "언어 변경",
   "notes_meta_title": "개발노트 · 데일리몽글",
   "notes_meta_description": "아이폰·안드로이드 데일리몽글 업데이트마다 달라진 점을 확인해 보세요.",
   "notes_title": "개발노트",
   "notes_lede": "업데이트마다 무엇이 달라졌는지 적어 둬요. 아이폰과 안드로이드는 업데이트가 나오는 날이 다를 때가 있어요.",
   "notes_entries": [
+    {
+      "version": "1.1.1",
+      "dates": "안드로이드 2026년 10월 23일 · 아이폰 2026년 10월 24일",
+      "title": "백업에 사진도",
+      "items": [
+        "<b>백업에 사진도</b> 백업에 사진도 함께 저장돼요. 설정 › 내 데이터 › 백업 파일 만들기를 누르면 파일 하나에 모두 담겨요(무료). 예전 CSV 백업도 그대로 되돌릴 수 있어요.",
+        "로그인 전에 만든 감정·활동이 로그인 직후 이름 대신 코드로 보이던 문제를 고쳤어요.",
+        "처음 설치한 분께 업데이트 안내가 뜨던 문제를 고쳤어요.",
+        "앱 잠금을 풀 때 더 안정적으로 동작해요.",
+        "화면 여백과 문구를 다듬었어요."
+      ]
+    },
     {
       "version": "1.1.0",
       "dates": "안드로이드 2026년 10월 21일 · 아이폰 2026년 10월 23일",
@@ -118,5 +130,86 @@
         "<b>7일 무료 체험</b> 처음 구독하는 분은 연간 프리미엄서비스를 7일 무료로 써 볼 수 있어요. 알림을 켜 두면 체험이 끝나기 하루 전에 알려 드려요."
       ]
     }
-  ]
+  ],
+  "nav_news": "공지사항",
+  "nav_support": "고객지원",
+  "news_meta_title": "공지사항 | 데일리몽글",
+  "news_meta_description": "데일리몽글 팀의 공지와 앱 업데이트 소식.",
+  "news_title": "공지사항",
+  "news_lede": "공지와 앱 업데이트 소식을 전해요.",
+  "news_tag_notice": "공지",
+  "news_tag_update": "업데이트",
+  "news_entries": [
+    {
+      "date": "2026-10-24",
+      "date_label": "2026.10.24",
+      "tag": "update",
+      "title": "1.1.1 업데이트: 백업에 사진도 함께 저장돼요",
+      "href": "{b}notes/#v1.1.1"
+    },
+    {
+      "date": "2026-10-23",
+      "date_label": "2026.10.23",
+      "tag": "update",
+      "title": "1.1.0 업데이트: 위젯 · 몽글 인사이트 · 쉼표",
+      "href": "{b}notes/#v1.1.0"
+    },
+    {
+      "date": "2026-10-16",
+      "date_label": "2026.10.16",
+      "tag": "notice",
+      "title": "이용약관·개인정보처리방침 개정 안내(2026년 11월 16일 시행)",
+      "href": "https://apps.mauvelabsinc.com/dailycumulus/ko/terms.html"
+    }
+  ],
+  "faq_meta_title": "자주 묻는 질문 | 데일리몽글",
+  "faq_meta_description": "데일리몽글 구독 해지, 구매 복원, 환불, 계정 삭제, 개인정보에 관한 답변.",
+  "faq_title": "자주 묻는 질문",
+  "faq_lede": "자주 받는 질문에 답해 드려요.",
+  "faq_more": "찾는 답이 없으면 메일로 물어봐 주세요.",
+  "guide_meta_title": "사용 가이드 | 데일리몽글",
+  "guide_meta_description": "데일리몽글 기능별 사용법.",
+  "guide_title": "사용 가이드",
+  "guide_lede": "기능별 사용법을 차근차근 알려 드려요. 지금 준비하고 있어요.",
+  "guide_sections": [
+    {
+      "id": "check-in",
+      "title": "몽글이와 기록하기",
+      "body": "준비하고 있어요."
+    },
+    {
+      "id": "reminders",
+      "title": "알림",
+      "body": "준비하고 있어요."
+    },
+    {
+      "id": "widgets",
+      "title": "위젯",
+      "body": "준비하고 있어요."
+    },
+    {
+      "id": "backup",
+      "title": "백업과 되돌리기",
+      "body": "준비하고 있어요."
+    },
+    {
+      "id": "premium",
+      "title": "프리미엄",
+      "body": "준비하고 있어요."
+    }
+  ],
+  "hub_news_desc": "공지와 업데이트 소식",
+  "hub_notes_desc": "버전마다 무엇이 달라졌는지",
+  "hub_faq_desc": "자주 받는 질문과 답",
+  "hub_guide_desc": "기능별 사용법",
+  "hub_contact_title": "문의하기",
+  "hub_contact_desc": "메일로 보내 주세요",
+  "contact_mailto": "mailto:mauvelabs@mauvelabsinc.com?subject=%EB%8D%B0%EC%9D%BC%EB%A6%AC%EB%AA%BD%EA%B8%80%20%EB%AC%B8%EC%9D%98",
+  "foot_col_company": "회사",
+  "foot_about": "회사소개",
+  "foot_col_explore": "탐색",
+  "foot_download": "앱 다운로드",
+  "foot_col_contact": "문의",
+  "foot_help": "고객지원",
+  "foot_email_label": "이메일"
 }

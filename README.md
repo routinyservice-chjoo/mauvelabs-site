@@ -9,9 +9,18 @@
 | `templates/page.html` | 페이지 틀. `{{키}}` 자리에 문구가 들어간다 |
 | `locales/en.json` | **메인 언어(영어, `/`)** — 기준은 미국 사용자 |
 | `locales/<언어>.json` | 서브 언어(`/ko/` …). en의 뜻을 그 나라 말로 옮긴다(직역 금지) |
-| `build.py` | 위 둘로 `index.html` · `<언어>/index.html` · `sitemap.xml`을 만든다 |
+| `build.py` | 위 둘로 `index.html` · `<언어>/index.html` · 하위 페이지 · `sitemap.xml`을 만든다 · 상단 메뉴(`site_nav`)·하단(`site_footer`)은 여기 한 곳 |
+| `templates/{support,notes,news,faq,guide}.html` | 하위 페이지 틀(10/26) — 고객지원 모음 · 개발노트 · 공지사항 게시판 · 자주 묻는 질문 · 사용 가이드 |
 
-🔴 `index.html` · `ko/index.html` · `sitemap.xml`은 **직접 고치지 않는다** — `python3 build.py`가 덮어쓴다.
+🔴 `index.html` · `ko/index.html` · 하위 페이지(`support/` `notes/` `news/` `faq/` `guide/`) · `sitemap.xml`은 **직접 고치지 않는다** — `python3 build.py`가 덮어쓴다.
+
+## 글 더하기(10/26)
+
+- **새 버전이 공개되면**: 언어마다 `notes_entries` 맨 앞에 항목(버전 · 날짜 · 제목 · 항목들) + `news_entries` 맨 앞에 글(`tag` `update` · `href` `{b}notes/#v<버전>`)
+- **공지**: `news_entries` 맨 앞에 `tag` `notice`(링크는 전체 주소도 된다)
+- **사용 가이드**: `guide_sections`의 `body`를 채운다(지금은 뼈대 — 「준비하고 있어요」)
+- 영어 문구는 앱 저장소 `docs/copy-review-prompt.md`로 별도 검토를 받는다 · 회사 소개에 「작은 팀 · small indie」를 쓰지 않는다
+- 「회사」 하단 칸(회사소개)은 회사소개 페이지를 만들 때 `site_footer`에 다시 넣는다
 
 ## 언어 하나 더하기
 

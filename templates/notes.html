@@ -36,8 +36,7 @@
   <!-- 회사 로고(모브랩스). 원본은 assets/brand/mauvelabs-logo-original.png -->
   <a class="brand brand-logo" href="{{b}}{{path}}" aria-label="Mauve Labs"><img src="{{b}}assets/brand/mauvelabs-logo@2x.png?v={{v}}" alt="Mauve Labs" height="48"></a>
   <nav aria-label="Main">
-    <a href="{{b}}{{path}}" class="hide-xs">{{sup_back}}</a>
-    <a href="{{b}}{{path}}notes/" aria-current="page">{{nav_notes}}</a>
+{{site_nav_links}}
 {{sub_nav_lang}}
   </nav>
 </header>
@@ -51,22 +50,7 @@
 {{notes_html}}
 </main>
 
-<footer class="wrap">
-  <div class="foot-top">
-    <div>
-      <p class="made">{{made_by}}</p>
-      <p class="also">{{also_from}}</p>
-    </div>
-    <nav aria-label="Footer">
-      <a href="{{privacy_url}}">{{foot_privacy}}</a>
-      <a href="{{terms_url}}">{{foot_terms}}</a>
-      <a href="{{b}}{{path}}support/">{{foot_support}}</a>
-      <a href="mailto:mauvelabs@mauvelabsinc.com">{{foot_contact}}</a>
-{{sub_lang_links}}
-    </nav>
-  </div>
-{{legal}}
-</footer>
+{{site_footer}}
 <script src="{{b}}assets/lang-menu.js?v={{v}}"></script>
 </body>
 </html>

@@ -17,6 +17,21 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/notes/"/>
   </url>
   <url>
+    <loc>https://mauvelabsinc.com/news/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/news/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/news/"/>
+  </url>
+  <url>
+    <loc>https://mauvelabsinc.com/faq/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/faq/"/>
+  </url>
+  <url>
+    <loc>https://mauvelabsinc.com/guide/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/guide/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/guide/"/>
+  </url>
+  <url>
     <loc>https://mauvelabsinc.com/ko/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/"/>
@@ -31,5 +46,20 @@
     <loc>https://mauvelabsinc.com/ko/notes/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/notes/"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/notes/"/>
+  </url>
+  <url>
+    <loc>https://mauvelabsinc.com/ko/news/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/news/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/news/"/>
+  </url>
+  <url>
+    <loc>https://mauvelabsinc.com/ko/faq/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/faq/"/>
+  </url>
+  <url>
+    <loc>https://mauvelabsinc.com/ko/guide/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/guide/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/guide/"/>
   </url>
 </urlset>

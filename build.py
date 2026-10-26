@@ -19,7 +19,7 @@ import sys
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = 'https://mauvelabsinc.com/'
 # CSS·JS·애니메이션을 고치면 올린다 — 브라우저가 옛 파일을 붙들지 않게
-VERSION = '48'
+VERSION = '50'
 # 언어 버튼 아이콘(지구본 · 장식이라 읽지 않게)
 GLOBE = '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>'
 
@@ -39,7 +39,7 @@ def lang_menu(current, locales, href):
             f'      <ul>\n' + '\n'.join(items) + '\n      </ul>\n    </details>')
 
 # 하위 페이지(templates/<이름>.html → /<이름>/ · /<언어>/<이름>/). 더하면 sitemap에도 같이 들어간다
-SUBPAGES = ['support', 'notes']
+SUBPAGES = ['support', 'notes', 'news', 'faq', 'guide']
 
 
 def notes_html(loc):
@@ -54,6 +54,77 @@ def notes_html(loc):
     return '\n'.join(out)
 
 
+def news_html(loc, sb):
+    """공지사항 게시판(locales의 news_entries) — 최신이 위. 글마다 분류(공지 · 개발 업데이트) · 날짜 · 제목 · 링크."""
+    rows = []
+    for e in loc['news_entries']:
+        href = e['href'].replace('{b}', sb + loc['path'])
+        tag = html.escape(loc['news_tag_' + e['tag']])
+        rows.append(f'      <li class="board-row"><span class="board-tag tag-{e["tag"]}">{tag}</span>'
+                    f'<a class="board-title" href="{href}">{html.escape(e["title"])}</a>'
+                    f'<time class="board-date" datetime="{e["date"]}">{html.escape(e["date_label"])}</time></li>')
+    return '    <ul class="board">\n' + '\n'.join(rows) + '\n    </ul>'
+
+
+def guide_html(loc):
+    """사용 가이드(locales의 guide_sections) — 뼈대: 절 제목 + 한 줄."""
+    out = []
+    for g in loc['guide_sections']:
+        out.append(f'    <section class="guide-sec" id="{g["id"]}">\n      <h2>{html.escape(g["title"])}</h2>\n'
+                   f'      <p>{g["body"]}</p>\n    </section>')
+    return '\n'.join(out)
+
+
+def hub_html(loc, sb):
+    """고객지원 모음 — 공지사항 · 개발노트 · 자주 묻는 질문 · 사용 가이드 · 문의하기 카드."""
+    base = sb + loc['path']
+    cards = [('news/', loc['nav_news'], loc['hub_news_desc']),
+             ('notes/', loc['nav_notes'], loc['hub_notes_desc']),
+             ('faq/', loc['faq_title'], loc['hub_faq_desc']),
+             ('guide/', loc['guide_title'], loc['hub_guide_desc'])]
+    out = [f'      <a class="hub-card" href="{base}{href}"><b>{html.escape(t)}</b><span>{html.escape(d)}</span></a>' for href, t, d in cards]
+    out.append(f'      <a class="hub-card hub-contact" href="{loc["contact_mailto"]}"><b>{html.escape(loc["hub_contact_title"])}</b>'
+               f'<span>{html.escape(loc["hub_contact_desc"])}</span></a>')
+    return '    <div class="hub-grid">\n' + '\n'.join(out) + '\n    </div>'
+
+
+def site_nav(loc, b, current):
+    """상단 메뉴(2026-10-26 대표님 「메뉴에 공지사항 · 고객지원」) — 홈에선 사용법, 하위 페이지에선 홈으로."""
+    base = b + loc['path']
+    first = (f'    <a href="#how" class="hide-xs">{loc["nav_how"]}</a>' if current == 'home'
+             else f'    <a href="{base}" class="hide-xs">{loc["sup_back"]}</a>')
+    def link(sub, label):
+        cur = ' aria-current="page"' if current == sub else ''
+        return f'    <a href="{base}{sub}/"{cur}>{label}</a>'
+    return '\n'.join([first, link('news', loc['nav_news']), link('support', loc['nav_support'])])
+
+
+def site_footer(loc, b, lang_links):
+    """하단(2026-10-26 대표님 예시 — 회사 · 탐색 · 문의 세 칸 + 약관·처리방침 + 사업자 정보)."""
+    base = b + loc['path']
+    col = lambda title, items: (f'      <div class="foot-col"><h2 class="foot-h">{html.escape(title)}</h2>\n'
+                                + '\n'.join(f'        {i}' for i in items) + '\n      </div>')
+    return f'''<footer class="wrap site-foot">
+  <div class="foot-cols">
+    <div class="foot-brand">
+      <img src="{b}assets/brand/mauvelabs-logo@2x.png?v={VERSION}" alt="Mauve Labs" height="40">
+      <p class="made">{loc["made_by"]}</p>
+    </div>
+{col(loc["foot_col_company"], [f'<a href="{base}">{loc["foot_about"]}</a>'])}
+{col(loc["foot_col_explore"], [f'<a href="{base}news/">{loc["nav_news"]}</a>', f'<a href="{base}notes/">{loc["nav_notes"]}</a>', f'<a href="{base}faq/">{loc["faq_title"]}</a>', f'<a href="{base}guide/">{loc["guide_title"]}</a>', f'<a href="{base}#get">{loc["foot_download"]}</a>'])}
+{col(loc["foot_col_contact"], [f'<a href="{base}support/">{loc["foot_help"]}</a>', f'<a href="{loc["contact_mailto"]}">{loc["foot_email_label"]}: mauvelabs@mauvelabsinc.com</a>'])}
+  </div>
+  <div class="foot-bottom">
+    <nav aria-label="Footer">
+      <a href="{loc["terms_url"]}">{loc["foot_terms"]}</a>
+      <a href="{loc["privacy_url"]}"><b>{loc["foot_privacy"]}</b></a>
+{lang_links}
+    </nav>
+{loc["legal"]}
+  </div>
+</footer>'''
+
+
 def render_subpage(loc, locales, values, depth, sub):
     """하위 페이지 하나를 만든다 — 언어마다 서로를 가리키는 hreflang · 바닥 언어 링크 · 상단 언어 메뉴를 그 페이지 주소로."""
     sb = '../' * (depth + 1)
@@ -63,7 +134,9 @@ def render_subpage(loc, locales, values, depth, sub):
              for l in locales if l is not loc]
     svalues = {**values, 'b': sb, 'sub_hreflang': '\n'.join(alts), 'sub_lang_links': '\n'.join(links),
                'sub_nav_lang': lang_menu(loc, locales, lambda l: f'{sb}{l["path"]}{sub}/'),
-               'notes_html': notes_html(loc)}
+               'notes_html': notes_html(loc), 'news_html': news_html(loc, sb), 'guide_html': guide_html(loc),
+               'hub_html': hub_html(loc, sb), 'site_nav_links': site_nav(loc, sb, sub),
+               'site_footer': site_footer(loc, sb, '\n'.join(links))}
 
     def sfill(m):
         key = m.group(1)
@@ -111,7 +184,8 @@ def main():
         # 상단 메뉴의 언어 변경 버튼(2026-10-21 대표님 「홈페이지 상단에 언어변경 메뉴」) — 다른 언어로 바로 간다
         nav_lang = lang_menu(loc, locales, lambda l: f'{b}{l["path"]}')
         values = {**loc, 'b': b, 'v': VERSION, 'url': SITE + loc['path'],
-                  'hreflang': '\n'.join(alts), 'lang_links': '\n'.join(links), 'nav_lang': nav_lang}
+                  'hreflang': '\n'.join(alts), 'lang_links': '\n'.join(links), 'nav_lang': nav_lang,
+                  'site_nav_links': site_nav(loc, b, 'home'), 'site_footer': site_footer(loc, b, '\n'.join(links))}
 
         def fill(m):
             key = m.group(1)

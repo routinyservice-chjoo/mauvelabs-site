@@ -36,9 +36,7 @@
   <!-- 회사 로고(모브랩스). 원본은 assets/brand/mauvelabs-logo-original.png -->
   <a class="brand brand-logo" href="./" aria-label="Mauve Labs"><img src="{{b}}assets/brand/mauvelabs-logo@2x.png?v={{v}}" alt="Mauve Labs" height="48"></a>
   <nav aria-label="Main">
-    <a href="#how" class="hide-xs">{{nav_how}}</a>
-    <a href="#private" class="hide-sm">{{nav_privacy}}</a>
-    <a href="{{b}}{{path}}notes/">{{nav_notes}}</a>
+{{site_nav_links}}
 {{nav_lang}}
   </nav>
 </header>
@@ -153,7 +151,7 @@
     <figure class="polaroid new-shot tilt-r" data-reveal><span class="tape mint"></span><img src="{{b}}{{shot_dir}}new-widget.webp?v={{v}}" alt="{{new_alt}}" width="750" height="446"></figure>
   </section>
 
-  <section class="cta wrap" data-reveal>
+  <section id="get" class="cta wrap" data-reveal>
     <span class="mongle cta-mongle" data-anim="mongle-normal-idle"><img src="{{b}}img/mongle-normal.webp" alt="" width="180"></span>
     <h2>{{cta_title}}</h2>
     <div class="badges center">
@@ -163,22 +161,7 @@
   </section>
 </main>
 
-<footer class="wrap">
-  <div class="foot-top">
-    <div>
-      <p class="made">{{made_by}}</p>
-      <p class="also">{{also_from}}</p>
-    </div>
-    <nav aria-label="Footer">
-      <a href="{{privacy_url}}">{{foot_privacy}}</a>
-      <a href="{{terms_url}}">{{foot_terms}}</a>
-      <a href="{{b}}{{path}}support/">{{foot_support}}</a>
-      <a href="mailto:mauvelabs@mauvelabsinc.com">{{foot_contact}}</a>
-{{lang_links}}
-    </nav>
-  </div>
-{{legal}}
-</footer>
+{{site_footer}}
 <script src="{{b}}assets/lang-menu.js?v={{v}}"></script>
 <script src="{{b}}assets/scroll.js?v={{v}}"></script>
 <script src="{{b}}assets/lottie_light.min.js"></script>

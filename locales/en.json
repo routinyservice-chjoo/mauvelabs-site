@@ -102,6 +102,18 @@
   "notes_lede": "What's changed in each update. iPhone and Android updates sometimes come out on different days.",
   "notes_entries": [
     {
+      "version": "1.1.1",
+      "dates": "Android: Oct 23, 2026 · iPhone: Oct 24, 2026",
+      "title": "Photos in backups",
+      "items": [
+        "<b>Photos in backups</b> Backups now include your photos. Tap Save a backup in Settings › Your data to get everything in one file, free for everyone. Older CSV backups can still be restored.",
+        "Fixed feelings and activities you made before signing in showing a code instead of their name.",
+        "The What's new screen no longer pops up for people who just installed the app.",
+        "Improved stability when you unlock the app with App lock.",
+        "Small layout fixes."
+      ]
+    },
+    {
       "version": "1.1.0",
       "dates": "Android: Oct 21, 2026 · iPhone: Oct 23, 2026",
       "title": "Widgets, Mongle Insights, and rest days",
@@ -118,5 +130,86 @@
         "<b>7-day free trial</b> New subscribers can try Premium Yearly free for 7 days. If you have notifications on, we'll send a reminder the day before your trial ends."
       ]
     }
-  ]
+  ],
+  "nav_news": "News",
+  "nav_support": "Support",
+  "news_meta_title": "News | DailyCumulus",
+  "news_meta_description": "Announcements and app updates from the DailyCumulus team.",
+  "news_title": "News",
+  "news_lede": "Announcements and app updates.",
+  "news_tag_notice": "Notice",
+  "news_tag_update": "Update",
+  "news_entries": [
+    {
+      "date": "2026-10-24",
+      "date_label": "Oct 24, 2026",
+      "tag": "update",
+      "title": "Version 1.1.1: backups now include your photos",
+      "href": "{b}notes/#v1.1.1"
+    },
+    {
+      "date": "2026-10-23",
+      "date_label": "Oct 23, 2026",
+      "tag": "update",
+      "title": "Version 1.1.0: widgets, Mongle Insights, and rest days",
+      "href": "{b}notes/#v1.1.0"
+    },
+    {
+      "date": "2026-10-16",
+      "date_label": "Oct 16, 2026",
+      "tag": "notice",
+      "title": "Updated Terms of Service and Privacy Policy (effective Nov 16, 2026)",
+      "href": "https://apps.mauvelabsinc.com/dailycumulus/terms.html"
+    }
+  ],
+  "faq_meta_title": "FAQ | DailyCumulus",
+  "faq_meta_description": "Answers about subscriptions, restoring purchases, refunds, deleting your account, and privacy in DailyCumulus.",
+  "faq_title": "FAQ",
+  "faq_lede": "Answers to common questions.",
+  "faq_more": "Still have a question? Email us at",
+  "guide_meta_title": "User guide | DailyCumulus",
+  "guide_meta_description": "How to use DailyCumulus, feature by feature.",
+  "guide_title": "User guide",
+  "guide_lede": "Step-by-step help for each feature. We're still writing this page.",
+  "guide_sections": [
+    {
+      "id": "check-in",
+      "title": "Check in with Mongle",
+      "body": "Coming soon."
+    },
+    {
+      "id": "reminders",
+      "title": "Reminders",
+      "body": "Coming soon."
+    },
+    {
+      "id": "widgets",
+      "title": "Widgets",
+      "body": "Coming soon."
+    },
+    {
+      "id": "backup",
+      "title": "Backup and restore",
+      "body": "Coming soon."
+    },
+    {
+      "id": "premium",
+      "title": "Premium",
+      "body": "Coming soon."
+    }
+  ],
+  "hub_news_desc": "Announcements and update news",
+  "hub_notes_desc": "What changed in each version",
+  "hub_faq_desc": "Quick answers to common questions",
+  "hub_guide_desc": "How to use each feature",
+  "hub_contact_title": "Contact us",
+  "hub_contact_desc": "Send us an email",
+  "contact_mailto": "mailto:mauvelabs@mauvelabsinc.com?subject=DailyCumulus%20support",
+  "foot_col_company": "Company",
+  "foot_about": "About us",
+  "foot_col_explore": "Explore",
+  "foot_download": "Get the app",
+  "foot_col_contact": "Contact",
+  "foot_help": "Help center",
+  "foot_email_label": "Email"
 }

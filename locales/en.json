@@ -17,7 +17,7 @@
   "brand": "DailyCumulus",
   "nav_how": "How it works",
   "nav_privacy": "Privacy",
-  "nav_notes": "Dev notes",
+  "nav_notes": "Release notes",
   "hero_sticker": "a tiny mood diary",
   "hero_title": "A little diary for how you're <em>actually</em> feeling.",
   "hero_lede": "Tap Mongle, pick how you feel, and that's it. Want to say more? Add a note or a photo. No ads, no pressure.",
@@ -96,9 +96,9 @@
   "sup_crisis": "DailyCumulus is a personal journal, not a medical or mental health service. If you're in crisis, call or text 988 (US) or your local emergency number.",
   "foot_support": "Support",
   "lang_menu_label": "Change language",
-  "notes_meta_title": "Dev notes · DailyCumulus",
+  "notes_meta_title": "Release notes · DailyCumulus",
   "notes_meta_description": "See what's new in each DailyCumulus update for iPhone and Android.",
-  "notes_title": "Dev notes",
+  "notes_title": "Release notes",
   "notes_lede": "What's changed in each update. iPhone and Android updates sometimes come out on different days.",
   "notes_entries": [
     {
@@ -137,7 +137,7 @@
   "news_meta_description": "Announcements and app updates from the DailyCumulus team.",
   "news_title": "News",
   "news_lede": "Announcements and app updates.",
-  "news_tag_notice": "Notice",
+  "news_tag_notice": "Announcement",
   "news_tag_update": "Update",
   "news_entries": [
     {
@@ -158,7 +158,7 @@
       "date": "2026-10-16",
       "date_label": "Oct 16, 2026",
       "tag": "notice",
-      "title": "Updated Terms of Service and Privacy Policy (effective Nov 16, 2026)",
+      "title": "Updates to our Terms of Service and Privacy Policy (effective Nov 16, 2026)",
       "href": "https://apps.mauvelabsinc.com/dailycumulus/terms.html"
     }
   ],
@@ -166,39 +166,39 @@
   "faq_meta_description": "Answers about subscriptions, restoring purchases, refunds, deleting your account, and privacy in DailyCumulus.",
   "faq_title": "FAQ",
   "faq_lede": "Answers to common questions.",
-  "faq_more": "Still have a question? Email us at",
+  "faq_more": "Still have questions? Email us at",
   "guide_meta_title": "User guide | DailyCumulus",
   "guide_meta_description": "How to use DailyCumulus, feature by feature.",
   "guide_title": "User guide",
-  "guide_lede": "Step-by-step help for each feature. We're still writing this page.",
+  "guide_lede": "How to use DailyCumulus, feature by feature. This page is still a work in progress.",
   "guide_sections": [
     {
       "id": "check-in",
       "title": "Check in with Mongle",
-      "body": "Coming soon."
+      "body": "In progress."
     },
     {
       "id": "reminders",
       "title": "Reminders",
-      "body": "Coming soon."
+      "body": "In progress."
     },
     {
       "id": "widgets",
       "title": "Widgets",
-      "body": "Coming soon."
+      "body": "In progress."
     },
     {
       "id": "backup",
       "title": "Backup and restore",
-      "body": "Coming soon."
+      "body": "In progress."
     },
     {
       "id": "premium",
       "title": "Premium",
-      "body": "Coming soon."
+      "body": "In progress."
     }
   ],
-  "hub_news_desc": "Announcements and update news",
+  "hub_news_desc": "Announcements and app updates",
   "hub_notes_desc": "What changed in each version",
   "hub_faq_desc": "Quick answers to common questions",
   "hub_guide_desc": "How to use each feature",
@@ -210,6 +210,6 @@
   "foot_col_explore": "Explore",
   "foot_download": "Get the app",
   "foot_col_contact": "Contact",
-  "foot_help": "Help center",
+  "foot_help": "Support",
   "foot_email_label": "Email"
 }

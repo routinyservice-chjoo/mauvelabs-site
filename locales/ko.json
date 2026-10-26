@@ -175,27 +175,27 @@
     {
       "id": "check-in",
       "title": "몽글이와 기록하기",
-      "body": "준비 중이에요."
+      "body": "준비하고 있어요."
     },
     {
       "id": "reminders",
       "title": "알림",
-      "body": "준비 중이에요."
+      "body": "준비하고 있어요."
     },
     {
       "id": "widgets",
       "title": "위젯",
-      "body": "준비 중이에요."
+      "body": "준비하고 있어요."
     },
     {
       "id": "backup",
       "title": "백업과 되돌리기",
-      "body": "준비 중이에요."
+      "body": "준비하고 있어요."
     },
     {
       "id": "premium",
       "title": "프리미엄",
-      "body": "준비 중이에요."
+      "body": "준비하고 있어요."
     }
   ],
   "hub_news_desc": "공지와 업데이트 소식",
@@ -210,6 +210,6 @@
   "foot_col_explore": "탐색",
   "foot_download": "앱 다운로드",
   "foot_col_contact": "문의",
-  "foot_help": "고객센터",
+  "foot_help": "고객지원",
   "foot_email_label": "이메일"
 }

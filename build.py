@@ -19,7 +19,7 @@ import sys
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = 'https://mauvelabsinc.com/'
 # CSS·JS·애니메이션을 고치면 올린다 — 브라우저가 옛 파일을 붙들지 않게
-VERSION = '50'
+VERSION = '51'
 # 언어 버튼 아이콘(지구본 · 장식이라 읽지 않게)
 GLOBE = '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>'
 
@@ -110,7 +110,6 @@ def site_footer(loc, b, lang_links):
       <img src="{b}assets/brand/mauvelabs-logo@2x.png?v={VERSION}" alt="Mauve Labs" height="40">
       <p class="made">{loc["made_by"]}</p>
     </div>
-{col(loc["foot_col_company"], [f'<a href="{base}">{loc["foot_about"]}</a>'])}
 {col(loc["foot_col_explore"], [f'<a href="{base}news/">{loc["nav_news"]}</a>', f'<a href="{base}notes/">{loc["nav_notes"]}</a>', f'<a href="{base}faq/">{loc["faq_title"]}</a>', f'<a href="{base}guide/">{loc["guide_title"]}</a>', f'<a href="{base}#get">{loc["foot_download"]}</a>'])}
 {col(loc["foot_col_contact"], [f'<a href="{base}support/">{loc["foot_help"]}</a>', f'<a href="{loc["contact_mailto"]}">{loc["foot_email_label"]}: mauvelabs@mauvelabsinc.com</a>'])}
   </div>

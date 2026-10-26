@@ -334,7 +334,7 @@ html:lang(ko) body { word-break: keep-all; }
 .guide-sec h2 { font-size: clamp(22px, 3vw, 28px); margin: 0 0 8px; }
 .guide-sec p { color: var(--ink-faint); margin: 0 0 16px; }
 
-.site-foot .foot-cols { display: grid; grid-template-columns: 2fr 1fr 1fr 1.4fr; gap: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+.site-foot .foot-cols { display: grid; grid-template-columns: 2fr 1fr 1.4fr; gap: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
 .site-foot .foot-brand img { height: 40px; width: auto; display: block; margin-bottom: 12px; }
 .site-foot .foot-col { display: flex; flex-direction: column; gap: 12px; }
 .site-foot .foot-h { font-size: 15px; font-weight: 700; color: var(--ink); margin: 0 0 6px; }

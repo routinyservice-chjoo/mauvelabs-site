@@ -141,6 +141,13 @@
   "news_tag_update": "업데이트",
   "news_entries": [
     {
+      "date": "2026-10-28",
+      "date_label": "2026.10.28",
+      "tag": "notice",
+      "title": "개인정보처리방침(10월 28일 시행)·이용약관(11월 4일 시행) 개정 안내",
+      "href": "https://apps.mauvelabsinc.com/dailycumulus/ko/privacy.html"
+    },
+    {
       "date": "2026-10-24",
       "date_label": "2026.10.24",
       "tag": "update",

@@ -141,6 +141,13 @@
   "news_tag_update": "Update",
   "news_entries": [
     {
+      "date": "2026-10-28",
+      "date_label": "Oct 28, 2026",
+      "tag": "notice",
+      "title": "Updates to our Privacy Policy (effective Oct 28, 2026) and Terms of Service (effective Nov 4, 2026)",
+      "href": "https://apps.mauvelabsinc.com/dailycumulus/privacy.html"
+    },
+    {
       "date": "2026-10-24",
       "date_label": "Oct 24, 2026",
       "tag": "update",

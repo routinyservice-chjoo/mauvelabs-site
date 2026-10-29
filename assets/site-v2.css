@@ -261,6 +261,10 @@ html:lang(ja) h1, html:lang(ja) h2, html:lang(ja) h3, html:lang(ja) .brand { fon
 html:lang(ja) h1 em { font-style: normal; }
 html:lang(ja) .sticker, html:lang(ja) .step-num { font-style: normal; font-weight: 600; }
 html:lang(ja) body { line-break: strict; }
+/* 일본어 줄바꿈(10/29 대표님 「원래 한 줄인데 두 줄로 바뀌는 부분」) — 제목·카드·짧은 글은 단어 중간에서 꺾지 않고 문구의 <wbr>(구 경계)·문장부호에서만 꺾는다. 긴 본문은 일본어 기본 줄바꿈 그대로 */
+html:lang(ja) :is(h1, h2, h3, .sticker, .board-title, .board-sub, .hub-card b, .hub-card span, .promises b, .hero-copy .fine) { word-break: keep-all; overflow-wrap: break-word; }
+html:lang(ja) h1 em, html:lang(ja) main p a, html:lang(ja) .mood-row b { white-space: nowrap; }
+html:lang(ja) .mood-row b { font-size: 13px; }
 /* 한국어판 사업자 정보(전자상거래법 표시) */
 .biz { display: grid; grid-template-columns: max-content 1fr; gap: 2px 14px; margin: 22px 0 0; font-size: 13px; color: var(--ink-faint); }
 .biz dt { font-weight: 600; }
@@ -281,7 +285,8 @@ html:lang(ja) body { line-break: strict; }
 @media (max-width: 860px) {
   .hero-art { height: 500px; }
   .hero-art .phone-main { left: 34%; width: 230px; }
-  .hero-art .phone-side { right: -12px; top: 110px; width: 150px; }
+  /* -12px였는데 5° 기울기까지 더해 휴대폰 폭(384px)에서 오른쪽으로 5px 넘쳐 화면이 옆으로 밀렸다(10/29) */
+  .hero-art .phone-side { right: -6px; top: 110px; width: 150px; }
   /* 휴대폰은 폭이 좁아 왼쪽 몽글이가 홈 화면을 가린다 — 뺀다 */
   .float.m1 { display: none; }
   .float.m2 { right: -6px; top: 20px; width: 80px; }
@@ -330,6 +335,7 @@ html:lang(ja) body { line-break: strict; }
 .board-date { font-size: 14px; color: var(--ink-faint); }
 .board-main { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .board-sub { font-size: 13px; color: var(--ink-faint); }
+.nw { white-space: nowrap; }
 @media (max-width: 560px) { .board-row { grid-template-columns: max-content 1fr; } .board-date { grid-column: 2; } }
 
 .hub-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 32px; }

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!-- ⚠️ build.py가 /notes/ · /<언어>/notes/를 만든다(직접 고치지 않는다). 항목은 locales/*.json의 notes_entries -->
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>リリースノート · DailyCumulus</title>
+  <meta name="description" content="iPhone・Android版DailyCumulusの、アップデートごとの変更点です。">
+  <!-- 파비콘은 회사 심볼(스티커 M) — assets/brand -->
+  <link rel="icon" href="../../favicon.ico?v=52" sizes="any">
+  <link rel="icon" href="../../assets/brand/favicon-32.png?v=52" type="image/png" sizes="32x32">
+  <link rel="icon" href="../../assets/brand/favicon-192.png?v=52" type="image/png" sizes="192x192">
+  <link rel="canonical" href="https://mauvelabsinc.com/ja/notes/">
+  <link rel="apple-touch-icon" href="../../assets/brand/apple-touch-icon.png?v=52">
+  <meta name="theme-color" content="#FFF8F0">
+  <!-- 사업자등록번호 등 숫자를 아이폰이 전화번호 링크로 바꾸지 않게 -->
+  <meta name="format-detection" content="telephone=no">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DailyCumulus by Mauve Labs">
+  <meta property="og:title" content="DailyCumulus：いまの気持ちを、そのまま残せる日記">
+  <meta property="og:description" content="モングルをタップして、気分を選ぶだけ。広告なしで、気負わずに。">
+  <meta property="og:url" content="https://mauvelabsinc.com/ja/notes/">
+  <meta property="og:image" content="https://mauvelabsinc.com/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="apple-itunes-app" content="app-id=6814691795">
+  <link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/notes/">
+  <link rel="alternate" hreflang="ja" href="https://mauvelabsinc.com/ja/notes/">
+  <link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/notes/">
+  <link rel="alternate" hreflang="x-default" href="https://mauvelabsinc.com/notes/">
+  <link rel="preload" href="../../assets/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="../../assets/site-v2.css?v=52">
+</head>
+<body>
+<header class="nav wrap">
+  <!-- 회사 로고(모브랩스). 원본은 assets/brand/mauvelabs-logo-original.png -->
+  <a class="brand brand-logo" href="../../ja/" aria-label="Mauve Labs"><img src="../../assets/brand/mauvelabs-logo@2x.png?v=52" alt="Mauve Labs" height="48"></a>
+  <nav aria-label="Main">
+    <a href="../../ja/" class="hide-xs">ホーム</a>
+    <a href="../../ja/news/">お知らせ</a>
+    <a href="../../ja/support/">サポート</a>
+    <details class="lang-menu">
+      <summary aria-label="言語を変更"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span class="lang-full">日本語</span><span class="lang-short" aria-hidden="true">JA</span><svg class="chev" aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <ul>
+        <li><a href="../../notes/" lang="en" hreflang="en">English</a></li>
+        <li><a href="../../ja/notes/" lang="ja" hreflang="ja" aria-current="true">日本語</a></li>
+        <li><a href="../../ko/notes/" lang="ko" hreflang="ko">한국어</a></li>
+      </ul>
+    </details>
+  </nav>
+</header>
+
+<main class="wrap support notes">
+  <!-- 개발노트 — 업데이트마다 사용자에게 무엇이 달라졌나(사용자 말로). 공개된 기능만 적는다 -->
+  <section class="support-head">
+    <h1>リリースノート</h1>
+    <p class="lede">アップデートごとの変更点をまとめています。iPhoneとAndroidで、配信日がちがうことがあります。</p>
+  </section>
+    <article class="note" id="v1.1.1">
+      <p class="note-meta"><span class="note-ver">1.1.1</span> Android：2026年10月23日 · iPhone：2026年10月24日</p>
+      <h2>バックアップに写真も</h2>
+      <ul class="note-list">
+        <li><b>写真もバックアップ</b> バックアップに写真も入るようになりました。Settings › Your data で Save a backup をタップすると、すべてを1つのファイルに保存できます。どなたでも無料です。以前のCSVバックアップも、そのまま復元できます。</li>
+        <li>ログイン前に作った気持ちややったことが、名前ではなくコードで表示される不具合を直しました。</li>
+        <li>インストールしたばかりのときに、What's new 画面が出ないようにしました。</li>
+        <li>App lockでロックを解除するときの安定性を改善しました。</li>
+        <li>レイアウトの細かな部分を修正しました。</li>
+      </ul>
+    </article>
+    <article class="note" id="v1.1.0">
+      <p class="note-meta"><span class="note-ver">1.1.0</span> Android：2026年10月21日 · iPhone：2026年10月23日</p>
+      <h2>ウィジェット、モングルインサイト、おやすみの日</h2>
+      <ul class="note-list">
+        <li><b>ウィジェット</b> 今日の気分と連続記録をホーム画面で見られて、タップすればすぐ記録できます。iPhoneではロック画面にも追加できます。</li>
+        <li><b>モングルインサイト（Mongle Insights）</b> 記録のパターンを、モングルが見つけてまとめてくれます。インサイトは月に1回まで無料で、プレミアムならすべて見られます。これまでの統計は、すべて無料のままです。</li>
+        <li><b>おやすみの日（Rest days）</b> 7日記録するごとに1つもらえます。7日続けて記録しなくても大丈夫です。記録できなかった日には自動で1つ使われ、連続記録が続きます。持てるのは2つまで、プレミアムなら4つまでです。プレミアムでは、毎週月曜日にもう1つもらえます。</li>
+        <li><b>バックアップと復元</b> 記録をCSVファイルに保存して、いつでも無料で復元できます。Profile › Settings › Your data にあります。ファイルに写真は入りません。</li>
+        <li><b>気持ちとやったことを自分で追加</b> 無料で5つまで（気持ちとやったことの合計）、プレミアムなら好きなだけ追加できます。</li>
+        <li><b>長いメモ</b> メモが5,000文字まで書けるようになりました。</li>
+        <li><b>On this day</b> 去年やそれより前の同じ日に記録したことを振り返れます。</li>
+        <li><b>Share my month</b> 1か月の花を、シェアできる画像にします。プレミアムならPDFでも保存できます。メモや写真は入りません。</li>
+        <li><b>新しいテーマ</b> Night garden、Lilac dusk、Sage、Morning sky、Cherry blossomはプレミアムで使えます。Classicは無料です。</li>
+        <li><b>7日間の無料トライアル</b> はじめて登録する方は、Premium（年額）を7日間無料で試せます。通知をオンにしていれば、トライアルが終わる前日にお知らせします。</li>
+      </ul>
+    </article>
+</main>
+
+<footer class="wrap site-foot">
+  <div class="foot-cols">
+    <div class="foot-brand">
+      <img src="../../assets/brand/mauvelabs-logo@2x.png?v=52" alt="Mauve Labs" height="40">
+      <p class="made">DailyCumulusは<b>Mauve Labs</b>がつくっています。</p>
+    </div>
+      <div class="foot-col"><h2 class="foot-h">メニュー</h2>
+        <a href="../../ja/news/">お知らせ</a>
+        <a href="../../ja/notes/">リリースノート</a>
+        <a href="../../ja/faq/">よくある質問</a>
+        <a href="../../ja/guide/">使い方ガイド</a>
+        <a href="../../ja/#get">アプリをダウンロード</a>
+      </div>
+      <div class="foot-col"><h2 class="foot-h">お問い合わせ</h2>
+        <a href="../../ja/support/">サポート</a>
+        <a href="mailto:mauvelabs@mauvelabsinc.com?subject=DailyCumulus%20%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">メール: mauvelabs@mauvelabsinc.com</a>
+      </div>
+  </div>
+  <div class="foot-bottom">
+    <nav aria-label="Footer">
+      <a href="https://apps.mauvelabsinc.com/dailycumulus/terms.html">利用規約</a>
+      <a href="https://apps.mauvelabsinc.com/dailycumulus/privacy.html"><b>プライバシーポリシー</b></a>
+      <a href="../../notes/" lang="en" hreflang="en">English</a>
+      <a href="../../ko/notes/" lang="ko" hreflang="ko">한국어</a>
+    </nav>
+<p class="legal">© 2026 Mauve Labs · mauvelabs@mauvelabsinc.com · 大韓民国 ソウル</p>
+  </div>
+</footer>
+<script src="../../assets/lang-menu.js?v=52"></script>
+</body>
+</html>

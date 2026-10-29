@@ -8,7 +8,7 @@
 | --- | --- |
 | `templates/page.html` | 페이지 틀. `{{키}}` 자리에 문구가 들어간다 |
 | `locales/en.json` | **메인 언어(영어, `/`)** — 기준은 미국 사용자 |
-| `locales/<언어>.json` | 서브 언어(`/ko/` …). en의 뜻을 그 나라 말로 옮긴다(직역 금지) |
+| `locales/<언어>.json` | 서브 언어(`/ko/` · `/ja/`(10/29 · 대표님 검수 전 초안 — `docs/ja-review-2026-10-29.md`)). en의 뜻을 그 나라 말로 옮긴다(직역 금지) · 일본어는 앱 저장소 `docs/tone-and-manner.md` §10-1 |
 | `build.py` | 위 둘로 `index.html` · `<언어>/index.html` · 하위 페이지 · `sitemap.xml`을 만든다 · 상단 메뉴(`site_nav`)·하단(`site_footer`)은 여기 한 곳 |
 | `templates/{support,notes,news,faq,guide}.html` | 하위 페이지 틀(10/26) — 고객지원 모음 · 개발노트 · 공지사항 게시판 · 자주 묻는 질문 · 사용 가이드 |
 
@@ -24,7 +24,7 @@
 
 ## 언어 하나 더하기
 
-1. `locales/en.json`을 복사해 `locales/ja.json`처럼 만들고 `lang` · `path`(예 `ja/`) · `language_name` · `og_locale`과 문구를 바꾼다
+1. `locales/en.json`을 복사해 `locales/<언어>.json`처럼 만들고 `lang` · `path`(예 `ja/`) · `language_name` · `og_locale`과 문구를 바꾼다
 2. 그 언어의 앱 스크린샷이 있으면 `img/ja/screen-{1,2,4,6}.webp`로 넣고 `shot_dir`을 `img/ja/`로. 공식 배지(Apple · Google)도 그 언어판을 `badge_dir`에
 3. 라틴 문자가 아니면 `assets/site-v2.css`의 `html:lang(ko)` 규칙처럼 제목 글꼴을 정한다(Fraunces는 라틴 전용)
 4. `python3 build.py` — 키가 빠지면 멈춘다 → 푸시(자동 배포) · 시크릿이 없으면 위 `wrangler deploy`

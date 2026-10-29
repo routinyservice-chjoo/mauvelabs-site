@@ -255,6 +255,12 @@ html:lang(ko) h1, html:lang(ko) h2, html:lang(ko) h3, html:lang(ko) .brand { fon
 html:lang(ko) h1 em { font-style: normal; }
 html:lang(ko) .sticker, html:lang(ko) .step-num { font-style: normal; font-weight: 600; }
 html:lang(ko) body { word-break: keep-all; }
+/* 일본어(2026-10-29) — Pretendard·Fraunces에 가나·한자가 없으니 기기의 일본어 글꼴을 먼저 쓴다(한 줄에 글꼴이 섞이지 않게) */
+html:lang(ja) { --sans: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Yu Gothic', Meiryo, -apple-system, BlinkMacSystemFont, sans-serif; --serif: var(--sans); }
+html:lang(ja) h1, html:lang(ja) h2, html:lang(ja) h3, html:lang(ja) .brand { font-weight: 700; letter-spacing: 0; line-height: 1.3; }
+html:lang(ja) h1 em { font-style: normal; }
+html:lang(ja) .sticker, html:lang(ja) .step-num { font-style: normal; font-weight: 600; }
+html:lang(ja) body { line-break: strict; }
 /* 한국어판 사업자 정보(전자상거래법 표시) */
 .biz { display: grid; grid-template-columns: max-content 1fr; gap: 2px 14px; margin: 22px 0 0; font-size: 13px; color: var(--ink-faint); }
 .biz dt { font-weight: 600; }

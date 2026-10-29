@@ -96,7 +96,7 @@
   "sup_a_delete": "アプリの「マイページ（Profile）」>「設定（Settings）」>「<b>アカウントを削除（Delete account）</b>」から削除できます。<a href=\"https://apps.mauvelabsinc.com/dailycumulus/account-deletion.html\">こちらのページ（英語）</a>から削除を依頼することもできます。",
   "sup_q_privacy": "記録はどこに保存されますか？",
   "sup_a_privacy": "無料プランでは、記録はスマホの中だけに保存されます。「マイページ（Profile）」>「設定（Settings）」>「データ（Your data）」から、いつでもバックアップファイルを保存できます。プレミアムでは、クラウドにもバックアップされます。くわしくは<a href=\"https://apps.mauvelabsinc.com/dailycumulus/privacy.html\">プライバシーポリシー（英語）</a>をご覧ください。",
-  "sup_crisis": "DailyCumulusは個人の日記アプリで、医療やメンタルヘルスのサービスではありません。日本で命の危険があるときは、119番に電話してください。つらい気持ちを話したいときは、#いのちSOS（<span class=\"nw\">0120-061-338</span>）やよりそいホットライン（<span class=\"nw\">0120-279-338</span>）に電話できます（どちらも無料・受付時間は各窓口のサイトでご確認ください）。日本以外にお住まいの方は、お住まいの国の緊急番号に連絡してください。",
+  "sup_crisis": "DailyCumulusは気分の記録アプリで、医療・メンタルヘルスのサービスではなく、緊急時に対応することはできません。命の危険があるときは、119番に電話してください。つらい気持ちを話したいときは、#いのちSOS（<span class=\"nw\">0120-061-338</span>）やよりそいホットライン（<span class=\"nw\">0120-279-338</span>）に電話できます（どちらも無料・受付時間は各窓口のサイトでご確認ください）。日本以外にお住まいの方は、お住まいの国の緊急番号に連絡してください。",
   "foot_support": "サポート",
   "lang_menu_label": "言語を変更",
   "notes_meta_title": "更新履歴｜DailyCumulus",

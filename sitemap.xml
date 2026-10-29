@@ -3,27 +3,32 @@
   <url>
     <loc>https://mauvelabsinc.com/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mauvelabsinc.com/ja/"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mauvelabsinc.com/"/>
   </url>
   <url>
     <loc>https://mauvelabsinc.com/support/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/support/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mauvelabsinc.com/ja/support/"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/support/"/>
   </url>
   <url>
     <loc>https://mauvelabsinc.com/notes/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/notes/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mauvelabsinc.com/ja/notes/"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/notes/"/>
   </url>
   <url>
     <loc>https://mauvelabsinc.com/news/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/news/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mauvelabsinc.com/ja/news/"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/news/"/>
   </url>
   <url>
     <loc>https://mauvelabsinc.com/faq/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mauvelabsinc.com/ja/faq/"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/faq/"/>
   </url>
   <url>
@@ -32,29 +37,65 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/guide/"/>
   </url>
   <url>
+    <loc>https://mauvelabsinc.com/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mauvelabsinc.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://mauvelabsinc.com/"/>
+  </url>
+  <url>
+    <loc>https://mauvelabsinc.com/ja/support/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/support/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mauvelabsinc.com/ja/support/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/support/"/>
+  </url>
+  <url>
+    <loc>https://mauvelabsinc.com/ja/notes/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/notes/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mauvelabsinc.com/ja/notes/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/notes/"/>
+  </url>
+  <url>
+    <loc>https://mauvelabsinc.com/ja/news/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/news/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mauvelabsinc.com/ja/news/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/news/"/>
+  </url>
+  <url>
+    <loc>https://mauvelabsinc.com/ja/faq/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mauvelabsinc.com/ja/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/faq/"/>
+  </url>
+  <url>
     <loc>https://mauvelabsinc.com/ko/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mauvelabsinc.com/ja/"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://mauvelabsinc.com/"/>
   </url>
   <url>
     <loc>https://mauvelabsinc.com/ko/support/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/support/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mauvelabsinc.com/ja/support/"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/support/"/>
   </url>
   <url>
     <loc>https://mauvelabsinc.com/ko/notes/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/notes/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mauvelabsinc.com/ja/notes/"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/notes/"/>
   </url>
   <url>
     <loc>https://mauvelabsinc.com/ko/news/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/news/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mauvelabsinc.com/ja/news/"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/news/"/>
   </url>
   <url>
     <loc>https://mauvelabsinc.com/ko/faq/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://mauvelabsinc.com/faq/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://mauvelabsinc.com/ja/faq/"/>
     <xhtml:link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/faq/"/>
   </url>
   <url>

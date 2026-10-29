@@ -19,7 +19,7 @@ import sys
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = 'https://mauvelabsinc.com/'
 # CSS·JS·애니메이션을 고치면 올린다 — 브라우저가 옛 파일을 붙들지 않게
-VERSION = '51'
+VERSION = '53'
 # 언어 버튼 아이콘(지구본 · 장식이라 읽지 않게)
 GLOBE = '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>'
 
@@ -42,6 +42,11 @@ def lang_menu(current, locales, href):
 SUBPAGES = ['support', 'notes', 'news', 'faq', 'guide']
 
 
+def has(loc, sub):
+    """그 언어에 하위 페이지가 있나 — 문구 파일의 `_hide_pages`(예: ja의 [\"guide\"] · 내용이 준비 중인 페이지)에 있으면 만들지도 링크하지도 않는다(2026-10-29)."""
+    return sub not in loc.get('_hide_pages', [])
+
+
 def notes_html(loc):
     """개발노트 항목(locales의 notes_entries)을 HTML로. 새 버전은 목록 맨 앞에 더한다."""
     out = []
@@ -60,8 +65,11 @@ def news_html(loc, sb):
     for e in loc['news_entries']:
         href = e['href'].replace('{b}', sb + loc['path'])
         tag = html.escape(loc['news_tag_' + e['tag']])
+        title = f'<a class="board-title" href="{href}">{html.escape(e["title"])}</a>'
+        if e.get('sub'):  # 부제(시행일 등) — 있는 글만 · 없으면 예전 모양 그대로
+            title = f'<span class="board-main">{title}<small class="board-sub">{html.escape(e["sub"])}</small></span>'
         rows.append(f'      <li class="board-row"><span class="board-tag tag-{e["tag"]}">{tag}</span>'
-                    f'<a class="board-title" href="{href}">{html.escape(e["title"])}</a>'
+                    f'{title}'
                     f'<time class="board-date" datetime="{e["date"]}">{html.escape(e["date_label"])}</time></li>')
     return '    <ul class="board">\n' + '\n'.join(rows) + '\n    </ul>'
 
@@ -82,6 +90,7 @@ def hub_html(loc, sb):
              ('notes/', loc['nav_notes'], loc['hub_notes_desc']),
              ('faq/', loc['faq_title'], loc['hub_faq_desc']),
              ('guide/', loc['guide_title'], loc['hub_guide_desc'])]
+    cards = [c for c in cards if has(loc, c[0].rstrip('/'))]
     out = [f'      <a class="hub-card" href="{base}{href}"><b>{html.escape(t)}</b><span>{html.escape(d)}</span></a>' for href, t, d in cards]
     out.append(f'      <a class="hub-card hub-contact" href="{loc["contact_mailto"]}"><b>{html.escape(loc["hub_contact_title"])}</b>'
                f'<span>{html.escape(loc["hub_contact_desc"])}</span></a>')
@@ -110,7 +119,7 @@ def site_footer(loc, b, lang_links):
       <img src="{b}assets/brand/mauvelabs-logo@2x.png?v={VERSION}" alt="Mauve Labs" height="40">
       <p class="made">{loc["made_by"]}</p>
     </div>
-{col(loc["foot_col_explore"], [f'<a href="{base}news/">{loc["nav_news"]}</a>', f'<a href="{base}notes/">{loc["nav_notes"]}</a>', f'<a href="{base}faq/">{loc["faq_title"]}</a>', f'<a href="{base}guide/">{loc["guide_title"]}</a>', f'<a href="{base}#get">{loc["foot_download"]}</a>'])}
+{col(loc["foot_col_explore"], [f'<a href="{base}news/">{loc["nav_news"]}</a>', f'<a href="{base}notes/">{loc["nav_notes"]}</a>', f'<a href="{base}faq/">{loc["faq_title"]}</a>', *([f'<a href="{base}guide/">{loc["guide_title"]}</a>'] if has(loc, 'guide') else []), f'<a href="{base}#get">{loc["foot_download"]}</a>'])}
 {col(loc["foot_col_contact"], [f'<a href="{base}support/">{loc["foot_help"]}</a>', f'<a href="{loc["contact_mailto"]}">{loc["foot_email_label"]}: mauvelabs@mauvelabsinc.com</a>'])}
   </div>
   <div class="foot-bottom">
@@ -127,12 +136,13 @@ def site_footer(loc, b, lang_links):
 def render_subpage(loc, locales, values, depth, sub):
     """하위 페이지 하나를 만든다 — 언어마다 서로를 가리키는 hreflang · 바닥 언어 링크 · 상단 언어 메뉴를 그 페이지 주소로."""
     sb = '../' * (depth + 1)
-    alts = [f'  <link rel="alternate" hreflang="{l["lang"]}" href="{SITE}{l["path"]}{sub}/">' for l in locales]
+    alts = [f'  <link rel="alternate" hreflang="{l["lang"]}" href="{SITE}{l["path"]}{sub}/">' for l in locales if has(l, sub)]
     alts.append(f'  <link rel="alternate" hreflang="x-default" href="{SITE}{sub}/">')
-    links = [f'      <a href="{sb}{l["path"]}{sub}/" lang="{l["lang"]}" hreflang="{l["lang"]}">{html.escape(l["language_name"])}</a>'
+    to = lambda l: f'{sb}{l["path"]}{sub}/' if has(l, sub) else f'{sb}{l["path"]}'  # 그 언어에 없는 페이지면 그 언어 홈으로
+    links = [f'      <a href="{to(l)}" lang="{l["lang"]}" hreflang="{l["lang"]}">{html.escape(l["language_name"])}</a>'
              for l in locales if l is not loc]
     svalues = {**values, 'b': sb, 'sub_hreflang': '\n'.join(alts), 'sub_lang_links': '\n'.join(links),
-               'sub_nav_lang': lang_menu(loc, locales, lambda l: f'{sb}{l["path"]}{sub}/'),
+               'sub_nav_lang': lang_menu(loc, locales, to),
                'notes_html': notes_html(loc), 'news_html': news_html(loc, sb), 'guide_html': guide_html(loc),
                'hub_html': hub_html(loc, sb), 'site_nav_links': site_nav(loc, sb, sub),
                'site_footer': site_footer(loc, sb, '\n'.join(links))}
@@ -202,7 +212,8 @@ def main():
         # 하위 페이지 — 고객 지원(/support/ · App Store 지원 URL · Play 웹사이트가 가리킨다 · 2026-10-13)
         # · 개발노트(/notes/ · 1.1.0부터 · 2026-10-23)
         for sub in SUBPAGES:
-            render_subpage(loc, locales, values, depth, sub)
+            if has(loc, sub):
+                render_subpage(loc, locales, values, depth, sub)
 
     # sitemap — 언어마다 서로를 가리킨다
     urls = []
@@ -211,7 +222,9 @@ def main():
         alt += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{SITE}"/>'
         urls.append(f'  <url>\n    <loc>{SITE}{loc["path"]}</loc>{alt}\n  </url>')
         for sub in SUBPAGES:
-            salt = ''.join(f'\n    <xhtml:link rel="alternate" hreflang="{l["lang"]}" href="{SITE}{l["path"]}{sub}/"/>' for l in locales)
+            if not has(loc, sub):
+                continue
+            salt = ''.join(f'\n    <xhtml:link rel="alternate" hreflang="{l["lang"]}" href="{SITE}{l["path"]}{sub}/"/>' for l in locales if has(l, sub))
             urls.append(f'  <url>\n    <loc>{SITE}{loc["path"]}{sub}/</loc>{salt}\n  </url>')
     with open(os.path.join(ROOT, 'sitemap.xml'), 'w', encoding='utf-8') as f:
         f.write('<?xml version="1.0" encoding="UTF-8"?>\n'

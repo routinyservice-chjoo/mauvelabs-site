@@ -36,6 +36,18 @@ def ja_wbr_text(t):
     return re.sub('(<wbr>)+', '<wbr>', t)
 
 
+EMAIL = 'mauvelabs@mauvelabsinc.com'
+
+
+def email_nowrap(page):
+    """화면에 보이는 메일 주소는 @ 뒤에서만 꺾는다(2026-10-29 A16 세 언어 「mauvelabsi / nc.com」) — 앞·뒤를 각각 한 덩어리로.
+    href·mailto 같은 태그 속성은 건드리지 않는다."""
+    head, sep, body = page.partition('<body>')
+    nice = '<span class="nw">mauvelabs@</span><wbr><span class="nw">mauvelabsinc.com</span>'
+    parts = re.split(r'(<[^>]+>)', body)
+    return head + sep + ''.join(x if x.startswith('<') else x.replace(EMAIL, nice) for x in parts)
+
+
 def ja_wbr(page):
     """일본어 페이지 본문 글자에 구 경계 <wbr>을 넣는다(2026-10-29 · A16에서 본문이 단어 가운데서 꺾였다).
     keep-all이 이 자리와 문장부호에서만 꺾는다. <head>·<script>·<style>·태그 속성은 건드리지 않는다."""
@@ -65,7 +77,7 @@ def ja_wbr(page):
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = 'https://mauvelabsinc.com/'
 # CSS·JS·애니메이션을 고치면 올린다 — 브라우저가 옛 파일을 붙들지 않게
-VERSION = '57'
+VERSION = '58'
 # 언어 버튼 아이콘(지구본 · 장식이라 읽지 않게)
 GLOBE = '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>'
 
@@ -205,6 +217,7 @@ def render_subpage(loc, locales, values, depth, sub):
     os.makedirs(out_dir, exist_ok=True)
     if loc['lang'] == 'ja':
         page = ja_wbr(page)
+    page = email_nowrap(page)
     with open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(page)
     print(f"✅ {loc['lang']:>3} → /{loc['path']}{sub}/index.html")
@@ -299,6 +312,7 @@ def main():
         page = re.sub(r'\{\{(\w+)\}\}', fill, tpl)
         if loc['lang'] == 'ja':
             page = ja_wbr(page)
+        page = email_nowrap(page)
         out_dir = os.path.join(ROOT, loc['path'])
         os.makedirs(out_dir, exist_ok=True)
         with open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8') as f:

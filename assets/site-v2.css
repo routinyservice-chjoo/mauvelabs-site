@@ -276,7 +276,8 @@ html:lang(ja) :is(p, li, dd, h1, h2, h3, .board-title, .board-sub, .hub-card spa
   html:lang(ja) :is(h1, h2, h3, .sticker, .board-title, .board-sub, .hub-card b, .hub-card span, .promises b, .hero-copy .fine, .note-list b) { word-break: keep-all; }
 }
 /* 한국어판 사업자 정보(전자상거래법 표시) */
-.biz { display: grid; grid-template-columns: max-content 1fr; gap: 2px 14px; margin: 22px 0 0; font-size: 13px; color: var(--ink-faint); }
+/* 이름 칸은 최대 45%까지(10/29 · 영어 「Mail-order business registration no.」가 길어 휴대폰에서 값 칸이 116px로 눌렸다) */
+.biz { display: grid; grid-template-columns: fit-content(45%) 1fr; gap: 2px 14px; margin: 22px 0 0; font-size: 13px; color: var(--ink-faint); }
 .biz dt { font-weight: 600; }
 .biz dd { margin: 0; }
 

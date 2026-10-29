@@ -77,7 +77,7 @@ def ja_wbr(page):
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = 'https://mauvelabsinc.com/'
 # CSS·JS·애니메이션을 고치면 올린다 — 브라우저가 옛 파일을 붙들지 않게
-VERSION = '58'
+VERSION = '59'
 # 언어 버튼 아이콘(지구본 · 장식이라 읽지 않게)
 GLOBE = '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>'
 
@@ -235,10 +235,8 @@ def load_locales():
 
 # 언어 간 짝 맞춤(2026-10-29 대표님 「언어만 다르고 똑같이 맞춰야 내가 잘못된 걸 찾을 수 있어」) — 키 집합은 멈추고, 아래는 경고만 낸다.
 # 나라마다 달라야 맞는 것만 예외로 둔다(이유를 같이 적는다)
-PARITY_EXCEPT = {
-    'legal': '한국어판만 전자상거래법 사업자 정보를 표시한다',
-}
-_TAGS = {'<br>': r'<br\s*/?>', '<a>': r'<a\s', '<b>': r'<b>', '<em>': r'<em>', '{b}': r'\{b\}', '{{자리}}': r'\{\{\w+\}\}'}
+PARITY_EXCEPT = {}
+_TAGS = {'<dt>': r'<dt>', '<br>': r'<br\s*/?>', '<a>': r'<a\s', '<b>': r'<b>', '<em>': r'<em>', '{b}': r'\{b\}', '{{자리}}': r'\{\{\w+\}\}'}
 
 
 def parity_warnings(locales):

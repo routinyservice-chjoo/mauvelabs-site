@@ -21,10 +21,43 @@ def esc(text):
     return html.escape(text).replace('&lt;wbr&gt;', '<wbr>')
 
 
+_HIRA = '\u3041-\u3096'
+# 구(文節) 경계 추정: 히라가나 뒤에 한자·가타카나·숫자·영문·여는 괄호가 오는 자리(「表情が|変わる」 · 「して|送ります」).
+# 예외 — 「か月」은 한 단어 · 접두 「お・ご」는 뒤 한자에 붙인다(「ほかに|ご質問」 · 「|お知らせ」)
+_JA_BOUND = re.compile('([' + _HIRA + '])(?=[\u4e00-\u9fff\u3005\u30a1-\u30fa\u30fc0-9A-Za-z\uff10-\uff19#\uff08\u300c])')
+
+
+def ja_wbr_text(t):
+    t = _JA_BOUND.sub(lambda m: m.group(1) + '<wbr>', t)
+    t = t.replace('か<wbr>月', 'か月')
+    t = re.sub('([' + _HIRA + '])([おご])<wbr>', lambda m: m.group(1) + '<wbr>' + m.group(2), t)
+    t = re.sub('(^|[、。！？：])([おご])<wbr>', lambda m: m.group(1) + m.group(2), t)
+    t = re.sub('([、。！？）」』])(?=[^<\s、。！？）」』])', lambda m: m.group(1) + '<wbr>', t)
+    return re.sub('(<wbr>)+', '<wbr>', t)
+
+
+def ja_wbr(page):
+    """일본어 페이지 본문 글자에 구 경계 <wbr>을 넣는다(2026-10-29 · A16에서 본문이 단어 가운데서 꺾였다).
+    keep-all이 이 자리와 문장부호에서만 꺾는다. <head>·<script>·<style>·태그 속성은 건드리지 않는다."""
+    head, sep, body = page.partition('<body>')
+    out, skip = [], False
+    for part in re.split(r'(<[^>]+>)', body):
+        if part.startswith('<'):
+            low = part.lower()
+            if low.startswith(('<script', '<style')):
+                skip = True
+            elif low.startswith(('</script', '</style')):
+                skip = False
+            out.append(part)
+        else:
+            out.append(part if skip else ja_wbr_text(part))
+    return head + sep + ''.join(out)
+
+
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = 'https://mauvelabsinc.com/'
 # CSS·JS·애니메이션을 고치면 올린다 — 브라우저가 옛 파일을 붙들지 않게
-VERSION = '54'
+VERSION = '56'
 # 언어 버튼 아이콘(지구본 · 장식이라 읽지 않게)
 GLOBE = '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>'
 
@@ -162,6 +195,8 @@ def render_subpage(loc, locales, values, depth, sub):
         page = re.sub(r'\{\{(\w+)\}\}', sfill, f.read())
     out_dir = os.path.join(ROOT, loc['path'], sub)
     os.makedirs(out_dir, exist_ok=True)
+    if loc['lang'] == 'ja':
+        page = ja_wbr(page)
     with open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8') as f:
         f.write(page)
     print(f"✅ {loc['lang']:>3} → /{loc['path']}{sub}/index.html")
@@ -208,6 +243,8 @@ def main():
             return str(values[key])
 
         page = re.sub(r'\{\{(\w+)\}\}', fill, tpl)
+        if loc['lang'] == 'ja':
+            page = ja_wbr(page)
         out_dir = os.path.join(ROOT, loc['path'])
         os.makedirs(out_dir, exist_ok=True)
         with open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8') as f:

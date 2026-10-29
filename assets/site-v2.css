@@ -265,6 +265,13 @@ html:lang(ja) body { line-break: strict; }
 html:lang(ja) :is(h1, h2, h3, .sticker, .board-title, .board-sub, .hub-card b, .hub-card span, .promises b, .hero-copy .fine) { word-break: keep-all; overflow-wrap: break-word; }
 html:lang(ja) h1 em, html:lang(ja) main p a, html:lang(ja) .mood-row b { white-space: nowrap; }
 html:lang(ja) .mood-row b { font-size: 13px; }
+/* 본문도(10/29 A16 「…小 / さな雲。」) — 일본어 문장은 build.py가 넣은 구 경계 <wbr>·문장부호에서만 꺾는다. 칸보다 긴 덩어리(메일 주소 등)만 아무 데서나 꺾어 칸 밖으로 안 나가게 */
+html:lang(ja) main, html:lang(ja) .site-foot { word-break: keep-all; overflow-wrap: anywhere; }
+html:lang(ja) :is(p, li, dd, h1, h2, h3, .board-title, .board-sub, .hub-card span) { text-wrap: pretty; }
+/* Chrome 119+: 구 단위 줄바꿈을 브라우저가 직접(나머지 브라우저는 위 keep-all + <wbr>) */
+@supports (word-break: auto-phrase) {
+  html:lang(ja) main, html:lang(ja) .site-foot, html:lang(ja) :is(h1, h2, h3, .sticker, .board-title, .board-sub, .hub-card b, .hub-card span, .promises b, .hero-copy .fine) { word-break: auto-phrase; }
+}
 /* 한국어판 사업자 정보(전자상거래법 표시) */
 .biz { display: grid; grid-template-columns: max-content 1fr; gap: 2px 14px; margin: 22px 0 0; font-size: 13px; color: var(--ink-faint); }
 .biz dt { font-weight: 600; }
@@ -290,6 +297,15 @@ html:lang(ja) .mood-row b { font-size: 13px; }
   /* 휴대폰은 폭이 좁아 왼쪽 몽글이가 홈 화면을 가린다 — 뺀다 */
   .float.m1 { display: none; }
   .float.m2 { right: -6px; top: 20px; width: 80px; }
+}
+
+/* 휴대폰 폭(~600px · 10/29 대표님 「최고 몽글이에 텍스트가 가려지고 있어」): 앞 휴대폰이 뒤 통계 휴대폰의 제목·달·숫자(Stats · OCTOBER · 40 entries)를 덮었다.
+   앞 휴대폰을 조금 줄여 왼쪽으로, 뒤 휴대폰을 오른쪽으로 — 둘 다 화면 안에 다 보이고, 기울기로 1~2px 나가는 것은 .hero가 가로만 잘라 옆으로 밀리지 않게 */
+@media (max-width: 600px) {
+  .hero { overflow-x: clip; }
+  .hero-art { height: 450px; }
+  .hero-art .phone-main { left: 27%; width: 195px; }
+  .hero-art .phone-side { right: -10px; top: 100px; width: 142px; }
 }
 
 /* 노트북 폭(861~1150px): 통계 휴대폰과 몽글이가 화면 오른쪽 밖으로 잘리지 않게 안쪽으로 */

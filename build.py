@@ -29,7 +29,7 @@ _JA_BOUND = re.compile('([' + _HIRA + '])(?=[\u4e00-\u9fff\u3005\u30a1-\u30fa\u3
 
 def ja_wbr_text(t):
     t = _JA_BOUND.sub(lambda m: m.group(1) + '<wbr>', t)
-    t = t.replace('か<wbr>月', 'か月')
+    t = t.replace('か<wbr>月', 'か月').replace('もう<wbr>一', 'もう一')
     t = re.sub('([' + _HIRA + '])([おご])<wbr>', lambda m: m.group(1) + '<wbr>' + m.group(2), t)
     t = re.sub('(^|[、。！？：])([おご])<wbr>', lambda m: m.group(1) + m.group(2), t)
     t = re.sub('([、。！？）」』])(?=[^<\s、。！？）」』])', lambda m: m.group(1) + '<wbr>', t)
@@ -40,7 +40,8 @@ def ja_wbr(page):
     """일본어 페이지 본문 글자에 구 경계 <wbr>을 넣는다(2026-10-29 · A16에서 본문이 단어 가운데서 꺾였다).
     keep-all이 이 자리와 문장부호에서만 꺾는다. <head>·<script>·<style>·태그 속성은 건드리지 않는다."""
     head, sep, body = page.partition('<body>')
-    out, skip = [], False
+    # 한 덩어리로 두는 요소(<em> · <b> · <span class="nw">) 안에는 넣지 않는다 — Chrome은 nowrap 안의 <wbr>에서도 꺾는다(10/29 실측)
+    out, skip, stack = [], False, []
     for part in re.split(r'(<[^>]+>)', body):
         if part.startswith('<'):
             low = part.lower()
@@ -48,16 +49,23 @@ def ja_wbr(page):
                 skip = True
             elif low.startswith(('</script', '</style')):
                 skip = False
+            m = re.match(r'<(/?)(em|b|span)\b', low)
+            if m and not low.endswith('/>'):
+                if m.group(1):
+                    if stack:
+                        stack.pop()
+                else:
+                    stack.append(m.group(2) != 'span' or 'class="nw"' in low)
             out.append(part)
         else:
-            out.append(part if skip else ja_wbr_text(part))
+            out.append(part if skip or any(stack) else ja_wbr_text(part))
     return head + sep + ''.join(out)
 
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = 'https://mauvelabsinc.com/'
 # CSS·JS·애니메이션을 고치면 올린다 — 브라우저가 옛 파일을 붙들지 않게
-VERSION = '56'
+VERSION = '57'
 # 언어 버튼 아이콘(지구본 · 장식이라 읽지 않게)
 GLOBE = '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>'
 

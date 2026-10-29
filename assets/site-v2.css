@@ -265,12 +265,15 @@ html:lang(ja) body { line-break: strict; }
 html:lang(ja) :is(h1, h2, h3, .sticker, .board-title, .board-sub, .hub-card b, .hub-card span, .promises b, .hero-copy .fine) { word-break: keep-all; overflow-wrap: break-word; }
 html:lang(ja) h1 em, html:lang(ja) main p a, html:lang(ja) .mood-row b { white-space: nowrap; }
 html:lang(ja) .mood-row b { font-size: 13px; }
+html:lang(ja) .note-list b { white-space: nowrap; }
 /* 본문도(10/29 A16 「…小 / さな雲。」) — 일본어 문장은 build.py가 넣은 구 경계 <wbr>·문장부호에서만 꺾는다. 칸보다 긴 덩어리(메일 주소 등)만 아무 데서나 꺾어 칸 밖으로 안 나가게 */
 html:lang(ja) main, html:lang(ja) .site-foot { word-break: keep-all; overflow-wrap: anywhere; }
 html:lang(ja) :is(p, li, dd, h1, h2, h3, .board-title, .board-sub, .hub-card span) { text-wrap: pretty; }
 /* Chrome 119+: 구 단위 줄바꿈을 브라우저가 직접(나머지 브라우저는 위 keep-all + <wbr>) */
+/* 본문 문단에만 — 제목·카드 제목·버튼은 keep-all + <wbr> 그대로(10/29 A16 v56 「よろしく / ね。」: auto-phrase가 제목까지 덮었다) */
 @supports (word-break: auto-phrase) {
-  html:lang(ja) main, html:lang(ja) .site-foot, html:lang(ja) :is(h1, h2, h3, .sticker, .board-title, .board-sub, .hub-card b, .hub-card span, .promises b, .hero-copy .fine) { word-break: auto-phrase; }
+  html:lang(ja) :is(main p, main li, main dd, .site-foot p) { word-break: auto-phrase; }
+  html:lang(ja) :is(h1, h2, h3, .sticker, .board-title, .board-sub, .hub-card b, .hub-card span, .promises b, .hero-copy .fine, .note-list b) { word-break: keep-all; }
 }
 /* 한국어판 사업자 정보(전자상거래법 표시) */
 .biz { display: grid; grid-template-columns: max-content 1fr; gap: 2px 14px; margin: 22px 0 0; font-size: 13px; color: var(--ink-faint); }

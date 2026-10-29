@@ -16,10 +16,15 @@ import os
 import re
 import sys
 
+def esc(text):
+    """html.escape + 줄바꿈 자리 <wbr>만 살린다(일본어 제목을 구 단위로 꺾기 · 2026-10-29). en·ko 문구엔 <wbr>이 없어 결과가 같다."""
+    return html.escape(text).replace('&lt;wbr&gt;', '<wbr>')
+
+
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = 'https://mauvelabsinc.com/'
 # CSS·JS·애니메이션을 고치면 올린다 — 브라우저가 옛 파일을 붙들지 않게
-VERSION = '53'
+VERSION = '54'
 # 언어 버튼 아이콘(지구본 · 장식이라 읽지 않게)
 GLOBE = '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>'
 
@@ -54,7 +59,7 @@ def notes_html(loc):
         items = '\n'.join(f'        <li>{it}</li>' for it in e['items'])
         out.append(f'    <article class="note" id="v{e["version"]}">\n'
                    f'      <p class="note-meta"><span class="note-ver">{html.escape(e["version"])}</span> {html.escape(e["dates"])}</p>\n'
-                   f'      <h2>{html.escape(e["title"])}</h2>\n'
+                   f'      <h2>{esc(e["title"])}</h2>\n'
                    f'      <ul class="note-list">\n{items}\n      </ul>\n    </article>')
     return '\n'.join(out)
 
@@ -65,9 +70,9 @@ def news_html(loc, sb):
     for e in loc['news_entries']:
         href = e['href'].replace('{b}', sb + loc['path'])
         tag = html.escape(loc['news_tag_' + e['tag']])
-        title = f'<a class="board-title" href="{href}">{html.escape(e["title"])}</a>'
+        title = f'<a class="board-title" href="{href}">{esc(e["title"])}</a>'
         if e.get('sub'):  # 부제(시행일 등) — 있는 글만 · 없으면 예전 모양 그대로
-            title = f'<span class="board-main">{title}<small class="board-sub">{html.escape(e["sub"])}</small></span>'
+            title = f'<span class="board-main">{title}<small class="board-sub">{esc(e["sub"])}</small></span>'
         rows.append(f'      <li class="board-row"><span class="board-tag tag-{e["tag"]}">{tag}</span>'
                     f'{title}'
                     f'<time class="board-date" datetime="{e["date"]}">{html.escape(e["date_label"])}</time></li>')

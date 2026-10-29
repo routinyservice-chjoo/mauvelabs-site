@@ -220,6 +220,50 @@ def load_locales():
     return out
 
 
+# 언어 간 짝 맞춤(2026-10-29 대표님 「언어만 다르고 똑같이 맞춰야 내가 잘못된 걸 찾을 수 있어」) — 키 집합은 멈추고, 아래는 경고만 낸다.
+# 나라마다 달라야 맞는 것만 예외로 둔다(이유를 같이 적는다)
+PARITY_EXCEPT = {
+    'legal': '한국어판만 전자상거래법 사업자 정보를 표시한다',
+}
+_TAGS = {'<br>': r'<br\s*/?>', '<a>': r'<a\s', '<b>': r'<b>', '<em>': r'<em>', '{b}': r'\{b\}', '{{자리}}': r'\{\{\w+\}\}'}
+
+
+def parity_warnings(locales):
+    """en을 기준으로 다른 언어의 문구 모양(줄바꿈·링크·굵은 글씨·자리 수 · 목록 개수·순서)이 같은지 본다."""
+    base, warns = locales[0], []
+    def shape(v):
+        return {n: len(re.findall(rx, v)) for n, rx in _TAGS.items()}
+    for loc in locales[1:]:
+        tag = loc['lang']
+        if loc.get('_hide_pages', []) != base.get('_hide_pages', []):
+            warns.append(f"[{tag}] _hide_pages가 en과 다르다: {loc.get('_hide_pages')} ≠ {base.get('_hide_pages')}")
+        for k, v in base.items():
+            if k.startswith('_') or k in PARITY_EXCEPT:
+                continue
+            o = loc[k]
+            if isinstance(v, str):
+                a, b = shape(v), shape(o)
+                diff = {n: (a[n], b[n]) for n in a if a[n] != b[n]}
+                if diff:
+                    warns.append(f"[{tag}] {k}: " + ', '.join(f"{n} en {x} · {tag} {y}" for n, (x, y) in diff.items()))
+            elif isinstance(v, list):
+                if len(v) != len(o):
+                    warns.append(f"[{tag}] {k}: 개수 en {len(v)} · {tag} {len(o)}")
+                    continue
+                for i, (x, y) in enumerate(zip(v, o)):
+                    if set(x) != set(y):
+                        warns.append(f"[{tag}] {k}[{i}]: 칸이 다르다 — en만 {sorted(set(x) - set(y))} · {tag}만 {sorted(set(y) - set(x))}")
+                    for f in ('version', 'id', 'tag', 'href', 'date'):
+                        yv = y.get(f)
+                        if f == 'href' and isinstance(yv, str):  # 그 언어판 약관·처리방침(/dailycumulus/ko/…)은 같은 글로 본다
+                            yv = yv.replace(f"/dailycumulus/{tag}/", '/dailycumulus/')
+                        if f in x and x.get(f) != yv:
+                            warns.append(f"[{tag}] {k}[{i}].{f}: en {x.get(f)} · {tag} {y.get(f)}")
+                    if 'items' in x and len(x['items']) != len(y.get('items', [])):
+                        warns.append(f"[{tag}] {k}[{i}].items: 개수 en {len(x['items'])} · {tag} {len(y.get('items', []))}")
+    return warns
+
+
 def main():
     locales = load_locales()
     base_keys = {k for k in locales[0] if not k.startswith('_')}
@@ -227,6 +271,8 @@ def main():
         keys = {k for k in loc if not k.startswith('_')}
         if keys != base_keys:
             sys.exit(f"[{loc['lang']}] 키가 en과 다르다 — 빠짐 {sorted(base_keys - keys)} · 남음 {sorted(keys - base_keys)}")
+    for w in parity_warnings(locales):
+        print('⚠️ ', w)
 
     with open(os.path.join(ROOT, 'templates', 'page.html'), encoding='utf-8') as f:
         tpl = f.read()

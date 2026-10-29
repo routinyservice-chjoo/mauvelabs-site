@@ -1,5 +1,8 @@
 {
   "_comment": "서브 언어(한국어). en.json의 뜻을 옮기되 한국어로 자연스럽게 쓴다. 기분 이름·위로 문구는 앱(ko.ts)과 같다. 바닥의 사업자 정보는 전자상거래법 표시 항목이라 한국어판에만 둔다.",
+  "_hide_pages": [
+    "guide"
+  ],
   "lang": "ko",
   "path": "ko/",
   "language_name": "한국어",
@@ -21,7 +24,7 @@
   "hero_sticker": "작고 귀여운 감정일기",
   "hero_title": "지금 내 기분, <em>가볍게</em> 남겨요.",
   "hero_lede": "몽글이 한 번 누르고 기분만 선택하면 끝이에요. 더 쓰고 싶은 날엔 짧은 글이나 사진도 붙여 봐요. 광고도, 부담도 없어요.",
-  "hero_fine": "무료 다운로드 · 아이폰, 안드로이드",
+  "hero_fine": "무료 다운로드 · 아이폰, 안드로이드<br>앱 언어: 영어·한국어<br>출시 국가: 미국·한국·호주·뉴질랜드·싱가포르",
   "badge_apple_alt": "App Store에서 다운로드",
   "badge_google_alt": "Google Play에서 다운로드하기",
   "moods_title": "몽글이랑 인사해요.",
@@ -93,7 +96,7 @@
   "sup_a_delete": "앱에서 프로필 › 설정 › <b>계정 삭제</b>를 눌러 주세요. <a href=\"https://apps.mauvelabsinc.com/dailycumulus/ko/account-deletion.html\">여기에서 삭제를 요청</a>할 수도 있어요.",
   "sup_q_privacy": "기록은 어디에 저장되나요?",
   "sup_a_privacy": "무료 서비스에서는 기록이 휴대폰에만 저장돼요. 프로필 › 설정 › 내 데이터에서 언제든 백업 파일을 만들 수 있어요. 프리미엄 서비스를 쓰면 클라우드에도 보관돼요. 자세한 내용은 <a href=\"https://apps.mauvelabsinc.com/dailycumulus/ko/privacy.html\">개인정보처리방침</a>을 확인해 주세요.",
-  "sup_crisis": "데일리몽글은 개인 기록 앱이며 의료·정신건강 서비스가 아니에요. 위급한 상황이면 109(자살예방상담전화) 또는 112·119에 연락해 주세요.",
+  "sup_crisis": "데일리몽글은 개인 기록 앱이며 의료·정신건강 서비스가 아니에요. 한국에서 위급한 상황이면 112·119에 연락해 주세요. 이야기를 나누고 싶을 때는 109(자살예방상담전화)에 전화할 수 있어요. 한국 밖에 계신다면 그 나라의 긴급 번호로 연락해 주세요.",
   "foot_support": "고객지원",
   "lang_menu_label": "언어 변경",
   "notes_meta_title": "개발노트 · 데일리몽글",

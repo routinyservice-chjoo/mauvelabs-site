@@ -89,7 +89,7 @@
   "sup_q_cancel": "サブスクリプションを解約するには？",
   "sup_a_cancel": "サブスクリプションは、AppleまたはGoogleで管理されています。<b>iPhone：</b>「設定」>「（ご自分の名前）」>「サブスクリプション」>「DailyCumulus」。<b>Android：</b>「Google Play」>「プロフィールアイコン」>「お支払いと定期購入」>「定期購入」。アプリやアカウントを削除しても、サブスクリプションは解約されません。",
   "sup_q_restore": "スマホを買い替えたとき、<wbr>プレミアムを<wbr>引き継ぐには？",
-  "sup_a_restore": "DailyCumulusをインストールしたら、アプリには以前と同じアカウントでログインしてください。スマホ本体は、購入したときと同じApple ID／Googleアカウントでサインインしている必要があります。そのうえでプレミアム画面の<b>購入を復元</b>をタップしてください。",
+  "sup_a_restore": "DailyCumulusをインストールしたら、以前と同じアカウントでアプリにログインしてください。あわせて、スマホ本体も購入したときと同じApple ID／Googleアカウントでサインインしておいてください。そのうえで、プレミアム画面の「<b>購入を復元</b>」をタップしてください。",
   "sup_q_refund": "返金はできますか？",
   "sup_a_refund": "お支払いはApp Store・Google Playを通して行われるため、返金のお手続きもApple・Googleで行います。Appleは<a href=\"https://reportaproblem.apple.com\">reportaproblem.apple.com</a>、GoogleはGoogle Playの購入履歴から申請できます。二重に請求された場合や、こちら側で問題があった場合は、メールでご連絡ください。くわしくは<a href=\"https://apps.mauvelabsinc.com/dailycumulus/terms.html\">利用規約（英語）</a>をご覧ください。",
   "sup_q_delete": "アカウントを削除するには？",

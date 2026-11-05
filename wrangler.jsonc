@@ -1,10 +1,14 @@
-// Cloudflare Workers 정적 파일 배포 설정 — 홈페이지 mauvelabsinc.com
+// Cloudflare Workers 배포 설정 — 홈페이지 mauvelabsinc.com
 // https://developers.cloudflare.com/workers/static-assets/
+// worker/index.js: http:// · www. → https://mauvelabsinc.com 301(2026-11-05). 정적 파일(assets·img·anim)은 Worker를 거치지 않는다
 {
   "name": "mauvelabs-site",
+  "main": "worker/index.js",
   "compatibility_date": "2026-10-01",
   "assets": {
     "directory": "./",
-    "not_found_handling": "404-page"
+    "binding": "ASSETS",
+    "not_found_handling": "404-page",
+    "run_worker_first": ["/*", "!/assets/*", "!/img/*", "!/anim/*", "!/favicon.ico"]
   }
 }

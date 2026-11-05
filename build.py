@@ -10,10 +10,12 @@
 - 결과물(index.html · <path>index.html · <path>support/ · <path>notes/ · sitemap.xml)은 직접 고치지 않는다. 여기서 다시 만든다.
 - 개발노트(/notes/)에 새 버전을 더할 때: 각 언어 파일의 notes_entries 맨 앞에 항목을 더한다(공개된 기능만).
 """
+import datetime
 import html
 import json
 import os
 import re
+import subprocess
 import sys
 
 def esc(text):
@@ -76,6 +78,19 @@ def ja_wbr(page):
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 SITE = 'https://mauvelabsinc.com/'
+
+# 검색 엔진 소유 확인 값(2026-11-05) — 여기 한 곳에만 넣는다. 비어 있으면 태그를 만들지 않는다.
+# 네이버 서치어드바이저 「HTML 태그」의 content 값 · Bing 웹마스터 도구의 msvalidate.01 content 값
+SITE_VERIFICATION = {
+    'naver-site-verification': '',
+    'msvalidate.01': '',
+}
+
+# 구조화 데이터(JSON-LD · 2026-11-05) — 홈페이지·스토어에 이미 공개된 사실만 넣는다
+APP_STORE_URL = 'https://apps.apple.com/app/id6814691795'
+PLAY_URL = 'https://play.google.com/store/apps/details?id=com.mauvelabs.maeumlog'
+ORG_NAME = 'Mauve Labs'
+ORG_ALT = ['모브랩스']  # 한국어 하단 상호 「모브랩스(Mauve Labs)」
 # CSS·JS·애니메이션을 고치면 올린다 — 브라우저가 옛 파일을 붙들지 않게
 VERSION = '60'
 # 언어 버튼 아이콘(지구본 · 장식이라 읽지 않게)
@@ -223,6 +238,44 @@ def render_subpage(loc, locales, values, depth, sub):
     print(f"✅ {loc['lang']:>3} → /{loc['path']}{sub}/index.html")
 
 
+def head_seo(loc, locales):
+    """홈(언어별) <head>에 넣는 검색용 태그 — 소유 확인 meta(값이 있을 때만) + JSON-LD(Organization · WebSite · MobileApplication)."""
+    out = [f'  <meta name="{n}" content="{html.escape(v)}">' for n, v in SITE_VERIFICATION.items() if v]
+    other = [l['brand'] for l in locales if l['brand'] != loc['brand']]
+    org_id, site_id = SITE + '#organization', SITE + '#website'
+    graph = [
+        {'@type': 'Organization', '@id': org_id, 'name': ORG_NAME, 'alternateName': ORG_ALT, 'url': SITE,
+         'logo': SITE + 'assets/brand/mauvelabs-logo@2x.png', 'email': EMAIL},
+        {'@type': 'WebSite', '@id': site_id, 'name': ORG_NAME, 'alternateName': ORG_ALT, 'url': SITE,
+         'inLanguage': [l['lang'] for l in locales], 'publisher': {'@id': org_id}},
+        {'@type': 'MobileApplication', '@id': SITE + loc['path'] + '#app', 'name': loc['brand'],
+         'alternateName': sorted(set(other)), 'description': loc['meta_description'],
+         'url': SITE + loc['path'], 'inLanguage': loc['lang'], 'operatingSystem': 'iOS, Android',
+         'applicationCategory': 'LifestyleApplication', 'downloadUrl': [APP_STORE_URL, PLAY_URL],
+         'sameAs': [APP_STORE_URL, PLAY_URL], 'author': {'@id': org_id}, 'publisher': {'@id': org_id},
+         'offers': {'@type': 'Offer', 'price': '0', 'priceCurrency': 'USD'}},
+    ]
+    data = json.dumps({'@context': 'https://schema.org', '@graph': graph}, ensure_ascii=False, indent=2)
+    data = data.replace('</', '<\\/')  # </script>가 글에 섞여도 태그가 닫히지 않게
+    out.append('  <script type="application/ld+json">\n' + data + '\n  </script>')
+    return '\n' + '\n'.join(out)
+
+
+def lastmod(paths):
+    """sitemap lastmod — 그 페이지를 만드는 원본(틀·문구·build.py)의 마지막 커밋 날짜. 커밋 안 된 변경이 있으면 오늘(KST)."""
+    today = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))).date().isoformat()
+    try:
+        dirty = subprocess.run(['git', 'status', '--porcelain', '--', *paths], cwd=ROOT, capture_output=True, text=True, check=True).stdout.strip()
+        if dirty:
+            return today
+        iso = subprocess.run(['git', 'log', '-1', '--format=%cI', '--', *paths], cwd=ROOT, capture_output=True, text=True, check=True).stdout.strip()
+    except (OSError, subprocess.CalledProcessError):
+        return today
+    if not iso:
+        return today
+    return datetime.datetime.fromisoformat(iso).astimezone(datetime.timezone(datetime.timedelta(hours=9))).date().isoformat()
+
+
 def load_locales():
     out = []
     for name in sorted(os.listdir(os.path.join(ROOT, 'locales'))):
@@ -299,7 +352,8 @@ def main():
         nav_lang = lang_menu(loc, locales, lambda l: f'{b}{l["path"]}')
         values = {**loc, 'b': b, 'v': VERSION, 'url': SITE + loc['path'],
                   'hreflang': '\n'.join(alts), 'lang_links': '\n'.join(links), 'nav_lang': nav_lang,
-                  'site_nav_links': site_nav(loc, b, 'home'), 'site_footer': site_footer(loc, b, '\n'.join(links))}
+                  'site_nav_links': site_nav(loc, b, 'home'), 'site_footer': site_footer(loc, b, '\n'.join(links)),
+                  'head_seo': head_seo(loc, locales)}
 
         def fill(m):
             key = m.group(1)
@@ -325,15 +379,18 @@ def main():
 
     # sitemap — 언어마다 서로를 가리킨다
     urls = []
+    common = ['build.py', 'locales']
     for loc in locales:
         alt = ''.join(f'\n    <xhtml:link rel="alternate" hreflang="{l["lang"]}" href="{SITE}{l["path"]}"/>' for l in locales)
         alt += f'\n    <xhtml:link rel="alternate" hreflang="x-default" href="{SITE}"/>'
-        urls.append(f'  <url>\n    <loc>{SITE}{loc["path"]}</loc>{alt}\n  </url>')
+        lm = lastmod(['templates/page.html', *common])
+        urls.append(f'  <url>\n    <loc>{SITE}{loc["path"]}</loc>\n    <lastmod>{lm}</lastmod>{alt}\n  </url>')
         for sub in SUBPAGES:
             if not has(loc, sub):
                 continue
             salt = ''.join(f'\n    <xhtml:link rel="alternate" hreflang="{l["lang"]}" href="{SITE}{l["path"]}{sub}/"/>' for l in locales if has(l, sub))
-            urls.append(f'  <url>\n    <loc>{SITE}{loc["path"]}{sub}/</loc>{salt}\n  </url>')
+            slm = lastmod([f'templates/{sub}.html', *common])
+            urls.append(f'  <url>\n    <loc>{SITE}{loc["path"]}{sub}/</loc>\n    <lastmod>{slm}</lastmod>{salt}\n  </url>')
     with open(os.path.join(ROOT, 'sitemap.xml'), 'w', encoding='utf-8') as f:
         f.write('<?xml version="1.0" encoding="UTF-8"?>\n'
                 '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n'

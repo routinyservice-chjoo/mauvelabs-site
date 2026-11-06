@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://mauvelabsinc.com/sitemap.xml
+
+#DaumWebMasterTool:67d86fa2ef6c21a8274e62b8cdc2c1f2f59ea3d72405d35ee2144d90e071b03e:/aAUByYKcfoZ3ndOUzXW7w==

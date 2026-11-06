@@ -82,7 +82,7 @@ SITE = 'https://mauvelabsinc.com/'
 # 검색 엔진 소유 확인 값(2026-11-05) — 여기 한 곳에만 넣는다. 비어 있으면 태그를 만들지 않는다.
 # 네이버 서치어드바이저 「HTML 태그」의 content 값 · Bing 웹마스터 도구의 msvalidate.01 content 값
 SITE_VERIFICATION = {
-    'naver-site-verification': '',
+    'naver-site-verification': 'b3b31059c79dbb530790001c5ab82711524e8ead',
     'msvalidate.01': '',
 }
 

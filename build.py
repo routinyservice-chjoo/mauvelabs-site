@@ -83,7 +83,7 @@ SITE = 'https://mauvelabsinc.com/'
 # 네이버 서치어드바이저 「HTML 태그」의 content 값 · Bing 웹마스터 도구의 msvalidate.01 content 값
 SITE_VERIFICATION = {
     'naver-site-verification': 'b3b31059c79dbb530790001c5ab82711524e8ead',
-    'msvalidate.01': '',
+    'msvalidate.01': '09BA513F1BB58FC0B2B47B1779654F3F',
 }
 
 # 구조화 데이터(JSON-LD · 2026-11-05) — 홈페이지·스토어에 이미 공개된 사실만 넣는다

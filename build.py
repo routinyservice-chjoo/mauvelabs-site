@@ -91,6 +91,13 @@ APP_STORE_URL = 'https://apps.apple.com/app/id6814691795'
 PLAY_URL = 'https://play.google.com/store/apps/details?id=com.mauvelabs.maeumlog'
 ORG_NAME = 'Mauve Labs'
 ORG_ALT = ['모브랩스']  # 한국어 하단 상호 「모브랩스(Mauve Labs)」
+# 공식 SNS 채널 — 네이버 「사이트 연관채널」(searchadvisor.naver.com/guide/structured-data-channel · 루트 Organization의 sameAs · 2026-11-09)
+SOCIAL_PROFILES = [
+    'https://www.instagram.com/dailycumulus_app/',
+    'https://www.youtube.com/@dailycumulus_app',
+    'https://www.threads.com/@dailycumulus_app',
+    'https://x.com/DailyCumulusApp',
+]
 # CSS·JS·애니메이션을 고치면 올린다 — 브라우저가 옛 파일을 붙들지 않게
 VERSION = '60'
 # 언어 버튼 아이콘(지구본 · 장식이라 읽지 않게)
@@ -245,7 +252,7 @@ def head_seo(loc, locales):
     org_id, site_id = SITE + '#organization', SITE + '#website'
     graph = [
         {'@type': 'Organization', '@id': org_id, 'name': ORG_NAME, 'alternateName': ORG_ALT, 'url': SITE,
-         'logo': SITE + 'assets/brand/mauvelabs-logo@2x.png', 'email': EMAIL},
+         'logo': SITE + 'assets/brand/mauvelabs-logo@2x.png', 'email': EMAIL, 'sameAs': SOCIAL_PROFILES},
         {'@type': 'WebSite', '@id': site_id, 'name': ORG_NAME, 'alternateName': ORG_ALT, 'url': SITE,
          'inLanguage': [l['lang'] for l in locales], 'publisher': {'@id': org_id}},
         {'@type': 'MobileApplication', '@id': SITE + loc['path'] + '#app', 'name': loc['brand'],

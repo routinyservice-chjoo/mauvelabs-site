@@ -144,6 +144,14 @@
   "news_tag_update": "업데이트",
   "news_entries": [
     {
+      "date": "2026-11-10",
+      "date_label": "2026.11.10",
+      "tag": "notice",
+      "title": "2026년 12월 11일부터 무료 이용 시 Google 광고 — 개인정보처리방침·이용약관 개정 안내",
+      "href": "https://apps.mauvelabsinc.com/dailycumulus/ko/privacy.html",
+      "sub": "2026년 11월 10일 공고 · 2026년 12월 11일 시행 · 맞춤형 광고 아님 · 기록은 광고에 쓰지 않음 · 프리미엄 이용권에는 광고가 표시되지 않음"
+    },
+    {
       "date": "2026-10-28",
       "date_label": "2026.10.28",
       "tag": "notice",

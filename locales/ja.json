@@ -144,6 +144,14 @@
   "news_tag_update": "アップデート",
   "news_entries": [
     {
+      "date": "2026-11-10",
+      "date_label": "2026年11月10日",
+      "tag": "notice",
+      "title": "2026年12月11日から、<wbr>無料プランで<wbr>Googleの広告を<wbr>表示します<wbr>（プライバシーポリシー・<wbr>利用規約の改定）",
+      "href": "https://apps.mauvelabsinc.com/dailycumulus/ja/privacy.html",
+      "sub": "2026年11月10日掲載・<wbr>2026年12月11日施行・<wbr>パーソナライズされない広告・<wbr>記録は広告に使いません・<wbr>プレミアムでは広告は表示されません"
+    },
+    {
       "date": "2026-10-28",
       "date_label": "2026年10月28日",
       "tag": "notice",

@@ -144,6 +144,14 @@
   "news_tag_update": "Update",
   "news_entries": [
     {
+      "date": "2026-11-10",
+      "date_label": "Nov 10, 2026",
+      "tag": "notice",
+      "title": "Google ads on the free plan from December 11, 2026 — Privacy Policy and Terms update",
+      "href": "https://apps.mauvelabsinc.com/dailycumulus/privacy.html",
+      "sub": "Posted Nov 10, 2026 · Effective Dec 11, 2026 · Not personalized · Your entries aren't used for ads · Premium doesn't include ads"
+    },
+    {
       "date": "2026-10-28",
       "date_label": "Oct 28, 2026",
       "tag": "notice",

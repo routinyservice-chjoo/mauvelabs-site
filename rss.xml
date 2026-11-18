@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>News | DailyCumulus</title>
+    <link>https://mauvelabsinc.com/news/</link>
+    <description>Announcements and app updates from the DailyCumulus team.</description>
+    <language>en</language>
+    <item>
+      <title>Google ads on the free plan from December 11, 2026 — Privacy Policy and Terms update</title>
+      <link>https://mauvelabsinc.com/news/#news-2026-11-10</link>
+      <description>&lt;p&gt;Posted Nov 10, 2026 · Effective Dec 11, 2026 · Not personalized · Your entries aren&amp;#x27;t used for ads · Premium doesn&amp;#x27;t include ads&lt;/p&gt;</description>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 +0900</pubDate>
+      <guid>https://mauvelabsinc.com/news/#news-2026-11-10</guid>
+    </item>
+    <item>
+      <title>Updates to our Privacy Policy and Terms of Service</title>
+      <link>https://mauvelabsinc.com/news/#news-2026-10-28</link>
+      <description>&lt;p&gt;Posted Oct 28, 2026 · Privacy Policy effective Nov 27, 2026 · Terms of Service effective Nov 4, 2026&lt;/p&gt;</description>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 +0900</pubDate>
+      <guid>https://mauvelabsinc.com/news/#news-2026-10-28</guid>
+    </item>
+    <item>
+      <title>Version 1.1.1: backups now include your photos</title>
+      <link>https://mauvelabsinc.com/notes/#v1.1.1</link>
+      <description>&lt;p&gt;Photos in backups&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;b&gt;Photos in backups&lt;/b&gt; Backups now include your photos. Tap Save a backup in Settings › Your data to get everything in one file, free for everyone. Older CSV backups can still be restored.&lt;/li&gt;&lt;li&gt;Fixed feelings and activities you made before signing in showing a code instead of their name.&lt;/li&gt;&lt;li&gt;The What's new screen no longer pops up for people who just installed the app.&lt;/li&gt;&lt;li&gt;Improved stability when you unlock the app with App lock.&lt;/li&gt;&lt;li&gt;Small layout fixes.&lt;/li&gt;&lt;/ul&gt;</description>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0900</pubDate>
+      <guid>https://mauvelabsinc.com/notes/#v1.1.1</guid>
+    </item>
+    <item>
+      <title>Version 1.1.0: widgets, Mongle Insights, and rest days</title>
+      <link>https://mauvelabsinc.com/notes/#v1.1.0</link>
+      <description>&lt;p&gt;Widgets, Mongle Insights, and rest days&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;b&gt;Widgets&lt;/b&gt; See today's mood and your streak right on your Home Screen, and tap to check in. On iPhone, you can add one to your Lock Screen too.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Mongle Insights&lt;/b&gt; Mongle spots patterns in your entries and sums them up for you. You get one insight a month for free, and Premium shows them all. All the stats you already had are still free.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Rest days&lt;/b&gt; Earn a rest day for every 7 days you log during a streak. Rest days pause the count instead of resetting it. If you miss a day, a rest day is used automatically so your streak keeps going. Rest days don't add to your streak, but they keep it alive. If you miss a day without one, your streak starts over at 0. You can hold up to 2, or up to 4 with Premium. Premium also gives you an extra one every Monday.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Backup and restore&lt;/b&gt; Save your entries to a CSV file and restore them anytime, for free. You'll find it in Profile › Settings › Your data. Photos aren't included in the file.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Your own feelings and activities&lt;/b&gt; Add up to 5 of your own for free (feelings and activities combined), or as many as you like with Premium.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Longer notes&lt;/b&gt; Notes can now be up to 5,000 characters.&lt;/li&gt;&lt;li&gt;&lt;b&gt;On this day&lt;/b&gt; Look back at what you logged on this date in past years.&lt;/li&gt;&lt;li&gt;&lt;b&gt;Share my month&lt;/b&gt; Turn your monthly flower into a picture you can share. With Premium, you can also save it as a PDF. Your notes and photos aren't on it.&lt;/li&gt;&lt;li&gt;&lt;b&gt;New themes&lt;/b&gt; Night garden, Lilac dusk, Sage, Morning sky, and Cherry blossom come with Premium. Classic is free.&lt;/li&gt;&lt;li&gt;&lt;b&gt;7-day free trial&lt;/b&gt; New subscribers can try Premium Yearly free for 7 days. If you have notifications on, we'll send a reminder the day before your trial ends. Cancel at least 24 hours before your trial ends and you won't be charged.&lt;/li&gt;&lt;/ul&gt;</description>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0900</pubDate>
+      <guid>https://mauvelabsinc.com/notes/#v1.1.0</guid>
+    </item>
+    <item>
+      <title>Updates to our Terms of Service and Privacy Policy</title>
+      <link>https://mauvelabsinc.com/news/#news-2026-10-16</link>
+      <description>&lt;p&gt;Posted Oct 16, 2026 · Updated Oct 21, 2026 · Effective Oct 28, 2026&lt;/p&gt;</description>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 +0900</pubDate>
+      <guid>https://mauvelabsinc.com/news/#news-2026-10-16</guid>
+    </item>
+  </channel>
+</rss>

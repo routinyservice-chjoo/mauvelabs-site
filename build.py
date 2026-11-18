@@ -11,12 +11,14 @@
 - 개발노트(/notes/)에 새 버전을 더할 때: 각 언어 파일의 notes_entries 맨 앞에 항목을 더한다(공개된 기능만).
 """
 import datetime
+import email.utils
 import html
 import json
 import os
 import re
 import subprocess
 import sys
+from xml.sax.saxutils import escape as xml_escape
 
 def esc(text):
     """html.escape + 줄바꿈 자리 <wbr>만 살린다(일본어 제목을 구 단위로 꺾기 · 2026-10-29). en·ko 문구엔 <wbr>이 없어 결과가 같다."""
@@ -139,16 +141,25 @@ def notes_html(loc):
     return '\n'.join(out)
 
 
+def news_anchors(entries):
+    """공지 글마다 고정 앵커(news-2026-11-10) — RSS 링크가 가리키는 자리. 같은 날 글은 오래된 글부터 -2를 붙여, 새 글을 더해도 옛 앵커가 밀리지 않는다."""
+    seen, out = {}, []
+    for e in reversed(entries):
+        seen[e['date']] = seen.get(e['date'], 0) + 1
+        out.append(f"news-{e['date']}" + (f"-{seen[e['date']]}" if seen[e['date']] > 1 else ''))
+    return out[::-1]
+
+
 def news_html(loc, sb):
     """공지사항 게시판(locales의 news_entries) — 최신이 위. 글마다 분류(공지 · 개발 업데이트) · 날짜 · 제목 · 링크."""
     rows = []
-    for e in loc['news_entries']:
+    for e, anchor in zip(loc['news_entries'], news_anchors(loc['news_entries'])):
         href = e['href'].replace('{b}', sb + loc['path'])
         tag = html.escape(loc['news_tag_' + e['tag']])
         title = f'<a class="board-title" href="{href}">{esc(e["title"])}</a>'
         if e.get('sub'):  # 부제(시행일 등) — 있는 글만 · 없으면 예전 모양 그대로
             title = f'<span class="board-main">{title}<small class="board-sub">{esc(e["sub"])}</small></span>'
-        rows.append(f'      <li class="board-row"><span class="board-tag tag-{e["tag"]}">{tag}</span>'
+        rows.append(f'      <li class="board-row" id="{anchor}"><span class="board-tag tag-{e["tag"]}">{tag}</span>'
                     f'{title}'
                     f'<time class="board-date" datetime="{e["date"]}">{html.escape(e["date_label"])}</time></li>')
     return '    <ul class="board">\n' + '\n'.join(rows) + '\n    </ul>'
@@ -196,7 +207,7 @@ def site_footer(loc, b, lang_links):
     return f'''<footer class="wrap site-foot">
   <div class="foot-cols">
     <div class="foot-brand">
-      <img src="{b}assets/brand/mauvelabs-logo@2x.png?v={VERSION}" alt="Mauve Labs" height="40">
+      <img src="{b}assets/brand/mauvelabs-logo-2x.png?v={VERSION}" alt="Mauve Labs" height="40">
       <p class="made">{loc["made_by"]}</p>
     </div>
 {col(loc["foot_col_explore"], [f'<a href="{base}news/">{loc["nav_news"]}</a>', f'<a href="{base}notes/">{loc["nav_notes"]}</a>', f'<a href="{base}faq/">{loc["faq_title"]}</a>', *([f'<a href="{base}guide/">{loc["guide_title"]}</a>'] if has(loc, 'guide') else []), f'<a href="{base}#get">{loc["foot_download"]}</a>'])}
@@ -221,6 +232,7 @@ def render_subpage(loc, locales, values, depth, sub):
     to = lambda l: f'{sb}{l["path"]}{sub}/' if has(l, sub) else f'{sb}{l["path"]}'  # 그 언어에 없는 페이지면 그 언어 홈으로
     links = [f'      <a href="{to(l)}" lang="{l["lang"]}" hreflang="{l["lang"]}">{html.escape(l["language_name"])}</a>'
              for l in locales if l is not loc]
+    alts.append(rss_link(loc))
     svalues = {**values, 'b': sb, 'sub_hreflang': '\n'.join(alts), 'sub_lang_links': '\n'.join(links),
                'sub_nav_lang': lang_menu(loc, locales, to),
                'notes_html': notes_html(loc), 'news_html': news_html(loc, sb), 'guide_html': guide_html(loc),
@@ -252,7 +264,7 @@ def head_seo(loc, locales):
     org_id, site_id = SITE + '#organization', SITE + '#website'
     graph = [
         {'@type': 'Organization', '@id': org_id, 'name': ORG_NAME, 'alternateName': ORG_ALT, 'url': SITE,
-         'logo': SITE + 'assets/brand/mauvelabs-logo@2x.png', 'email': EMAIL, 'sameAs': SOCIAL_PROFILES},
+         'logo': SITE + 'assets/brand/mauvelabs-logo-2x.png', 'email': EMAIL, 'sameAs': SOCIAL_PROFILES},
         {'@type': 'WebSite', '@id': site_id, 'name': ORG_NAME, 'alternateName': ORG_ALT, 'url': SITE,
          'inLanguage': [l['lang'] for l in locales], 'publisher': {'@id': org_id}},
         {'@type': 'MobileApplication', '@id': SITE + loc['path'] + '#app', 'name': loc['brand'],
@@ -266,6 +278,51 @@ def head_seo(loc, locales):
     data = data.replace('</', '<\\/')  # </script>가 글에 섞여도 태그가 닫히지 않게
     out.append('  <script type="application/ld+json">\n' + data + '\n  </script>')
     return '\n' + '\n'.join(out)
+
+
+def rss_link(loc):
+    """<head>의 RSS 안내 — 그 언어의 피드를 절대 주소로 가리킨다."""
+    return (f'  <link rel="alternate" type="application/rss+xml" title="{html.escape(loc["news_meta_title"])}" '
+            f'href="{SITE}{loc["path"]}rss.xml">')
+
+
+def plain(text):
+    """RSS 제목·요약용 — 줄바꿈 자리 <wbr> 같은 태그를 뺀 글자만."""
+    return re.sub(r'<[^>]+>', '', text)
+
+
+def rss_body(loc, entry):
+    """글 본문 전체(네이버 가이드 「본문 전체 공개」). 업데이트 글은 개발노트의 그 버전 내용, 공지는 게시판에 보이는 안내 줄."""
+    m = re.search(r'notes/#v(.+)$', entry['href'])
+    note = next((n for n in loc['notes_entries'] if m and n['version'] == m.group(1)), None)
+    if note:
+        items = ''.join(f'<li>{it}</li>' for it in note['items'])
+        return f'<p>{html.escape(plain(note["title"]))}</p><ul>{items}</ul>'
+    return f'<p>{html.escape(plain(entry.get("sub") or entry["title"]))}</p>'
+
+
+def rss_xml(loc):
+    """언어별 RSS 2.0(/rss.xml · /ko/rss.xml · /ja/rss.xml) — searchadvisor.naver.com/guide/request-feed.
+    🔴 피드 안의 모든 URL은 소유 확인한 도메인(mauvelabsinc.com)이어야 해서, 약관(apps.mauvelabsinc.com)으로 가는 공지도 공지사항 페이지의 그 글 자리를 가리킨다."""
+    kst = datetime.timezone(datetime.timedelta(hours=9))
+    base = SITE + loc['path']
+    items = []
+    for e, anchor in zip(loc['news_entries'], news_anchors(loc['news_entries'])):
+        link = e['href'].replace('{b}', base) if e['href'].startswith('{b}') else f'{base}news/#{anchor}'
+        day = datetime.datetime.strptime(e['date'], '%Y-%m-%d').replace(tzinfo=kst)
+        items.append('    <item>\n'
+                     f'      <title>{xml_escape(plain(e["title"]))}</title>\n'
+                     f'      <link>{xml_escape(link)}</link>\n'
+                     f'      <description>{xml_escape(rss_body(loc, e))}</description>\n'
+                     f'      <pubDate>{email.utils.format_datetime(day)}</pubDate>\n'
+                     f'      <guid>{xml_escape(link)}</guid>\n'
+                     '    </item>')
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0">\n  <channel>\n'
+            f'    <title>{xml_escape(loc["news_meta_title"])}</title>\n'
+            f'    <link>{base}news/</link>\n'
+            f'    <description>{xml_escape(loc["news_meta_description"])}</description>\n'
+            f'    <language>{loc["lang"]}</language>\n'
+            + '\n'.join(items) + '\n  </channel>\n</rss>\n')
 
 
 def lastmod(paths):
@@ -353,6 +410,7 @@ def main():
         b = '../' * depth
         alts = [f'  <link rel="alternate" hreflang="{l["lang"]}" href="{SITE}{l["path"]}">' for l in locales]
         alts.append(f'  <link rel="alternate" hreflang="x-default" href="{SITE}">')
+        alts.append(rss_link(loc))
         links = [f'      <a href="{b}{l["path"]}" lang="{l["lang"]}" hreflang="{l["lang"]}">{html.escape(l["language_name"])}</a>'
                  for l in locales if l is not loc]
         # 상단 메뉴의 언어 변경 버튼(2026-10-21 대표님 「홈페이지 상단에 언어변경 메뉴」) — 다른 언어로 바로 간다
@@ -377,6 +435,10 @@ def main():
         with open(os.path.join(out_dir, 'index.html'), 'w', encoding='utf-8') as f:
             f.write(page)
         print(f"✅ {loc['lang']:>3} → /{loc['path']}index.html")
+
+        with open(os.path.join(out_dir, 'rss.xml'), 'w', encoding='utf-8') as f:
+            f.write(rss_xml(loc))
+        print(f"✅ {loc['lang']:>3} → /{loc['path']}rss.xml")
 
         # 하위 페이지 — 고객 지원(/support/ · App Store 지원 URL · Play 웹사이트가 가리킨다 · 2026-10-13)
         # · 개발노트(/notes/ · 1.1.0부터 · 2026-10-23)

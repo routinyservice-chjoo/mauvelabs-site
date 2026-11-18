@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>お知らせ｜DailyCumulus</title>
+    <link>https://mauvelabsinc.com/ja/news/</link>
+    <description>DailyCumulusからのお知らせと、アプリのアップデート情報です。</description>
+    <language>ja</language>
+    <item>
+      <title>2026年12月11日から、無料プランでGoogleの広告を表示します（プライバシーポリシー・利用規約の改定）</title>
+      <link>https://mauvelabsinc.com/ja/news/#news-2026-11-10</link>
+      <description>&lt;p&gt;2026年11月10日掲載・2026年12月11日施行・パーソナライズされない広告・記録は広告に使いません・プレミアムでは広告は表示されません&lt;/p&gt;</description>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 +0900</pubDate>
+      <guid>https://mauvelabsinc.com/ja/news/#news-2026-11-10</guid>
+    </item>
+    <item>
+      <title>プライバシーポリシー・利用規約改定のお知らせ（英語）</title>
+      <link>https://mauvelabsinc.com/ja/news/#news-2026-10-28</link>
+      <description>&lt;p&gt;2026年10月28日掲載・プライバシーポリシー 2026年11月27日施行・利用規約 2026年11月4日施行&lt;/p&gt;</description>
+      <pubDate>Wed, 28 Oct 2026 00:00:00 +0900</pubDate>
+      <guid>https://mauvelabsinc.com/ja/news/#news-2026-10-28</guid>
+    </item>
+    <item>
+      <title>バージョン1.1.1：バックアップに写真も入るようになりました</title>
+      <link>https://mauvelabsinc.com/ja/notes/#v1.1.1</link>
+      <description>&lt;p&gt;バックアップに写真も&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;b&gt;写真もバックアップ&lt;/b&gt; バックアップに写真も入るようになりました。「設定」&gt;「データ」の「バックアップを保存」をタップすると、すべてを1つのファイルに保存できます。どなたでも無料です。以前のCSVバックアップも、そのまま復元できます。&lt;/li&gt;&lt;li&gt;ログイン前に追加した「気持ち」「やったこと」が、名前ではなくコードで表示される不具合を修正しました。&lt;/li&gt;&lt;li&gt;インストールしたばかりのときに、「1.1.0の新機能」画面が表示される不具合を修正しました。&lt;/li&gt;&lt;li&gt;アプリのロックを解除するときの動作を安定させました。&lt;/li&gt;&lt;li&gt;レイアウトの細かな部分を修正しました。&lt;/li&gt;&lt;/ul&gt;</description>
+      <pubDate>Sat, 24 Oct 2026 00:00:00 +0900</pubDate>
+      <guid>https://mauvelabsinc.com/ja/notes/#v1.1.1</guid>
+    </item>
+    <item>
+      <title>バージョン1.1.0：ウィジェット、モングルインサイト、おやすみの日</title>
+      <link>https://mauvelabsinc.com/ja/notes/#v1.1.0</link>
+      <description>&lt;p&gt;ウィジェット、モングルインサイト、おやすみの日&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;b&gt;ウィジェット&lt;/b&gt; 今日の気分と連続記録をホーム画面で見られて、タップすればすぐ記録できます。iPhoneではロック画面にも追加できます。&lt;/li&gt;&lt;li&gt;&lt;b&gt;モングルインサイト&lt;/b&gt; 記録のパターンを、モングルが見つけてまとめてくれます。インサイトは月に1回まで無料で、プレミアムならすべて見られます。これまでの統計は、すべて無料のままです。&lt;/li&gt;&lt;li&gt;&lt;b&gt;おやすみの日&lt;/b&gt; 連続記録中に記録した日が7日になるごとに、おやすみの日が1つもらえます。おやすみの日を使った日は数えるのが止まるだけで、最初から数え直しにはなりません。記録できなかった日には自動で1つ使われ、連続記録が続きます。おやすみの日は連続日数には加わりませんが、連続記録を守ってくれます。おやすみの日がないまま記録できない日があると、連続記録は0からやり直しになります。持てるのは2つまで、プレミアムなら4つまでです。プレミアムでは、毎週月曜日にもう1つもらえます。&lt;/li&gt;&lt;li&gt;&lt;b&gt;バックアップと復元&lt;/b&gt; 記録をCSVファイルに保存して、いつでも無料で復元できます。「マイページ」&gt;「設定」&gt;「データ」にあります。ファイルに写真は入りません。&lt;/li&gt;&lt;li&gt;&lt;b&gt;気持ちとやったことを自分で追加&lt;/b&gt; 無料で5つまで（気持ちとやったことの合計）、プレミアムなら好きなだけ追加できます。&lt;/li&gt;&lt;li&gt;&lt;b&gt;長いメモ&lt;/b&gt; メモは5,000文字まで書けます。&lt;/li&gt;&lt;li&gt;&lt;b&gt;1年前の今日&lt;/b&gt; 去年など、過去の同じ日の記録を振り返れます。&lt;/li&gt;&lt;li&gt;&lt;b&gt;この月をシェア&lt;/b&gt; 1か月の花を、シェアできる画像にします。プレミアムならPDFでも保存できます。メモや写真は入りません。&lt;/li&gt;&lt;li&gt;&lt;b&gt;新しいテーマ&lt;/b&gt; ナイトガーデン、ライラックの夕暮れ、セージ、朝の空、桜はプレミアムで使えます。クラシックは無料です。&lt;/li&gt;&lt;li&gt;&lt;b&gt;7日間の無料トライアル&lt;/b&gt; はじめて登録する方は、プレミアム（年額）を7日間無料で試せます。通知をオンにしていれば、トライアルが終わる前日にお知らせします。トライアルが終わる24時間前までに解約すれば、料金はかかりません。&lt;/li&gt;&lt;/ul&gt;</description>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 +0900</pubDate>
+      <guid>https://mauvelabsinc.com/ja/notes/#v1.1.0</guid>
+    </item>
+    <item>
+      <title>利用規約・プライバシーポリシー改定のお知らせ（英語）</title>
+      <link>https://mauvelabsinc.com/ja/news/#news-2026-10-16</link>
+      <description>&lt;p&gt;2026年10月16日掲載・2026年10月21日修正・2026年10月28日施行&lt;/p&gt;</description>
+      <pubDate>Fri, 16 Oct 2026 00:00:00 +0900</pubDate>
+      <guid>https://mauvelabsinc.com/ja/news/#news-2026-10-16</guid>
+    </item>
+  </channel>
+</rss>

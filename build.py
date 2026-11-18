@@ -201,6 +201,9 @@ def site_nav(loc, b, current):
 
 def site_footer(loc, b, lang_links):
     """하단(2026-10-26 대표님 예시 — 회사 · 탐색 · 문의 세 칸 + 약관·처리방침 + 사업자 정보)."""
+    # 소비자 건강 데이터 처리방침 링크(2026-11-18) — 개인정보처리방침과 따로, 모든 페이지 하단에 둔다.
+    # 근거: 워싱턴 RCW 19.373.020(1)(b) 「shall prominently publish a link to its consumer health data privacy policy on its homepage」
+    # · 워싱턴주 법무장관 FAQ 4번 「must be a separate and distinct link」 · 네바다 NRS 603A.495(2). 링크 글자는 그 문서의 제목(h1) 그대로
     base = b + loc['path']
     col = lambda title, items: (f'      <div class="foot-col"><h2 class="foot-h">{html.escape(title)}</h2>\n'
                                 + '\n'.join(f'        {i}' for i in items) + '\n      </div>')
@@ -217,6 +220,7 @@ def site_footer(loc, b, lang_links):
     <nav aria-label="Footer">
       <a href="{loc["terms_url"]}">{loc["foot_terms"]}</a>
       <a href="{loc["privacy_url"]}"><b>{loc["foot_privacy"]}</b></a>
+      <a href="{loc["health_data_url"]}"><b>{loc["foot_health_data"]}</b></a>
 {lang_links}
     </nav>
 {loc["legal"]}

@@ -17,7 +17,7 @@
   <meta name="format-detection" content="telephone=no">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="DailyCumulus by Mauve Labs">
-  <meta property="og:title" content="DailyCumulus: a little diary for how you're actually feeling">
+  <meta property="og:title" content="A little diary for how you're feeling">
   <meta property="og:description" content="Tap Mongle, pick a mood, done. No pressure.">
   <meta property="og:url" content="https://mauvelabsinc.com/news/">
   <meta property="og:image" content="https://mauvelabsinc.com/assets/og.png">
@@ -30,6 +30,7 @@
   <link rel="alternate" hreflang="ja" href="https://mauvelabsinc.com/ja/news/">
   <link rel="alternate" hreflang="ko" href="https://mauvelabsinc.com/ko/news/">
   <link rel="alternate" hreflang="x-default" href="https://mauvelabsinc.com/news/">
+  <link rel="alternate" type="application/rss+xml" title="News | DailyCumulus" href="https://mauvelabsinc.com/rss.xml">
   <link rel="preload" href="../assets/fraunces.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <link rel="stylesheet" href="../assets/site-v2.css?v=60">
@@ -37,7 +38,7 @@
 <body>
 <header class="nav wrap">
   <!-- 회사 로고(모브랩스). 원본은 assets/brand/mauvelabs-logo-original.png -->
-  <a class="brand brand-logo" href="../" aria-label="Mauve Labs"><img src="../assets/brand/mauvelabs-logo@2x.png?v=60" alt="Mauve Labs" height="48"></a>
+  <a class="brand brand-logo" href="../" aria-label="Mauve Labs"><img src="../assets/brand/mauvelabs-logo-2x.png?v=60" alt="Mauve Labs" height="48"></a>
   <nav aria-label="Main">
     <a href="../" class="hide-xs">Home</a>
     <a href="../news/" aria-current="page">News</a>
@@ -60,18 +61,18 @@
     <p class="lede">Announcements and app updates.</p>
   </section>
     <ul class="board">
-      <li class="board-row"><span class="board-tag tag-notice">Announcement</span><span class="board-main"><a class="board-title" href="https://apps.mauvelabsinc.com/dailycumulus/privacy.html">Google ads on the free plan from December 11, 2026 — Privacy Policy and Terms update</a><small class="board-sub">Posted Nov 10, 2026 · Effective Dec 11, 2026 · Not personalized · Your entries aren&#x27;t used for ads · Premium doesn&#x27;t include ads</small></span><time class="board-date" datetime="2026-11-10">Nov 10, 2026</time></li>
-      <li class="board-row"><span class="board-tag tag-notice">Announcement</span><span class="board-main"><a class="board-title" href="https://apps.mauvelabsinc.com/dailycumulus/privacy.html">Updates to our Privacy Policy and Terms of Service</a><small class="board-sub">Posted Oct 28, 2026 · Privacy Policy effective Nov 27, 2026 · Terms of Service effective Nov 4, 2026</small></span><time class="board-date" datetime="2026-10-28">Oct 28, 2026</time></li>
-      <li class="board-row"><span class="board-tag tag-update">Update</span><a class="board-title" href="../notes/#v1.1.1">Version 1.1.1: backups now include your photos</a><time class="board-date" datetime="2026-10-24">Oct 24, 2026</time></li>
-      <li class="board-row"><span class="board-tag tag-update">Update</span><a class="board-title" href="../notes/#v1.1.0">Version 1.1.0: widgets, Mongle Insights, and rest days</a><time class="board-date" datetime="2026-10-23">Oct 23, 2026</time></li>
-      <li class="board-row"><span class="board-tag tag-notice">Announcement</span><span class="board-main"><a class="board-title" href="https://apps.mauvelabsinc.com/dailycumulus/terms.html">Updates to our Terms of Service and Privacy Policy</a><small class="board-sub">Posted Oct 16, 2026 · Updated Oct 21, 2026 · Effective Oct 28, 2026</small></span><time class="board-date" datetime="2026-10-16">Oct 16, 2026</time></li>
+      <li class="board-row" id="news-2026-11-10"><span class="board-tag tag-notice">Announcement</span><span class="board-main"><a class="board-title" href="https://apps.mauvelabsinc.com/dailycumulus/privacy.html">Google ads on the free plan from December 11, 2026 — Privacy Policy and Terms update</a><small class="board-sub">Posted Nov 10, 2026 · Effective Dec 11, 2026 · Not personalized · Your entries aren&#x27;t used for ads · Premium doesn&#x27;t include ads</small></span><time class="board-date" datetime="2026-11-10">Nov 10, 2026</time></li>
+      <li class="board-row" id="news-2026-10-28"><span class="board-tag tag-notice">Announcement</span><span class="board-main"><a class="board-title" href="https://apps.mauvelabsinc.com/dailycumulus/privacy.html">Updates to our Privacy Policy and Terms of Service</a><small class="board-sub">Posted Oct 28, 2026 · Privacy Policy effective Nov 27, 2026 · Terms of Service effective Nov 4, 2026</small></span><time class="board-date" datetime="2026-10-28">Oct 28, 2026</time></li>
+      <li class="board-row" id="news-2026-10-24"><span class="board-tag tag-update">Update</span><a class="board-title" href="../notes/#v1.1.1">Version 1.1.1: backups now include your photos</a><time class="board-date" datetime="2026-10-24">Oct 24, 2026</time></li>
+      <li class="board-row" id="news-2026-10-23"><span class="board-tag tag-update">Update</span><a class="board-title" href="../notes/#v1.1.0">Version 1.1.0: widgets, Mongle Insights, and rest days</a><time class="board-date" datetime="2026-10-23">Oct 23, 2026</time></li>
+      <li class="board-row" id="news-2026-10-16"><span class="board-tag tag-notice">Announcement</span><span class="board-main"><a class="board-title" href="https://apps.mauvelabsinc.com/dailycumulus/terms.html">Updates to our Terms of Service and Privacy Policy</a><small class="board-sub">Posted Oct 16, 2026 · Updated Oct 21, 2026 · Effective Oct 28, 2026</small></span><time class="board-date" datetime="2026-10-16">Oct 16, 2026</time></li>
     </ul>
 </main>
 
 <footer class="wrap site-foot">
   <div class="foot-cols">
     <div class="foot-brand">
-      <img src="../assets/brand/mauvelabs-logo@2x.png?v=60" alt="Mauve Labs" height="40">
+      <img src="../assets/brand/mauvelabs-logo-2x.png?v=60" alt="Mauve Labs" height="40">
       <p class="made">DailyCumulus is made by <b>Mauve Labs</b>.</p>
     </div>
       <div class="foot-col"><h2 class="foot-h">Explore</h2>

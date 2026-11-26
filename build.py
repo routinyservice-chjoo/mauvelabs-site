@@ -95,6 +95,7 @@ ORG_NAME = 'Mauve Labs'
 ORG_ALT = ['모브랩스']  # 한국어 하단 상호 「모브랩스(Mauve Labs)」
 # 공식 SNS 채널 — 네이버 「사이트 연관채널」(searchadvisor.naver.com/guide/structured-data-channel · 루트 Organization의 sameAs · 2026-11-09)
 SOCIAL_PROFILES = [
+    'https://blog.naver.com/dailymongle_app',  # 네이버 블로그 — 연관채널(2026-11-26 · 네이버 미수집 대응)
     'https://www.instagram.com/dailycumulus_app/',
     'https://www.youtube.com/@dailycumulus_app',
     'https://www.threads.com/@dailycumulus_app',

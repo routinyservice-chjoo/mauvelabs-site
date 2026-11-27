@@ -50,7 +50,7 @@
   "step_gradient_title": "Keep every month as a gradient",
   "step_gradient_body": "When a month ends, all its mood colors blend into one soft gradient. Collect twelve and that's your year.",
   "step_gradient_alt": "Monthly mood gradients in DailyCumulus",
-  "step_3_title": "Find out what makes your day better",
+  "step_3_title": "See what your good days have in common",
   "step_3_body": "Your stats show what tends to happen on your good days, like seeing friends or getting a workout in.",
   "step_3_alt": "DailyCumulus stats showing what your good days have in common",
   "private_title": "Your diary stays yours.",
@@ -106,6 +106,152 @@
   "notes_title": "Release notes",
   "notes_lede": "What's changed in each update. iPhone and Android updates sometimes come out on different days.",
   "notes_entries": [
+    {
+      "version": "1.1.17",
+      "dates": "Android: Nov 26, 2026 · iPhone: Nov 26, 2026",
+      "items": [
+        "Mongle is dressed up for Christmas through Dec 31, with a different look for each mood.",
+        "Mongle Insights now shows fewer patterns that are probably just coincidence.",
+        "On hard days, Mongle now leads with comfort.",
+        "Premium is now on the Profile tab, even if you're not signed in.",
+        "Using Premium without signing in? Home notes your entries are saved only on this device.",
+        "Fixed \"Share my month\" image sharing, plus other small fixes."
+      ]
+    },
+    {
+      "version": "1.1.16",
+      "dates": "Android: Nov 19, 2026 · iPhone: Nov 21, 2026",
+      "items": [
+        "Get Premium without signing in. Sign in later to add it to your account and get cloud backup.",
+        "Pop-ups have a new cloud look with Mongle.",
+        "The aurora widget now comes in a small size.",
+        "Signing out now only affects this phone. Your entries stay on it, hidden until you sign back in.",
+        "Stretch Mongle in Play with Mongle to see a face that matches today's mood.",
+        "You can now turn on app lock with your passcode, even with Face ID off.",
+        "Fixed Premium briefly showing as free during renewal, and more."
+      ]
+    },
+    {
+      "version": "1.1.14",
+      "dates": "Android: Nov 13, 2026 · iPhone: Nov 17, 2026",
+      "items": [
+        "From Dec 11, free users may see banners, a full-screen ad per new entry, and up to one a day after a recap. Premium doesn't include ads.",
+        "Ads aren't personalized. Google gets info like IP address and device ID, not your entries.",
+        "You'll see a confirmation after saving.",
+        "The Premium screen shows prices up front.",
+        "New here? You may get a free yearly-plan trial after your first entry.",
+        "New: Play with Mongle. On Home, tap the little finger button next to Mongle to squish and stretch it in 3D.",
+        "The \"Your month in sky\" card on Stats is now a moving aurora, colored by your moods.",
+        "New home screen widget: see this month's aurora at a glance.",
+        "Fixed a card that could overlap another card on Home."
+      ]
+    },
+    {
+      "version": "1.1.13",
+      "dates": "Android: Nov 11, 2026",
+      "items": [
+        "From Dec 11, free users may see banners, a full-screen ad per new entry, and up to one a day after a recap. Premium doesn't include ads.",
+        "Ads aren't personalized. Google gets info like IP address and device ID, not your entries.",
+        "You'll see a confirmation after saving.",
+        "Fixed an issue where reminders sometimes didn't show up at the time you set.",
+        "The Premium screen shows prices up front.",
+        "New here? You may get a free yearly-plan trial after your first entry."
+      ]
+    },
+    {
+      "version": "1.1.11",
+      "dates": "Android: Nov 11, 2026 · iPhone: Nov 12, 2026",
+      "items": [
+        "Sorry, our mistake: the free plan gave 3 entries a day, not 1. From Nov 12, it's 1 (Premium stays at 3). Saved entries stay.",
+        "New \"Manage or cancel subscription\" button. Deleting your account doesn't cancel your subscription, so we show you where to cancel.",
+        "If you're new and not signed in, you'll see our Terms and Privacy Policy once. Backup consent now says how long we keep server copies.",
+        "Korea store accounts: payment screen refund info now matches our updated Terms.",
+        "Crash reports no longer list the buttons you tap. Server functions now run in Seoul.",
+        "Long notices now scroll, so the title and buttons always stay in view.",
+        "Security improvements.",
+        "iPhone: Refund setting is now \"Share purchase info for refunds.\""
+      ]
+    },
+    {
+      "version": "1.1.10",
+      "dates": "Android: Nov 10, 2026",
+      "items": [
+        "The notification icon is now bigger.",
+        "Long notices now scroll, so the title and buttons always stay in view.",
+        "Security improvements."
+      ]
+    },
+    {
+      "version": "1.1.9",
+      "dates": "Android: Nov 6, 2026",
+      "items": [
+        "Android: A reminder delayed over 90 minutes is now skipped. Your next one is still set."
+      ]
+    },
+    {
+      "version": "1.1.8",
+      "dates": "Android: Nov 6, 2026",
+      "items": [
+        "New \"Manage or cancel subscription\" button. Deleting your account doesn't cancel your subscription, so we show you where to cancel.",
+        "If you're new and not signed in, you'll see our Terms and Privacy Policy once. Backup consent now says how long we keep server copies.",
+        "Korea store accounts: payment screen refund info now matches our updated Terms.",
+        "Crash reports no longer list the buttons you tap. Server functions now run in Seoul."
+      ]
+    },
+    {
+      "version": "1.1.7",
+      "dates": "Android: Nov 5, 2026 · iPhone: Nov 6, 2026",
+      "items": [
+        "After you log a mood, Mongle now says a little something on the home screen.",
+        "If your day ended on a Bad or Awful mood, Mongle checks in the first time you open the app the next day.",
+        "\"Contact us\" is now at the top of Settings and in your profile shortcuts."
+      ]
+    },
+    {
+      "version": "1.1.6",
+      "dates": "Android: Nov 4, 2026 · iPhone: Nov 4, 2026",
+      "items": [
+        "If you turn off cloud backup on one device, it now turns off on your other devices too, and they stop syncing. Turning it off also deletes your backed-up photos from our servers. Your profile photo stays."
+      ]
+    },
+    {
+      "version": "1.1.5",
+      "dates": "Android: Oct 30, 2026 · iPhone: Oct 31, 2026",
+      "title": "Now in Japanese",
+      "items": [
+        "The app is now in Japanese, with four Japanese fonts for Premium.",
+        "Cloud backup now asks before it starts. Change it anytime in Settings > Cloud backup.",
+        "The terms under the payment button now include the price.",
+        "Free trial reminders now arrive 2 days before your trial ends.",
+        "Settings now shows Business information and our Consumer Health Data Privacy Policy.",
+        "Crash reports no longer include your account ID.",
+        "App lock now also hides your entries from screen readers."
+      ]
+    },
+    {
+      "version": "1.1.4",
+      "dates": "Android: Oct 29, 2026 · iPhone: Oct 29, 2026",
+      "title": "Safer sign-in and more privacy",
+      "items": [
+        "Signing in with Google, Kakao, or Naver now includes an extra security check.",
+        "App lock now also hides whatever you have open, like an entry in progress. Anything you've typed stays put.",
+        "When you delete an entry, its notes and photos are now fully cleared from the app on your phone.",
+        "Temporary files from backups, PDFs, and photo downloads are now cleaned up automatically.",
+        "Error reports no longer include your email address."
+      ]
+    },
+    {
+      "version": "1.1.3",
+      "dates": "Android: Oct 28, 2026 · iPhone: Oct 28, 2026",
+      "title": "Gentler reminders",
+      "items": [
+        "Logged today? We'll skip that day's reminder.",
+        "The check-in after 2 days without an entry now has its own switch in Settings. On days it's sent, your regular reminder is skipped, so it's one a day at most.",
+        "New reminders start at 8 PM. Your current times stay the same.",
+        "Haven't logged yet? Mongle may ask once if you'd like an evening reminder.",
+        "No reminders set up yet? We've turned on one quiet evening reminder. It only shows in Notification Center: no sound, no banner, no pop-up. Turn it off in Settings or right from the notification."
+      ]
+    },
     {
       "version": "1.1.1",
       "dates": "Android: Oct 23, 2026 · iPhone: Oct 24, 2026",

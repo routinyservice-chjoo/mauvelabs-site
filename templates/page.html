@@ -141,6 +141,8 @@
       <h2 id="new-title">{{new_title}}</h2>
       <p>{{new_body}}</p>
       <ul class="new-list">
+        <li><b>{{new_5_title}}</b> {{new_5_body}}</li>
+        <li><b>{{new_6_title}}</b> {{new_6_body}}</li>
         <li><b>{{new_1_title}}</b> {{new_1_body}}</li>
         <li><b>{{new_2_title}}</b> {{new_2_body}}</li>
         <li><b>{{new_3_title}}</b> {{new_3_body}}</li>
@@ -148,7 +150,12 @@
       </ul>
       <a class="text-link" href="{{b}}{{path}}notes/">{{new_link}}</a>
     </div>
-    <figure class="polaroid new-shot tilt-r" data-reveal><span class="tape mint"></span><img src="{{b}}{{shot_dir}}new-widget.webp?v={{v}}" alt="{{new_alt}}" width="750" height="446" loading="lazy"></figure>
+    <!-- 그림 3장(2026-11-27 · 몽글이와 놀기 · 오로라 위젯 추가 — 둘 다 1.1.14부터 공개). 통계 탭의 새 오로라 카드는 1.1.18 공개 뒤에 -->
+    <div class="new-shots" data-reveal>
+      <figure class="polaroid new-shot tilt-r"><span class="tape mint"></span><img src="{{b}}{{shot_dir}}new-widget.webp?v={{v}}" alt="{{new_alt}}" width="750" height="446" loading="lazy"></figure>
+      <figure class="polaroid new-shot tilt-l"><span class="tape lilac"></span><img src="{{b}}{{shot_dir}}new-aurora-widget.webp?v={{v}}" alt="{{new_aurora_alt}}" width="750" height="412" loading="lazy"></figure>
+      <figure class="polaroid new-shot new-play tilt-r"><span class="tape pink"></span><img src="{{b}}{{shot_dir}}new-play.webp?v={{v}}" alt="{{new_play_alt}}" width="600" height="1211" loading="lazy"></figure>
+    </div>
   </section>
 
   <section id="get" class="cta wrap" data-reveal>

@@ -174,8 +174,11 @@ h3 { font-size: 22px; margin: 18px 0 6px; }
 .new-list { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 10px; max-width: 460px; }
 .new-list li { padding: 12px 16px; border-radius: 16px; background: var(--card); border: 1px solid var(--line); color: var(--ink-soft); font-size: 15px; }
 .new-list b { display: block; color: var(--ink); }
-.new-shot { width: auto; max-width: 100%; justify-self: center; }
-.new-shot img { width: 440px; max-width: 100%; height: auto; }
+.new-shots { display: grid; grid-template-columns: 1.5fr 1fr; gap: 26px 22px; align-items: center; justify-self: center; width: 100%; max-width: 520px; }
+.new-shot { width: auto; max-width: 100%; padding: 9px 9px 24px; }
+.new-shot img { display: block; width: 100%; height: auto; border-radius: 12px; }
+.new-shot .tape { width: 72px; height: 22px; top: -11px; }
+.new-play { grid-column: 2; grid-row: 1 / span 2; }
 
 /* 마무리 */
 .cta { text-align: center; padding-top: 30px; padding-bottom: 80px; display: flex; flex-direction: column; align-items: center; }

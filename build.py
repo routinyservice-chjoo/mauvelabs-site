@@ -102,7 +102,7 @@ SOCIAL_PROFILES = [
     'https://x.com/DailyCumulusApp',
 ]
 # CSS·JS·애니메이션을 고치면 올린다 — 브라우저가 옛 파일을 붙들지 않게
-VERSION = '60'
+VERSION = '61'
 # 언어 버튼 아이콘(지구본 · 장식이라 읽지 않게)
 GLOBE = '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg>'
 
@@ -137,8 +137,8 @@ def notes_html(loc):
         items = '\n'.join(f'        <li>{it}</li>' for it in e['items'])
         out.append(f'    <article class="note" id="v{e["version"]}">\n'
                    f'      <p class="note-meta"><span class="note-ver">{html.escape(e["version"])}</span> {html.escape(e["dates"])}</p>\n'
-                   f'      <h2>{esc(e["title"])}</h2>\n'
-                   f'      <ul class="note-list">\n{items}\n      </ul>\n    </article>')
+                   + (f'      <h2>{esc(e["title"])}</h2>\n' if e.get('title') else '')
+                   +                    f'      <ul class="note-list">\n{items}\n      </ul>\n    </article>')
     return '\n'.join(out)
 
 
@@ -211,7 +211,7 @@ def site_footer(loc, b, lang_links):
     return f'''<footer class="wrap site-foot">
   <div class="foot-cols">
     <div class="foot-brand">
-      <img src="{b}assets/brand/mauvelabs-logo-2x.png?v={VERSION}" alt="Mauve Labs" height="40">
+      <img src="{b}assets/brand/mauvelabs-logo-2x.webp?v={VERSION}" alt="Mauve Labs" width="401" height="192" loading="lazy">
       <p class="made">{loc["made_by"]}</p>
     </div>
 {col(loc["foot_col_explore"], [f'<a href="{base}news/">{loc["nav_news"]}</a>', f'<a href="{base}notes/">{loc["nav_notes"]}</a>', f'<a href="{base}faq/">{loc["faq_title"]}</a>', *([f'<a href="{base}guide/">{loc["guide_title"]}</a>'] if has(loc, 'guide') else []), f'<a href="{base}#get">{loc["foot_download"]}</a>'])}
@@ -302,7 +302,7 @@ def rss_body(loc, entry):
     note = next((n for n in loc['notes_entries'] if m and n['version'] == m.group(1)), None)
     if note:
         items = ''.join(f'<li>{it}</li>' for it in note['items'])
-        return f'<p>{html.escape(plain(note["title"]))}</p><ul>{items}</ul>'
+        return (f'<p>{html.escape(plain(note["title"]))}</p>' if note.get('title') else '') + f'<ul>{items}</ul>'
     return f'<p>{html.escape(plain(entry.get("sub") or entry["title"]))}</p>'
 
 

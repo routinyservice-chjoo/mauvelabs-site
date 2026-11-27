@@ -40,7 +40,7 @@ body {
   background-size: 22px 22px;
   overflow-x: hidden;
 }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 a { color: var(--ink); }
 .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
 
